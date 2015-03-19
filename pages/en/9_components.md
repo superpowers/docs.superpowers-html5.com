@@ -2,7 +2,7 @@
 
 Most component types will expose an accessor property so that you can change their state.
 
-For instance, sprite renderers are exposed on actor as the `spriteRenderer` property:
+For instance, sprite renderers are exposed on actors as the `spriteRenderer` property:
 
 ```
 class MyBehavior extends Sup.Behavior {
