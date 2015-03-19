@@ -1,0 +1,12 @@
+{
+  "name": "superpowers-docs",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.12.3",
+    "highlight.js": "^8.4.0",
+    "jade": "^1.9.2",
+    "marked": "^0.3.3",
+    "nib": "^1.1.0",
+    "stylus": "^0.50.0"
+  }
+}
