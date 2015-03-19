@@ -59,4 +59,6 @@ readMD = ->
 
 readMD()
 
-app.listen 1337
+config = require '../config'
+app.listen config.port, ->
+  console.log "Server listening on port #{config.port}"
