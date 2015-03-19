@@ -18,7 +18,7 @@ app.get "/", (req, res) -> res.redirect "/en/#{pages.en[Object.keys(pages.en)[0]
 app.use express.static "#{__dirname}/../public"
 
 app.get "/:language/:pageName", (req, res) ->
-  if process.env != 'PRODUCTION' then readMD()
+  if process.env.NODE_ENV != 'PRODUCTION' then readMD()
 
   activePage = pages[req.params.language]?[req.params.pageName]
   if ! activePage? then res.status(404).send('Page not found'); return
