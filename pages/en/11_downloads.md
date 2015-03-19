@@ -3,7 +3,7 @@
 ## <a href="https://dl.dropboxusercontent.com/u/7622596/Superpowers/mickey.zip" download>Mickey demo project</a>
 
 <a href="https://dl.dropboxusercontent.com/u/7622596/Superpowers/mickey.zip" download>
-  ![Mickey demo project](/images/Mickey.png)
+  ![Mickey demo project](/images/mickey.png)
 </a>
 
 Unzip this into your projects folder:
