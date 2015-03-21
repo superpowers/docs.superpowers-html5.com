@@ -2,3 +2,4 @@ syntax: glob
 node_modules/*
 *.sublime-*
 config.coffee
+public/styles/*.css
