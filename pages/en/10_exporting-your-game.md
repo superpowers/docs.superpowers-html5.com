@@ -4,7 +4,7 @@ Superpowers doesn't have an export button just yet. If you can't wait,
 you can follow those manual steps:
 
 <div class="note">
-  <p><b>IMPORTANT:</b> Mind the difference between "a copy of the contents of a folder" and "a copy of a folder".</p>
+  <p><b>IMPORTANT:</b> Mind the difference between "a copy of the contents of a folder" and "a copy of a folder".
 </div>
 
 <div class="action">
@@ -18,8 +18,12 @@ you can follow those manual steps:
       <li>Move all the contents of the `public` subfolder one level up
       <li>You can then get rid of the empty `public` subfolder
     </ol>
-    <li>From the latest build of your game (`superpowers/app/public/builds/.../...`), copy `game.json` and the `assets` folder to your `game` folder.
+    <li>From the latest build of your game (`%APPDATA%/Superpowers/projects/.../builds/...`), copy `game.json` and the `assets` folder to your `game` folder.
     <li>Create an `index.html` file in your `game` folder, fill it to your heart's content and put an `<iframe src="player/index.html">` somewhere in the body.
+</div>
+
+<div class="note">
+  <p>**In the builds path mentioned above**, `%APPDATA%` translates to `~/Library` on OS X, and `$XDG_DATA_HOME` on Linux.
 </div>
 
 You can then upload the `game` folder to any Web host, or zip it up and upload it to an online game portal like <a href="http://itch.io/" target="_blank">itch.io</a> or <a href="http://gamejolt.com" target="_blank">Game Jolt</a>.
