@@ -18,9 +18,9 @@ It might be useful to run Superpowers on a headless server so that you don't hav
 This should work on any Linux server including a Raspberry Pi.
 
   * Install <a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager" target="_blank">node.js v0.12.x</a> or <a href="https://iojs.org/" target="_blank">io.js v1.x</a>.
-  * Download the latest Superpowers release for Linux and `unzip` it. You can get rid of all files at the root expect the `app` folder.
+  * Download the latest Superpowers release for Linux and `unzip` it. You can get rid of all files at the root except the `app` folder.
   * Use `cd` to navigate at the root of the Superpowers folder.
-  * Run `node app/server/start.js`.
+  * Run `node app/server`.
 
 By default, Superpowers will store configuration and projects files in `$XDG_DATA_HOME/Superpowers` (or `~/.local/share/Superpowers` if `$XGD_DATA_HOME` is undefined). Starting with v0.3, you can use the `--data-path=` option to override that behavior.
 
