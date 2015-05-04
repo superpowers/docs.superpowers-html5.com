@@ -4,7 +4,7 @@ Superpowers is still under development. You can choose to support us over at <a 
 Or wait a few months and Superpowers will be open source and free to use for everyone :)
 
 <a href="https://sparklinlabs.com/" target="_blank">
-  ![Superpowers demo](https://sparklinlabs.com/images/pictures/demo-game.gif)
+  <img src="https://sparklinlabs.com/images/pictures/demo-game.gif" alt="Superpowers demo" height="400" />
 </a>
 
 ## Conventions
