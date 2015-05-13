@@ -57,5 +57,5 @@ mainCharacterActor.addBehavior(CharacterBehavior);
 
 <div class="note">
   **There are many other functions** available to read input from the player and react to it.  
-  They are all listed in **the <abbr title="Application Programming Interface">API</abbr> browser** available from within Superpowers.
+  They are all listed in **the TypeScript <abbr title="Application Programming Interface">API</abbr> browser** available from within Superpowers.
 </div>

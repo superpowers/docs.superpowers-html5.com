@@ -40,7 +40,7 @@ class CharacterBehavior extends Sup.Behavior {
 }
 Sup.registerBehavior(CharacterBehavior);
 
-Sup.loadScene(Sup.get("Main Scene", Sup.Scene));
+Sup.loadScene("Main Scene");
 ```
 
 <div class="note">

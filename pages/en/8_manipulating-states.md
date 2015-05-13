@@ -5,7 +5,7 @@ Variables let you store, read and change state while your game is running. They 
 You can declare and initialize a global variable at the root of a script:
 
 ```
-var currentLevel = 1;
+let currentLevel = 1;
 ```
 
 When some event happens, you can increase the value:
@@ -13,14 +13,14 @@ When some event happens, you can increase the value:
 ```
 // ... When the player reaches the exit ...
 currentLevel++;
-Sup.loadScene( Sup.get("Level " + currentLevel, Sup.Scene));
+Sup.loadScene("Level " + currentLevel);
 ```
 
 When you declare a variable inside a function, it only exists while that function is executed:
 
 ```
 function doSomething() {
-  var i = 0;
+  let i = 0;
   i++;
   // `i` now equals 1
 }
@@ -34,7 +34,7 @@ Similarly, since a variable declared inside a method only exists while that meth
 class MyClass {
 
   doSomething() {
-    var i = 0;
+    let i = 0;
   }
 
   doSomethingElse() {
@@ -49,7 +49,7 @@ In order to maintain state linked to a particular behavior component (like, a ch
 ```
 class MyBehavior extends Sup.Behavior {
 
-  // Member variables should be declared without the `var` keyword,
+  // Member variables should be declared without the `let` keyword,
   // right inside the class body:
   health = 100;
 
