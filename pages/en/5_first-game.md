@@ -43,6 +43,6 @@ cameraManActor.setPosition(new Sup.Math.Vector3(0,0,5));
   <p><b>IMPORTANT:</b> Make sure to press `Ctrl+S` to apply the changes made to your script. You'll notice the little `draft` indicator in the asset tree will disappear when your script is saved.</p>
 </div>
 
-<p>Superpowers can detect some scripting errors (syntax, reference and type errors) so if you see some words in red when saving your script, you'll know that you need to check this line and the lines around it again.</p>
+<p>Superpowers can detect some scripting errors (syntax, reference and type errors) on the fly so if you see some words in red when you're done, you'll know that you need to check this line and the lines around it again. Detailed error messages are displayed at the bottom of the editor.</p>
 
 <p>When you're done, run the game with the `Run game` button and you should see our little actor appear!</p>

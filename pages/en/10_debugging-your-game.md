@@ -1,6 +1,6 @@
 # Debugging your game
 
-When using Superpowers from the app, you can open up the debugging tools by clicking on the "Debug game" button (or by pressing `F6`). Most browsers will let you open similar debugging tools by hitting the `F12` key while running the game.
+When using Superpowers from the app, you can open up the debugging tools by clicking on the `Debug game` button (or by pressing `F6`). Most browsers will let you open similar debugging tools by hitting the `F12` key while running the game.
 
 Since the Superpowers app is built on NW.js, which is based on Chrome's runtime, the built-in debugging tools are those of Chrome too.
 
