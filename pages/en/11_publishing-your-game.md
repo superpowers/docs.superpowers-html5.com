@@ -1,6 +1,6 @@
 # Publishing your game
 
-Starting with v0.4, Superpowers comes with a one-click `Export Game` button, located right next to the `Debug` and `Run` buttons.
+Superpowers comes with a one-click `Export Game` button, located right next to the `Debug` and `Run` buttons.
 
 !["Export game" button](/images/export-game-button.png)
 
