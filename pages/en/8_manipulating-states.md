@@ -66,3 +66,33 @@ class MyBehavior extends Sup.Behavior {
 }
 Sup.registerBehavior(MyBehavior);
 ```
+
+## Customizing behavior properties
+
+When adding a behavior component to an actor in a scene, you can customize the initial values for its member variables, allowing you to have mobs with different initial speed, health, etc.
+
+You can accomplish the same thing by passing an object as a second paramater to `Sup.Actor.addBehavior`:
+
+```
+let collectedPoints = 0;
+
+class BonusBehavior extends Sup.Behavior {
+
+  // A bonus gives 10 points by default.
+  points = 10;
+
+  pickUp() {
+    // This method might be called by your player when it encounters the bonus
+    collectedPoints += this.points;
+    this.actor.destroy();
+  }
+
+}
+Sup.registerBehavior(BonusBehavior);
+
+let bigBonusActor = new Sup.Actor("Big Bonus");
+// ... maybe set up a sprite or a model renderer ...
+
+// This is a big bonus, so we're overriding its points value to be 50.
+bigBonusActor.addBehavior(BonusBehavior, { points: 50 });
+```
