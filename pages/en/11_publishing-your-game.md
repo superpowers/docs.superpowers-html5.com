@@ -98,3 +98,9 @@ You can, of course, tweak the window settings. Read on to see where to put it.
 
   <p>That's it, pack it all up into a ZIP archive and upload.
 </div>
+
+## Packaging for mobile
+
+Do a regular export and use the [Intel XDK](https://software.intel.com/en-us/intel-xdk)
+to generate a platform-specific app that you can submit to a store.
+
