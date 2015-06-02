@@ -14,7 +14,7 @@ Once your server is open, <a href="https://www.google.com/search?q=my%20ip" targ
 
 ## Running a Superpowers server from the command line
 
-It might be useful to run Superpowers on a headless server so that you don't have keep your desktop computer on at all times.  
+It might be useful to run Superpowers on a headless server so that you don't have to keep your desktop computer on at all times.  
 This should work on any Linux server including a Raspberry Pi.
 
   * Install <a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager" target="_blank">node.js v0.12.x</a> or <a href="https://iojs.org/" target="_blank">io.js v1.x</a>.
