@@ -7,7 +7,7 @@ By default, your server will only accept connections from the computer it is run
 </div>
 
 <div class="note">
-  <p>**You'll probably need to <a href="https://www.google.com/search?q=setting%20up%20port%20forwarding" target="_blank">configure your home router</a>** and/or firewall to allow (or forward) inbound TCP connections on the port number your server is listening on (80 by default).
+  <p>**You'll probably need to <a href="https://www.google.com/search?q=setting%20up%20port%20forwarding" target="_blank">configure your home router</a>** and/or firewall to allow (or forward) inbound TCP connections on the port numbers your server is listening on (4237 and 4238 by default).
 </div>
 
 Once your server is open, <a href="https://www.google.com/search?q=my%20ip" target="_blank">get your public IP address</a> and you can send a link of the form `ip:port` to the people you want to work with (e.g.&nbsp;`1.2.3.4:4237`). They can either paste this link in their browser's address bar to join without installing anything or add it to their Superpowers servers list from the launcher.
