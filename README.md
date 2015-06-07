@@ -11,9 +11,7 @@ This is the repository for [docs.sparklinlabs.com](http://docs.sparklinlabs.com)
 Make sure you have [Node.js](https://nodejs.org) installed. Clone the repository, open it in a terminal and run:
 
     npm install
-    cd src/
-    tsc
-    cd ..
+    npm run build
 
 Create a file named `config.json` at the root of the repository and put the following content in it:
 
