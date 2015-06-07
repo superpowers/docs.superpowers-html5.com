@@ -1,7 +1,7 @@
 # Comment démarrer
 
 <div class="note">
-  <p>La documentation complète et toujours à jour est [disponible en anglais](/en/). La version française est maintenue par la communauté.
+  <p>La documentation complète et toujours à jour est [disponible en anglais](/en/). La version française est [maintenue par la communauté](http://bitbucket.org/superpowers/docs.sparklinlabs.com).
 </div>
 
 Superpowers est en cours de développement. Vous pouvez nous soutenir sur <a href="https://sparklinlabs.com/" target="_blank">SparklinLabs.com</a> pour l'obtenir en accès anticipé.  

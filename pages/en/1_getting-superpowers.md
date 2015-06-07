@@ -1,5 +1,9 @@
 # Getting started
 
+<div class="note">
+  <p>You can [contribute to this documentation on Bitbucket](http://bitbucket.org/superpowers/docs.sparklinlabs.com).
+</div>
+
 Superpowers is still under development. You can choose to support us over at <a href="https://sparklinlabs.com/" target="_blank">SparklinLabs.com</a> to get early access.  
 Or wait a few months and Superpowers will be open source and free to use for everyone :)
 
