@@ -4,6 +4,7 @@ This is the repository for [docs.sparklinlabs.com](http://docs.sparklinlabs.com)
 
 ## How to contribute
 
+[Fork this repository](https://bitbucket.org/superpowers/docs.sparklinlabs.com/fork), commit your changes in a new branch and push them to your fork,  then send a pull request.
 
 ## How to run the website locally
 
