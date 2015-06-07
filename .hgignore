@@ -1,5 +1,6 @@
 syntax: glob
 node_modules/*
 *.sublime-*
-config.coffee
+config.json
 public/styles/*.css
+src/*.js
