@@ -17,6 +17,14 @@ app.get "/styles/highlight.css", (req, res) -> res.sendFile path.resolve("#{__di
 app.get "/", (req, res) -> res.redirect "/en/#{pages.en[Object.keys(pages.en)[0]].name}"; return
 app.use express.static "#{__dirname}/../public"
 
+app.get "/:language", (req, res) ->
+  if process.env.NODE_ENV != "production" then readMD()
+
+  languagePages = pages[req.params.language]
+  if ! languagePages? then res.status(404).send("Language not found"); return
+
+  res.redirect "/#{req.params.language}/#{Object.keys(languagePages)[0]}"
+
 app.get "/:language/:pageName", (req, res) ->
   if process.env.NODE_ENV != "production" then readMD()
 
