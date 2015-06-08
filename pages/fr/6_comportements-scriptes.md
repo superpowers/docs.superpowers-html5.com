@@ -1,7 +1,7 @@
 # Comportements scriptés
 
-Des comportements réutilisables peuvent être définit et vous pourrez les assignés à plusieurs acteurs.  
-Voilà comment un comportement doit être définit:
+Des comportements réutilisables peuvent être définis et vous pourrez les assigner à plusieurs acteurs.  
+Voilà comment un comportement doit être défini:
 
 ```
 class MyBehavior extends Sup.Behavior {
@@ -13,7 +13,7 @@ class MyBehavior extends Sup.Behavior {
   }
 
   update() {
-	// Mettre les instructions qui doivent être executées 60x par secondes.
+	// Mettre les instructions qui doivent être executées 60x par seconde.
   }
 
 }
@@ -48,12 +48,12 @@ class CharacterBehavior extends Sup.Behavior {
 }
 Sup.registerBehavior(CharacterBehavior);
 
-// Après avoir définit la classe de comportement,
-// nous avons besoin de l'assigné a notre personnage
+// Après avoir défini la classe de comportement,
+// nous avons besoin de l'assigner a notre personnage
 mainCharacterActor.addBehavior(CharacterBehavior);
 ```
 
-`Sup.Input.isKeyDown(...)` retourne `true` seulement si la touche spécifié est appuyée.
+`Sup.Input.isKeyDown(...)` retourne `true` seulement si la touche spécifiée est appuyée.
 
 <div class="note">
   **Il y a pleins d'autres fonctions** disponible pour lire les entrées du joueur et pour réagir avec lui.  

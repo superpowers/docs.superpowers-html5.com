@@ -1,7 +1,7 @@
 # Votre premier jeu
 
 <div class="action">
-<p>**Créez un Sprite**, appelé le `Leonard`, ouvrez-le en double-cliquant dessus et uploadez une petite image.  
+<p>**Créez un Sprite**, appelez le `Leonard`, ouvrez-le en double-cliquant dessus et uploadez une petite image.  
 </div>
 
 Soyez sur de correctement définir la taille de la grille, pour que l'image soit entiérement visible dans le panneau de prévisualisation (en bas).
@@ -42,6 +42,6 @@ cameraManActor.setPosition(new Sup.Math.Vector3(0,0,5));
   <p><b>IMPORTANT:</b> Soyez sur d'appuyer sur `Ctrl+S` pour appliquer les changements fait dans vos scripts. Vous pouvez remarquer que l'indicateur `draft` dans l'arbre de ressources va disparaître quand votre script sera sauvegardé.</p>
 </div>
 
-<p>Superpowers peut détecter certaines erreurs de script (erreur de syntaxe, référence ou de type) a la volée, donc si vous voyez des mots en rouges quand vous avez finit, vous savez que vous devez vérifier ces lignes et les lignes autours d'elle. Les messages d'érreurs détaillés sont affichés en bas de l'éditeur.</p>
+<p>Superpowers peut détecter certaines erreurs de script (erreur de syntaxe, référence ou de type) a la volée, donc si vous voyez des mots en rouges quand vous avez finit, vous savez que vous devez vérifier ces lignes et les lignes autours d'elle. Les messages d'erreurs détaillés sont affichés en bas de l'éditeur.</p>
 
-<p>Quand vous avez finit, lancez votre jeu avec le bouton `Run game` et vous devriez voir votre acteur apparaître!</p>
+<p>Quand vous avez fini, lancez votre jeu avec le bouton `Run game` et vous devriez voir votre acteur apparaître!</p>

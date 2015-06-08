@@ -10,8 +10,8 @@ Nous allons reconstruire notre film depuis le début mais en utilisant les scèn
 
 <div class="action">
   <p>Créez un nouvel acteur, nommez le `Main Character` et placez le en (0, 0, 0).  
-  Ajoutez un composant 'SpriteRenderer' et entrez le nom `Leonard` pour le sprite a utiliser.  
-  Ajoutez un autre composant, cette fois-ci de type 'Behavior' et entrez `CharacterBehavior` comme classe a utiliser.
+  Ajoutez un composant 'SpriteRenderer' et entrez le nom `Leonard` pour le sprite à utiliser.  
+  Ajoutez un autre composant, cette fois-ci de type 'Behavior' et entrez `CharacterBehavior` comme classe à utiliser.
 </div>
 
 <div class="action">
@@ -25,7 +25,7 @@ Nous allons reconstruire notre film depuis le début mais en utilisant les scèn
   Si c'est le cas, utilisez simplement le glisser-déposer pour enlever le parentage.
 </div>
 
-Maintenant que notre scène est prête, retournons dans notre script. Nous pouvons nous débarrasser de tous notre code qui créé nos acteurs et le remplacer par une seul instruction pour charger la scène. Nous avons toujours besoin de déclerer notre `CharacterBehavior`.
+Maintenant que notre scène est prête, retournons dans notre script. Nous pouvons nous débarrasser de tout notre code qui créé nos acteurs et le remplacer par une seul instruction pour charger la scène. Nous avons toujours besoin de déclerer notre `CharacterBehavior`.
 
 <div class="action">
   <p>Remplacez le contenu du script `Game` avec le code suivant:
@@ -44,7 +44,7 @@ Sup.loadScene("Main Scene");
 ```
 
 <div class="note">
-  <p>**Il est important de déclarer la classe `CharacterBehavior` avant de charger la scène avec `Sup.loadScene`** (ex: le mettre plus haut dans le script), ou Superpowers va vous signalez qu'il ne connait (pas encore) le comportement.
+  <p>**Il est important de déclarer la classe `CharacterBehavior` avant de charger la scène avec `Sup.loadScene`** (ex: le mettre plus haut dans le script), ou Superpowers va vous signaler qu'il ne connait (pas encore) le comportement.
 </div>
 
-Lorsque vous travaillez avec beaucoup de classe de comportement, il est possible de mettre chacun d'eux dans leurs propres scripts pour des raisons d'organisation. Assuré vous de placer les scripts utilisés par la scène au dessus de celle-ci.
+Lorsque vous travaillez avec beaucoup de classes de comportement, il est possible de mettre chacun d'elles dans leurs propres scripts pour des raisons d'organisation. Assurez vous de placer les scripts utilisés par la scène au dessus de celle-ci.
