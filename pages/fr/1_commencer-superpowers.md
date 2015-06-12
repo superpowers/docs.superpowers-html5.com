@@ -16,7 +16,7 @@ Ou bien vous pouvez simplement patienter quelques mois et Superpowers sera gratu
 Dans ce guide, les instructions qui indiquent ce que vous devez faire apparaîtront comme suit :
 
 <div class="action">
-  <p>Ceci est une action que vous devriez effectué.
+  <p>Ceci est une action que vous devriez effectuer.
 </div>
 
 Des indications importantes seront présentées dans des boîtes comme celle-ci :
