@@ -48,3 +48,11 @@ Sup.loadScene("Main Scene");
 </div>
 
 Lorsque vous travaillez avec beaucoup de classes de comportement, vous pouvez mettre chacune dans son propre script pour mieux vous organiser. Comme les scripts sont lus dans l'ordre, assurez-vous de charger votre scène dans un script placé en dessous de vos scripts définissant vos comportements.
+
+## Charger une scène au lancement du jeu sans code
+
+Vous pouvez indiquer une scène qui sera automatiquement chargé par Superpowers après qu'il a lu tous vos scripts dans la section `Game` de l'outil `Settings`.
+
+![](http://i.imgur.com/DaWYJqS.png)
+
+C'est équivalent à insérer un appel à `Sup.loadScene` à la fin de votre dernier script, mais c'est plus pratique puisque vous saurez toujours où trouver la scène de départ si vous devez la changer.

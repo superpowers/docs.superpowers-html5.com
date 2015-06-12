@@ -48,3 +48,11 @@ Sup.loadScene("Main Scene");
 </div>
 
 When working with several behavior classes, it is common to put each of them in their own script for organizational purposes. Since scripts will be read in order, make sure you're loading your scene in a script placed below all the behavior scripts it uses.
+
+## Loading a scene when the game starts without any code
+
+You can define a scene that will automatically be loaded by Superpowers after reading all your scripts in the `Game` section of the `Settings` tool.
+
+![](http://i.imgur.com/DaWYJqS.png)
+
+It's entirely equivalent to inserting a call to `Sup.loadScene` at the end of your last script, but it's more convenient since you'll always know where to change it if you need to.
