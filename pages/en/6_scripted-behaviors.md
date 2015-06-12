@@ -5,15 +5,15 @@ This is how a behavior definition might look like:
 
 ```
 class MyBehavior extends Sup.Behavior {
-  // Declare properties here.
+  // Declare properties here
 
   awake() {
-    // Put initialization logic here.
-    // this.actor represents the actor the behavior is attached to.
+    // Put initialization logic here
+    // thisactor represents the actor the behavior is attached to
   }
 
   update() {
-    // Put logic that should be executed 60x per second here.
+    // Put logic that should be executed 60x per second here
   }
 
 }
@@ -28,7 +28,6 @@ Let's add a behavior to our main character from the previous chapter.
 <div class="action">
   <p>Go back to your `Game` script and add the following code at the bottom:
 </div>
-
 
 ```
 class CharacterBehavior extends Sup.Behavior {

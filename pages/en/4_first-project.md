@@ -5,7 +5,7 @@
   Double-click on your project's name to open it.
 </div>
 
-A project is made of a tree of folders and assets. Asset editors are provided by plugins.<br>
+A project is made of a tree of folders and assets. Asset editors are provided by plugins.  
 Superpowers comes with a bunch of plugins to import sprites, 3D models, sounds, build scenes, write scripts and more.
 
 <div class="note">
@@ -13,4 +13,4 @@ Superpowers comes with a bunch of plugins to import sprites, 3D models, sounds, 
 </div>
 
 You can rearrange your project's assets however you want by dragging them around.
-Double-click on an asset to open its editor in a tab, or use the "Open" button to open in a new window instead.
+Double-click on an asset to open its editor in a tab, or use the "Open in a new window" icon instead.

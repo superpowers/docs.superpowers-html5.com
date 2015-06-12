@@ -13,7 +13,7 @@ Ou bien vous pouvez simplement patienter quelques mois et Superpowers sera gratu
 
 ## Conventions
 
-Dans ce guide, les instructions indiquant ce que vous devez faire apparaîtront comme suit :
+Dans ce guide, les instructions qui indiquent ce que vous devez faire apparaîtront comme suit :
 
 <div class="action">
   <p>Ceci est une action que vous devriez effectué.

@@ -10,8 +10,8 @@ We're going to rebuild our movie set from before but using a scene instead of wr
 
 <div class="action">
   <p>Create an actor named `Main Character` and place it in (0, 0, 0).  
-  Add a SpriteRenderer component on it and enter `Leonard` as the sprite to use.  
-  Add another component, this time of type Behavior and enter `CharacterBehavior` as the class to use.
+  Add a `SpriteRenderer` component on it and enter `Leonard` as the sprite to use.  
+  Add another component, this time of type `Behavior` and enter `CharacterBehavior` as the class to use.
 </div>
 
 <div class="action">
@@ -21,7 +21,7 @@ We're going to rebuild our movie set from before but using a scene instead of wr
 </div>
 
 <div class="note">
-  <p>**Make sure the `Camera Man` actor isn't parented to the `Main Character` actor** in the scene tree.<br>
+  <p>**Make sure the `Camera Man` actor isn't parented to the `Main Character` actor** in the scene tree.  
   If it is, simply use drag'n'drop to clear the parenting.
 </div>
 
