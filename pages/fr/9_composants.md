@@ -8,7 +8,7 @@ Par exemple, les gestionnaires de sprites sont exposés aux acteurs comme la pro
 class MonComportement extends Sup.Behavior {
 
   update(amount) {
-    // Quand la barre d'espace vient d'être pressé
+    // Quand la barre d'espace vient d'être pressée
     if (Sup.Input.wasKeyJustPressed("SPACE")) {
       // Joue une animation sur le gestionnaire de sprite
       // de l'acteur sur lequel ce comportement est attaché

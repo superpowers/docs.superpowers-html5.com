@@ -38,7 +38,7 @@ class MaClasse {
   }
 
   faireQuelquechoseDAutre() {
-    // Essayer d'utiliser `i` ici renvoyerai une erreur.
+    // Essayer d'utiliser `i` ici renverrait une erreur.
     // Il n'y a pas de variable `i` dans le contexte de `faireQuelquechoseDAutre()`.
   }
 }
