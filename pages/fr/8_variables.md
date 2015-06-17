@@ -1,77 +1,77 @@
-# Manipulation de données
+# Manipuler des états
 
-Les variables vous permettent de stocker, lire ou changer des données pendant que votre jeu est lancé. Elle peuvent être utilisées pour stocker dans quel niveau le joueur est, combien de vie un monstre possède, la vitesse d'un objet, quel objets sont dans l'inventaire du personnage ou vraiment n'importe quoi d'autre.
+Les variables vous permettent de stocker, lire ou changer des données pendant que votre jeu est lancé. Elle peuvent être utilisées pour stocker dans quel niveau le joueur est, combien de health un monstre possède, la vitesse d'un objet, quel objets sont dans l'inventaire du personnage ou vraiment n'importe quoi d'autre.
 
-Vous pouvez déclarer et initialiser une variable globale à la racine d'un script:
-
-```
-let niveauActuel  = 1;
-``` 
-
-Quand un évenement a lieu, vous pouvez incrémenter la valeur:
+Vous pouvez déclarer et initialiser une variable globale à la racine d'un script :
 
 ```
-// ... Quand le joueur atteind la sortie ...
-niveauActuel++;
-Sup.loadScene("Niveau"+niveauActuel);
+let currentLevel  = 1;
 ```
 
-Quand vous déclarer une variable dans une fonction, elle n'existe seulement quand la fonction est éxecutée:
+Quand un évenement a lieu, vous pouvez incrémenter la valeur :
 
 ```
-function faireQuelquechose() {
+// ... Quand le joueur atteint la sortie ...
+currentLevel++;
+Sup.loadScene("Level" + currentLevel);
+```
+
+Quand vous déclarez une variable dans une fonction, elle n'existe seulement quand la fonction s'exécute :
+
+```
+function doSomething() {
 	let i = 0;
 	i++;
 	// `i` est maintenant égal à 1
 }
 ```
 
-Le nombre de fois que vous appelez `faireQuelquechose` n'a pas d'importance, `i` sera remis à `0` et `1`, mais n'ira pas plus haut.
+Peu importe combien de fois vous appelez `doSomething`, la variable `i` sera initialisée à `0` puis incrémentée à `1`. Elle n'ira pas plus haut.
 
-Réciproquement, si une variable déclaré dans une fonction existe seulement pendant que cette fonction est executé, vous ne pouvez l'utilisé dans une autre fonction.
+De même, si une variable déclarée dans une fonction existe seulement pendant que cette fonction est executée, vous ne pouvez l'utiliser dans une autre fonction.
 
 ```
-class MaClasse {
+class MyClass {
 
-  faireQuelquechose() {
+	doSomething() {
     let i = 0;
   }
 
-  faireQuelquechoseDAutre() {
+  doSomethingElse() {
     // Essayer d'utiliser `i` ici renverrait une erreur.
-    // Il n'y a pas de variable `i` dans le contexte de `faireQuelquechoseDAutre()`.
+    // Il n'y a pas de variable `i` dans le contexte de `doSomethingElse()`.
   }
 }
 ```
 
-Afin de maintenir les données liés à un comportement particulier (comme, une vie de personnage), vous pouvez utilisé les variables membres.
+Afin de garder des états associés à un comportement particulier (comme, la vie d'un personnage), vous pouvez utiliser des variables membres.
 
 ```
-class MonComportement extends Sup.Behavior {
+class MyBehavior extends Sup.Behavior {
 
-  // Les variables de membres doivent être déclaré sans utiliser le mot clé `let`,
-  // directement dans la classe:
-  vie = 100;
+  // Les variables de membres doivent être déclarées sans utiliser le mot clé `let`,
+  // directement dans la classe :
+  health = 100;
 
-  takeDamage(let quantite) {
-    // Les variables de membres sont initialisées quand les comportement sont initialisés
+  takeDamage(amount) {
+    // Les variables membres sont initialisées quand les comportement sont initialisés
     // Vous pouvez accéder au comportement lui même et à ses variables membres avec `this`.
-    this.vie -= quantite;
-    if (this.vie <= 0) {
+    this.health -= amount;
+    if (this.health <= 0) {
       // Meurt!
       this.actor.destroy();
     }
   }
 
 }
-Sup.registerBehavior(MonComportement);
+Sup.registerBehavior(MyBehavior);
 ```
 
-## Customisation des propriétés de comportements
+## Personnalisation des propriétés de comportements
 
-Quand vous ajoutez un comportement à un acteur dans une scène, vous pouvez customisé les valeurs initiales pour ses variables membres, permettant de créer des personnages avec des vitesses, vie, etc différentes.
+Quand vous ajoutez un comportement à un acteur dans une scène, vous pouvez personnaliser les valeurs initiales pour ses variables membres, permettant de créer des personnages avec des vitesses, health, etc différentes.
 
-Vous pouvez réaliser la même chose en passant un objet en second paramètres de `Sup.Actor.addBehavior`.
+Vous pouvez réaliser la même chose en passant un objet en second paramètre de `Sup.Actor.addBehavior`.
 
 ```
 let pointsCollectes = 0;
@@ -94,5 +94,5 @@ let acteurGrosBonus = new Sup.Actor("Gros Bonus");
 // ... initialisation d'un gestionnaire de sprite, de model ...
 
 // C'est un gros bonus, donc nous écrasons la valeur par defaut pour qu'elle soit égale à 50.
-acteurGrosBonus.addBehavior(ComportementBonus, { points: 50 });
+acteurGrosBonus.addBehavior(ComportementBonus, { points : 50 });
 ```
