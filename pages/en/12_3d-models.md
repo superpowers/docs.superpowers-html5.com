@@ -31,11 +31,10 @@ The following instructions assume you're using Blender too.
 
 <div class="action">
   <p>Make sure your model is in its bind pose with no action active.<br>
-  Select your 3D mesh (not the armature).<br>
-  Use the `File > Export > Collada (Default) (.dae)` menu.<br>
-  Check the following boxes: `Selection Only`, `Include Armatures` and `Triangulate`.
+  From the `File` menu, select `Export > Collada (Default) (.dae)`.<br>
+  You probably want to check the `Triangulate` box.
 
-  <p>Drag and drop your `.dae` file onto the [the COLLADA2glTF converter](https://github.com/KhronosGroup/glTF/wiki/Converter-builds)'s executable.<br>
+  <p>Drag and drop the resulting `.dae` file onto the [the COLLADA2glTF converter](https://github.com/KhronosGroup/glTF/wiki/Converter-builds)'s executable.<br>
   You'll get several files, we only care about the `.gltf` and the `.bin` ones.
 
   <p>Repeat the process for each action you want to export, making the action active beforehand.
@@ -49,5 +48,5 @@ The following instructions assume you're using Blender too.
 </div>
 
 <div class="note">
-  <b>If the import fails</b>, you can use the Console tab in the development tools (F12) to find hints of what might have gone wrong.
+  <b>If the import fails</b>, you can use the Console tab in the development tools (F12) to find details about what might have gone wrong.
 </div>
