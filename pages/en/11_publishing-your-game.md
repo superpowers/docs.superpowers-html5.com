@@ -104,3 +104,5 @@ You can, of course, tweak the window settings. Read on to see where to put it.
 Do a regular export and use the [Intel XDK](https://software.intel.com/en-us/intel-xdk)
 to generate a platform-specific app that you can submit to a store.
 
+On Android, it seems like the minimum version required for WebGL support is 4.4.
+Accordingly, you should set up `Projects/Build Settings/Minimum Android Version` to `19` in Intel XDK.
