@@ -17,39 +17,56 @@ app.use(stylus.middleware({
   dest: `${__dirname}/../public`,
   compile: (str: string, path: string) => { return stylus(str).use(nib()).set("filename", path).set("compress", true); }
 }));
-
 app.get("/styles/highlight.css", (req, res) => { res.sendFile(path.resolve(`${__dirname}/../node_modules/highlight.js/styles/railscasts.css`)) });
-app.get("/", (req, res) => { res.redirect(`/en/${pages["en"][Object.keys(pages["en"])[0]].name}`); });
-app.use(express.static(`${__dirname}/../public`));
 
-app.get("/:language", (req, res) => {
-  if (process.env.NODE_ENV !== "production") readMD();
-
-  let languagePages = pages[req.params.language];
-  if (languagePages == null) { res.status(404).send("Language not found"); return; }
-
-  res.redirect(`/${req.params.language}/${Object.keys(languagePages)[0]}`);
-});
-
-app.get("/:language/:pageName", (req, res) => {
-  if (process.env.NODE_ENV !== "production") readMD();
-
-  let activePage = (pages[req.params.language] != null) ? pages[req.params.language][req.params.pageName] : null;
-  if (activePage == null) { res.status(404).send("Page not found"); return; }
-  let pageContent = pageContents[req.params.language][req.params.pageName];
-
-  res.render("page", { language: req.params.language, activePage, pageContent, pages: pages[req.params.language] });
-});
+interface Category {
+  name: string;
+  title: string;
+  pages: { [pageName: string]: PageDesc };
+}
 
 interface PageDesc {
   name: string;
   title: string;
 }
 
-var pages: { [language: string]: { [pageName: string]: PageDesc } } = null;
-var pageContents: { [language: string]: { [pageName: string]: string }} = null;
+let pages: { [language: string]: { [categoryName: string]: Category } } = null;
+let pageContents: { [language: string]: { [categoryName: string]: { [pageName: string]: string } } } = null;
 
-let pageRouter = express.Router();
+app.get("/", (req, res) => {
+  let firstCategoryName = Object.keys(pages["en"])[0];
+  let firstCategory = pages["en"][firstCategoryName];
+  res.redirect(`/en/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
+});
+app.use(express.static(`${__dirname}/../public`));
+
+app.get("/:language", (req, res) => {
+  if (process.env.NODE_ENV !== "production") readMD();
+
+  let languagePages = pages[req.params.language];
+  if (languagePages == null) { res.status(404).render("404", { language: "en", pages: pages["en"] }); return; }
+
+  let firstCategoryName = Object.keys(languagePages)[0];
+  let firstCategory = languagePages[firstCategoryName];
+
+  res.redirect(`/${req.params.language}/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
+});
+
+app.get("/:language/:categoryName/:pageName", (req, res) => {
+  if (process.env.NODE_ENV !== "production") readMD();
+
+  let activeCategory = (pages[req.params.language] != null) ? pages[req.params.language][req.params.categoryName] : null;
+  let activePage = (activeCategory != null) ? activeCategory.pages[req.params.pageName] : null;
+  if (activePage == null) { res.status(404).render("404", { language: req.params.language, pages: pages[req.params.language] }); return; }
+
+  let pageContent = pageContents[req.params.language][req.params.categoryName][req.params.pageName];
+
+  res.render("page", { language: req.params.language, activeCategory, activePage, pageContent, pages: pages[req.params.language] });
+});
+
+app.use((req, res, next) => {
+  res.status(404).render("404", { language: "en", pages: pages["en"] });
+});
 
 marked.setOptions({ highlight: (code) => { return highlight.highlight("typescript", code).value; } });
 
@@ -60,19 +77,32 @@ function readMD() {
   pageContents = {};
 
   for (let language of languages) {
-    let pageFilenames = fs.readdirSync(`${__dirname}/../pages/${language}`);
-    pageFilenames.sort((a, b) => parseInt(a.split("_")[0]) - parseInt(b.split("_")[0]));
+    let categoryFolders = fs.readdirSync(`${__dirname}/../pages/${language}`);
+    categoryFolders.sort((a, b) => parseInt(a.split("_")[0]) - parseInt(b.split("_")[0]));
 
     pages[language] = {};
     pageContents[language] = {};
 
-    for (let pageFilename of pageFilenames) {
-      let pageName = pageFilename.split(".", 2)[0].split("_", 2)[1];
+    for (let categoryFolder of categoryFolders) {
+      let categoryName = categoryFolder.split(".", 2)[0].split("_", 2)[1];
+      let category: Category = pages[language][categoryName] = { title: categoryName, name: categoryName, pages: {} };
+      pageContents[language][categoryName] = {};
 
-      let pageContentMD = fs.readFileSync(`${__dirname}/../pages/${language}/${pageFilename}`, { encoding: "utf8" });
-      pageContents[language][pageName] = marked(pageContentMD);
-      let pageTitle = pageContentMD.substring(2, pageContentMD.indexOf("\n"));
-      pages[language][pageName] = { name: pageName, title: pageTitle };
+      let pageFilenames = fs.readdirSync(`${__dirname}/../pages/${language}/${categoryFolder}`);
+      pageFilenames.sort((a, b) => parseInt(a.split("_")[0]) - parseInt(b.split("_")[0]));
+      for (let pageFilename of pageFilenames) {
+        let pageName = pageFilename.split(".", 2)[0].split("_", 2)[1];
+
+        let pageContentMD = fs.readFileSync(`${__dirname}/../pages/${language}/${categoryFolder}/${pageFilename}`, { encoding: "utf8" });
+        let pageTitle = pageContentMD.substring(2, pageContentMD.indexOf("\n"));
+
+        if (pageFilename === "index.md") {
+          category.title = pageTitle;
+        } else {
+          pageContents[language][categoryName][pageName] = marked(pageContentMD);
+          category.pages[pageName] = { name: pageName, title: pageTitle };
+        }
+      }
     }
   }
 }

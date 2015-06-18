@@ -1,10 +1,10 @@
-@import 'nib'
+@import "nib"
 
 html
   min-height 100%
 
 body
-  font-family 'Roboto'
+  font-family "Roboto"
   margin 0
   background url(/images/stamp.png) bottom right no-repeat
   background-attachment fixed
@@ -35,11 +35,20 @@ nav
   ol
     list-style none
     margin 0
-    padding 0.5em
+    padding 0
 
   li
     padding 0
     margin 0
+
+  > ol > li
+    text-transform uppercase
+    color #666
+    background #ccc
+    padding 0.25em 0.5em
+
+  > ol ol
+    padding 0.5em
 
   a
     display block
@@ -66,6 +75,7 @@ main
 
 h1
   margin-top 0
+  text-transform uppercase
 
 main div
   p:first-of-type

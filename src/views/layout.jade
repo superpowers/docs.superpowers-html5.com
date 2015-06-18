@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    block head
+    meta(charset="utf8")
+    link(href='//fonts.googleapis.com/css?family=Roboto:300,400,700',rel='stylesheet',type='text/css')
+    link(rel="stylesheet",href="/styles/index.css")
+    link(rel="stylesheet",href="/styles/highlight.css")
+  body
+    nav
+      ol
+        for category in pages
+          - var isCategoryActive = activeCategory != null && category.name == activeCategory.name
+          li= category.title
+          ol
+            for page in category.pages
+              - var isActive = isCategoryActive && page.name == activePage.name
+              li
+                a(href="/#{language}/#{category.name}/#{page.name}",class= isActive ? 'active' : '')= page.title
+
+    main
+      block content

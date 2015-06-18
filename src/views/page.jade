@@ -1,20 +1,7 @@
-doctype html
-html
-  head
-    title #{activePage.title} — Superpowers
-    meta(charset="utf8")
-    link(href='//fonts.googleapis.com/css?family=Roboto:300,400,700',rel='stylesheet',type='text/css')
-    link(rel="stylesheet",href="/styles/index.css")
-    link(rel="stylesheet",href="/styles/highlight.css")
-  body
-    nav
-      ol
-        - var i = 1
-        for page in pages
-          - var isActive = page.name == activePage.name
-          li
-            a(href="/" + language + "/" + page.name,class= isActive ? 'active' : '')= i + ". " + page.title
-          - i++
+extends layout
 
-    main
-      != pageContent
+block head
+  title #{activePage.title} — Superpowers
+
+block content
+  != pageContent

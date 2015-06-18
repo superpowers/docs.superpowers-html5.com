@@ -1,4 +1,4 @@
-# Working with 3D models
+# Importing 3D models
 
 Superpowers currently supports a subset of the OBJ and glTF file formats,
 respectively for static and animated 3D models.
