@@ -1,16 +1,16 @@
 # Accesseurs de composants
 
-La plupart des types de composants exposent une propriété afin que vous puissiez changer leur état.
+La plupart des types de composants exposent une propriété sur les acteurs afin que vous puissiez modifier leur état.
 
-Par exemple, les rendus de sprites sont exposés aux acteurs sous la propriété `spriteRenderer` :
+Par exemple, les rendus de sprites sont exposés aux acteurs sous le nom `spriteRenderer` :
 
 ```
 class MyBehavior extends Sup.Behavior {
 
-  update(amount) {
+  update() {
     // Quand la barre d'espace vient d'être pressée
     if (Sup.Input.wasKeyJustPressed("SPACE")) {
-      // Joue une animation sur le gestionnaire de sprite
+      // Joue une animation sur le rendu de sprite
       // de l'acteur sur lequel ce comportement est attaché
       this.actor.spriteRenderer.setAnimation("Wave");
     }
@@ -20,4 +20,4 @@ class MyBehavior extends Sup.Behavior {
 Sup.registerBehavior(MyBehavior);
 ```
 
-Vous pouvez trouver une liste de toutes les propriétés d'acteur dans le navigateur d'<abbr title="Interface de Programmation">API</abbr> au sein de Superpowers, en particulier dans la section `Sup.Actor`.
+Vous trouverez une liste de toutes les propriétés d'acteur dans le navigateur d'<abbr title="Interface de Programmation">API</abbr> directement dans Superpowers, dans la section `Sup.Actor`.

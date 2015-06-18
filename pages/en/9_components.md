@@ -7,7 +7,7 @@ For instance, sprite renderers are exposed on actors as the `spriteRenderer` pro
 ```
 class MyBehavior extends Sup.Behavior {
 
-  update(amount) {
+  update() {
     // When the space key has just been pressed
     if (Sup.Input.wasKeyJustPressed("SPACE")) {
       // Play an animation on the sprite renderer

@@ -54,7 +54,7 @@ class MyBehavior extends Sup.Behavior {
   health = 100;
 
   takeDamage(amount) {
-    // Member variables are initialized when the behavior component is created
+    // Member variables are initialized when the behavior component is created.
     // You can access the behavior itself and its member variables through `this`.
     this.health -= amount;
     if (this.health <= 0) {
@@ -71,7 +71,7 @@ Sup.registerBehavior(MyBehavior);
 
 When adding a behavior component to an actor in a scene, you can customize the initial values for its member variables, allowing you to have mobs with different initial speed, health, etc.
 
-You can accomplish the same thing by passing an object as a second paramater to `Sup.Actor.addBehavior`:
+You can accomplish the same thing in a script by passing an object as a second paramater to `Sup.Actor.addBehavior`:
 
 ```
 let collectedPoints = 0;
