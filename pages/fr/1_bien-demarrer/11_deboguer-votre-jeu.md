@@ -1,8 +1,8 @@
 # Déboguer votre jeu
 
-Quand vous utilisez Superpowers depuis l'application, vous pouvez ouvrir les outils de débogguage en cliquant sur le bouton `Debug game` (ou en appuyant sur `F6`). La plupart des navigateurs vous permettent d'ouvrir des outils similaires en appuyant sur `F12` pendant que le jeu tourne.
+Quand vous utilisez Superpowers depuis l'application, vous pouvez ouvrir les outils de débogage en cliquant sur le bouton `Debug game` (ou en appuyant sur `F6`). La plupart des navigateurs vous permettent d'ouvrir des outils similaires en appuyant sur `F12` pendant que le jeu tourne.
 
-Comme l'application Superpowers utilise NW.js, qui est basé sur le moteur de Chrome, les outils de débogguage sont les même que sur Chrome.
+Comme l'application Superpowers utilise NW.js, qui est basé sur le moteur de Chrome, les outils de débogage sont les même que sur Chrome.
 
 Les deux onglets principaux que vous utiliserez sont :
 
