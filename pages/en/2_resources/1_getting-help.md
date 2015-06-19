@@ -33,6 +33,6 @@ When sharing code, don't share a single line, share enough context so that your 
 
 ## Places to ask for help
 
-[The Superpowers forum on Reddit](https://reddit.com/superpowers) is the best place to ask for help (as well as for sharing your projects, bugs and suggestions!). Alternatively, you can use [the Skype group chat](https://sparklinlabs.com/skype/en) if you think live help is better.
+[The Superpowers forum on Reddit](https://reddit.com/r/superpowers) is the best place to ask for help (as well as for sharing your projects, bugs and suggestions!). Alternatively, you can use [the Skype group chat](https://sparklinlabs.com/skype/en) if you think live help is better.
 
 Oh and when you make something cool, share it with <a href="https://twitter.com/SuperpowersDev" target="_blank">@SuperpowersDev</a> on Twitter, we'll be happy to retweet!
