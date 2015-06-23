@@ -69,7 +69,8 @@ class CharacterHandBehavior extends Sup.Behavior {
 Sup.registerBehavior(CharacterHandBehavior);
 ```
 
+Here's a little demo. You can download [the source project](https://bitbucket.org/sparklinlabs/superpowers-model-demo/) and run it for yourself.
+
 ![](http://i.imgur.com/gep1b6u.gif)
 
 If the item doesn't fit right, you can add an offset with `this.itemActor.moveOriented(...)` or `this.itemActor.rotateLocalEulerAngles(...)`.
-
