@@ -21,7 +21,7 @@ Bugs can only be fixed if they are reproducible. Your goal when reporting a bug 
 
   4. If you encounter an error message, make sure to copy it in its entirety, and to note when and where it appears. When something is very broken, error messages might appear in the Console tab of the developer tools (accessible using `F12`) so make sure to check there.
 
-You can further help by trying to reproduce the issue in a fresh, minimal project. If the issue is hard to replicate or require a lot of steps, attaching a ZIP archive of a minimal project might very useful.
+You can further help by trying to reproduce the issue in a fresh, minimal project. If the issue is hard to replicate or requires a lot of steps, attaching a ZIP archive of a minimal project might very useful.
 
 ## Getting help with scripting
 
