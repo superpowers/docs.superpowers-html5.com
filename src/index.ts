@@ -105,6 +105,34 @@ function readMD() {
       }
     }
   }
+
+  let englishCategoryNames = Object.keys(pages["en"]);
+
+  for (let language in pages) {
+    if (language === "en") continue;
+
+    let categories = pages[language];
+    if (Object.keys(categories).length < englishCategoryNames.length) {
+      for (let i = Object.keys(categories).length; i < englishCategoryNames.length; i++) {
+        categories[englishCategoryNames[i]] = pages["en"][englishCategoryNames[i]];
+        pageContents[language][englishCategoryNames[i]] = pageContents["en"][englishCategoryNames[i]];
+      }
+    }
+
+    let languageCategoryNames = Object.keys(categories);
+    for (let i = 0; i < languageCategoryNames.length; i++) {
+      let category = categories[languageCategoryNames[i]];
+      let englishCategory = pages["en"][englishCategoryNames[i]];
+      let englishPageNames = Object.keys(englishCategory.pages);
+
+      if (Object.keys(category.pages).length < englishPageNames.length) {
+        for (let j = Object.keys(category.pages).length; j < englishPageNames.length; j++) {
+          category.pages[englishPageNames[j]] = englishCategory.pages[englishPageNames[j]];
+          pageContents[language][category.name][englishPageNames[j]] = pageContents["en"][englishCategoryNames[i]][englishPageNames[j]];
+        }
+      }
+    }
+  }
 }
 readMD();
 
