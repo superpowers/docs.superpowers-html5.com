@@ -7,7 +7,7 @@ Other valuable resources include:
 
   * [OpenGameArt.org](http://opengameart.org/)
   * [Kenney's Assets](http://www.kenney.nl/assets)
-  * [Freedsound.org](http://www.freesound.org/)
+  * [Freesound.org](http://www.freesound.org/)
 
 When using assets downloaded from the Internet, make sure to double-check
 their license and abide by the terms.  
