@@ -21,7 +21,7 @@ Les instructions suivantes partent du principe que vous utilisez Blender, mais l
 </div>
 
 <div class="action">
-  <p>Assurez-vous que votre modèle soit dans sa bind pose sans action active.<br>
+  <p>Assurez-vous que votre modèle soit dans sa "bind pose" sans action active.<br>
   Depuis le menu `File`, sélectionnez `Export > Collada (Default) (.dae)`.<br>
   Cochez la case `Triangulate`.
 
