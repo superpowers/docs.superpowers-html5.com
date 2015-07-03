@@ -79,7 +79,7 @@ The method `getTouches` gives you info of the current collision's state on each 
 
 Finally, we need to apply the updated speed to the body.
 
-You can [download a demo project](https://bitbucket.org/sparklinlabs/superpowers-collison-demo) and try it out!
+You can [download a demo project](https://bitbucket.org/sparklinlabs/superpowers-collision-demo) and try it out!
 You will find an improved version of the behavior. It handle the animation and the orientation of the player as well. 
 
 ![](http://i.imgur.com/v4tWyIN.gif)
