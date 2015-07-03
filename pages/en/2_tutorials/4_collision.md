@@ -35,7 +35,11 @@ Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAll
 
 The second argument of the function is a list a bodies. In this case, we're using all of them, but you can also maintain your own list of collidables.
 
-Since ArcadePhysics2D's `.collides` function will update your actor's position while handling collisions, you can't move it yourself directly anymore.
+<div class="note">
+  Since ArcadePhysics2D's `.collides` function will update your actor's position while handling collisions, **you can't use `.move` or `.setPosition` directly anymore**.
+
+  If you need to teleport your actor, use `this.actor.arcadeBody2D.warpPosition(...)`.
+</div>
 
 Instead, get the body's current velocity with `this.actor.arcadeBody2D.getVelocity()`, update its `.x` or `.y` component and then apply it back with `this.actor.arcadeBody2D.setVelocity(...)`.
 
@@ -85,7 +89,7 @@ Sup.registerBehavior(PlayerBehavior);
 
 `.getTouches()` returns contact information for each side of the box body. We use it to ensure the player is on the ground before letting them jump.
 
-You can [the demo project](https://bitbucket.org/sparklinlabs/superpowers-collision-demo) and try it out!
+You can [download the demo project](https://bitbucket.org/sparklinlabs/superpowers-collision-demo) and try it out!
 It features an improved version of the behavior that handles animation and orientation of the player as well.
 
 ![](http://i.imgur.com/v4tWyIN.gif)
