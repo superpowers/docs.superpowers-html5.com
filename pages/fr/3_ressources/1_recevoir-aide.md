@@ -8,7 +8,7 @@ Cette page contient quelques conseils pour mieux les aider à vous aider. Vous t
 <div class="note">
   Assurez-vous d'utiliser la dernière version de Superpowers avant de rapporter des bugs.
 
-  Si possible, essayez la dernière version de développement pour voir si le bug a été corrigé dans la prochaine version publique.
+  Si possible, essayez la dernière version de développement pour voir si le bug a déjà été corrigé pour la prochaine version publique.
 </div>
 
 Les bugs peuvent être corrigés seulement s'ils sont reproductibles. Votre but en rapportant un bug devrait être de fournir autant d'informations précises et pertinentes que possible.
@@ -19,7 +19,7 @@ Les bugs peuvent être corrigés seulement s'ils sont reproductibles. Votre but 
 
   3. Décrivez les étapes que vous avez suivies pour obtenir le bug. Fournissez des captures d'écran si vous pensez qu'elles seront utiles.
 
-  4. Si vous rencontrez un message d'erreur, assurez-vous de la copier dans son intégralité, et de noter quand et où elle est survenue. Quand quelque chose est réellement cassé, des messages d'erreur peuvent apparaître dans l'onglet Console des outils de développement (atteignables avec `F12`), donc assurez-vous de vérifier à cet endroit.
+  4. Si vous rencontrez un message d'erreur, assurez-vous de la copier dans son intégralité, et de noter quand et où elle est survenue. Quand quelque chose est réellement cassé, des messages d'erreur peuvent apparaître dans l'onglet Console des outils de développement (accessibles avec `F12`), donc assurez-vous de vérifier à cet endroit.
 
 Vous pouvez fournir une aide supplémentaire en essayant de reproduire le problème dans un nouveau projet minimal. Si le problème est difficile à reproduire ou requiert un grand nombre d'étapes, fournir une archive ZIP d'un projet minimal peut être très utile.
 
