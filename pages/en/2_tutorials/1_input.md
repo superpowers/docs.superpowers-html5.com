@@ -86,7 +86,14 @@ Sup.registerBehavior(MyBehavior);
 
 ## Text Input
 
-You can get the text entered over the course of the last update with `Sup.Input.getTextEntered()`.
+You can get the text entered over the course of the last update with `Sup.Input.getTextEntered()`. You can loop over it like so:
+
+```
+for (let character of Sup.Input.getTextEntered()) {
+  if (character === "\b") { /* Backspace was hit, maybe erase the last character */ }
+  else { /* Another character was entered, append it to your text */ }
+}
+```
 
 ![](http://i.imgur.com/MWG8yPe.gif)
 
