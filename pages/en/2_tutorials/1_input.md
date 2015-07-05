@@ -83,3 +83,11 @@ class MyBehavior extends Sup.Behavior {
 }
 Sup.registerBehavior(MyBehavior);
 ```
+
+## Text Input
+
+You can get the text entered over the course of the last update with `Sup.Input.getTextEntered()`.
+
+![](http://i.imgur.com/MWG8yPe.gif)
+
+See the [text input demo project](https://bitbucket.org/sparklinlabs/superpowers-text-input-demo/src).
