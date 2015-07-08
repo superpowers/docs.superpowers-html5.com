@@ -3,6 +3,8 @@
 Superpowers est un environnement de développement HTML5 pour faire des jeux 2D et 3D.  
 Il peut être étendu avec des plugins et vous pouvez l'utiliser en collaboration temps réel.
 
+[Regardez la vidéo de présentation sur YouTube](https://www.youtube.com/watch?v=T7XoWWvGPd4)
+
 Superpowers est en cours de développement. Vous pouvez nous soutenir sur <a href="https://sparklinlabs.com/" target="_blank">SparklinLabs.com</a> pour l'obtenir en accès anticipé.  
 Ou bien vous pouvez simplement patienter quelques mois et Superpowers sera gratuit et son code source sera ouvert à tous :)
 
