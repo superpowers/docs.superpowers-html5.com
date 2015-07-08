@@ -14,7 +14,7 @@ The latest version of JavaScript, ECMAScript 2015 (previously known as ECMAScrip
 It's [going to take a year or two](https://kangax.github.io/compat-table/es6/) for all those improvements to make their way into the browsers.
 In the meantime, Web developers have created various tools like [Babel.js](https://babeljs.io/)
 or languages like [TypeScript](http://www.typescriptlang.org/), [Flow](http://flowtype.org/) and [CoffeeScript](http://coffeescript.org/)
-that let you use new language features by rewriting ("transpiling") your scripts down to ECMAScript 5, the version of JavaScript currently supported by the browsers.
+that let you use new language features right now and will automatically rewrite ("transpile") your scripts down to ECMAScript 5, the version of JavaScript currently supported by the browsers.
 
 ## Why TypeScript?
 
@@ -31,7 +31,7 @@ so it's a great investment all around.
 ## Block-scoped variables
 
 <div class="note">
-  If you know nothing about variables or functions, you should probably [take an intro to programming](http://www.codecademy.com/en/tracks/javascript) first.
+  If you don't know too much about variables or functions, you should probably [take an intro to JavaScript](http://www.codecademy.com/en/tracks/javascript) first.
 </div>
 
 <abbr title="ECMAScript 2015">ES2015</abbr> lets you declare block-scoped variables with the new `let` keyword.
@@ -80,7 +80,9 @@ let coolThrice = repeat("cool", 3); // This will return "coolcoolcool"
 repeat(3, "cool"); // Error because of the incorrect argument types
 ```
 
-Superpowers will even be able to auto-complete "repeat" for you and display its signature (parameters and return type). 
+In many cases, TypeScript can also infer a function's return type based on the value returned.
+
+Superpowers will even be able to auto-complete `repeat` for you and display its signature (parameters and return type). 
 
 [Read more about types](http://www.typescriptlang.org/Handbook#basic-types).
 
