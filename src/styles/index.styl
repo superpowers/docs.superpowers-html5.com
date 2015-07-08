@@ -65,19 +65,32 @@ nav
 
 main
   display block
-  margin-left 250px
-  padding 1em
   flex 1
-  max-width 1000px
 
-  p img
-    max-width 100%
+  header
+    background #eee
+    color #888
+    margin-left 250px
+    text-transform uppercase
+
+    &:hover { background: #888; color: #eee; }
+
+    a { text-decoration: none; display: flex; align-items: center; padding: 1em; color: inherit; }
+    img { width: 32px; padding-right: 0.5em; }
+
+  .page
+    padding 1em
+    max-width 1000px
+    margin-left 250px
+
+    p img
+      max-width 100%
 
 h1
   margin-top 0
   text-transform uppercase
 
-main div
+.page div
   p:first-of-type
     margin-top 0
 
@@ -97,11 +110,12 @@ main div
 .note:not(:last-child), .action:not(:last-child)
   margin-bottom 1em
 
-main > pre
+.page > pre
   font-size 18px
   background #474747
   color #dadada
   padding 0.5em
+  word-wrap break-word
 
 abbr
   text-decoration underline

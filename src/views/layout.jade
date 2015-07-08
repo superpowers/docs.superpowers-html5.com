@@ -19,4 +19,10 @@ html
                 a(href="/#{language}/#{category.name}/#{page.name}",class= isActive ? 'active' : '')= page.title
 
     main
-      block content
+      header
+        a(href="https://sparklinlabs.com/")
+          img(src="/images/icon.png")
+          span Make games with Superpowers &mdash; The extensible, collaborative HTML5 2D+3D game maker
+
+      .page
+        block content
