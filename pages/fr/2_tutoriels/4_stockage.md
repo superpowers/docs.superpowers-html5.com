@@ -1,4 +1,4 @@
-# Sauvegarder les données de jeu
+# Sauvegarde et chargement
 
 Vous pouvez utiliser `Sup.Storage.get` et `.set` pour sauvegarder et restaurer des chaînes de caractères de données.
 Ces données sont sauvegardées localement sur le disque du joueur.

@@ -1,4 +1,4 @@
-# Travailler avec des modèles 3D
+# Utiliser des modèles 3D
 
 ## Importer des modèles
 
