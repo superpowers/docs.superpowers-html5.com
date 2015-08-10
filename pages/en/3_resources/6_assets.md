@@ -11,4 +11,4 @@ Other valuable resources include:
 
 When using assets downloaded from the Internet, make sure to double-check
 their license and abide by the terms.  
-Some licenses may prevent commercial use, or require that you credit the author.
+Some licenses may prevent commercial use, or require that you credit the author
