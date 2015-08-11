@@ -77,7 +77,7 @@ function repeat(what: string, times: number): string {
 } 
 
 let coolThrice = repeat("cool", 3); // This will return "coolcoolcool"
-repeat(3, "cool"); // Error because of the incorrect argument types
+repeat(3, "cool"); // Error, because of the incorrect argument types
 ```
 
 In many cases, TypeScript can also infer a function's return type based on the value returned.
@@ -121,7 +121,7 @@ myLift.goUp(); // myLift.floor is now 2
 
 ## Better anonymous functions
 
-ECMAScript 5, when passing a function as a callback to another function, you used to have to do a little dance
+In ECMAScript 5, when passing a function as a callback to another function, you used to have to do a little dance
 involving `Function.bind` to make sure the value of `this` was preserved.
 
 With ECMAScript 2015, you can now use the new fat-arrow `() =>` syntax to create anonymous functions ("lambdas")
@@ -138,9 +138,9 @@ saveToDisk(() => {
 });
 ```
 
-ECMAScript 2015 class methods also preserve the value of `this` for you.
+With ECMAScript 2015 classes, methods also preserve the value of `this` for you.
 
-[Read more about lambdas and this](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39).
+[Read more about lambdas and `this`](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39).
 
 ## Iterating over arrays
 
@@ -158,7 +158,7 @@ for (let value of myArray) console.log(value);
 
 ## Learning more
 
-  * [CodeCademy's JavaScript course](http://www.codecademy.com/en/tracks/javascript)
+  * [Codecademy's JavaScript course](http://www.codecademy.com/en/tracks/javascript)
   * [Learning ES6](https://github.com/ericdouglas/ES6-Learning)
   * [es6-features.org](http://es6-features.org/)
   * [TypeScript Handbook](http://www.typescriptlang.org/Handbook)
