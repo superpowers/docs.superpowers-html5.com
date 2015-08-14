@@ -9,7 +9,7 @@ Le plugin ajoute un nouveau type de composant dans l'éditeur de scène qui vous
 
 ## Boite de collision
 
-Le corps de type `Box` définit une boite avec une taille spécifique et un éventuem décalage par rapport à l'origine de l'acteur.
+Le corps de type `Box` définit une boite avec une taille spécifique et un éventuel décalage par rapport à l'origine de l'acteur.
 
 ![](/images/collision-box.png)
 
