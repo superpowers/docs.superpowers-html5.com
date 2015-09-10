@@ -8,6 +8,10 @@ Nous allons reconstruire notre plateau depuis le début mais en utilisant une sc
   <p>Créez une nouvelle scène, nommez-la `Main Scene` et ouvrez-la.
 </div>
 
+<div class="note">
+  <p>**Dans l'éditeur de scène, utilisez `ZQSD`** pour vous déplacer vers l'avant, arrière, gauche ou droite, la touche `Espace` pour monter et `Majuscule` pour descendre.
+</div>
+
 <div class="action">
   <p>Créez un nouvel acteur, nommez-le `Main Character` et placez-le en (0, 0, 0).  
   Ajoutez un composant `SpriteRenderer` et entrez le nom `Leonard` pour le sprite à utiliser.  

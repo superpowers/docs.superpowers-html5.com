@@ -8,6 +8,10 @@ We're going to rebuild our movie set from before but using a scene instead of wr
   <p>Create a new Scene asset named `Main Scene` and open it up.
 </div>
 
+<div class="note">
+  <p>**In the scene editor, use `WASD`** to move forward, backward, left and right, `Space` to go up and `Shift` to go down.
+</div>
+
 <div class="action">
   <p>Create an actor named `Main Character` and place it in (0, 0, 0).  
   Add a `SpriteRenderer` component on it and enter `Leonard` as the sprite to use.  
