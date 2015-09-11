@@ -6,11 +6,6 @@
   Cliquez n'importe où pour passer l'écran de démarrage.
 </div>
 
-<div class="note">
-  <p>**Sur Windows, l'outil de décompression intégré** peut ne pas réussir à extraire Superpowers, car il contient quelques chemins de fichiers très longs.
-  Si c'est votre cas, essayez avec [7-zip](http://www.7-zip.org/). Nous espérons régler ce problème avec la sortie de `npm 3.0`.
-</div>
-
 Vous devriez voir une liste de serveurs et votre serveur local se lancera automatiquement.
 
 <div class="note">

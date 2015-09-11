@@ -6,11 +6,6 @@
   The launcher will start. Click anywhere to dismiss the splash screen.
 </div>
 
-<div class="note">
-  <p>**On Windows, the built-in Windows unzipper** might fail to unzip Superpowers because we currently have some overly long paths.  
-  If it doesn't work, try [7-zip](http://www.7-zip.org/). We should be able to fix this when `npm 3.0` is released.
-</div>
-
 You'll see a list of servers and your own local server should start up right away.
 
 <div class="note">
