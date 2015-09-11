@@ -1,16 +1,14 @@
 # Demo projects
 
-  * [The Mouse and the Key](https://bitbucket.org/sparklinlabs/superpowers-mouse-key-demo/) &mdash; 2D platformer demo
-  * [Aircraft over the Ocean](https://bitbucket.org/sparklinlabs/superpowers-aircraft-water) &mdash; Light and shadows demo
-  * [Hunt The Yeti](https://bitbucket.org/sparklinlabs/hunt-the-yeti) &mdash; A complete arcade game [created for Ludum Dare 31](http://sparklinlabs.itch.io/hunt-the-yeti)
-  * [Superpowers homepage demo](https://bitbucket.org/sparklinlabs/superpowers-demo/) &mdash; A physics demo using Cannon.js with multiple rooms and interactive elements
+Instructions for setting up a project can be found on each project's page. Generally, it involves going to the Downloads page and unzipping them into [your `projects` folder](/en/getting-started/setting-up-superpowers), then restarting your server.
 
-<img src="/images/mickey.png" alt=" The Mouse and the Key demo project" height="400" />
+You can find all kinds of [demo projects by Sparklin Labs on Bitbucket](https://bitbucket.org/sparklinlabs/profile/repositories?search=superpowers-) to learn various aspects of the software.
 
-Unzip them into your projects folder:
+## Full games
 
-  * On Windows: `%APPDATA%\Superpowers\projects`
-  * On OS X: `~/Library/Superpowers/projects` (Use Finder's "Go to folder" menu item)
-  * On Linux: `~/.local/share/Superpowers/projects`
+  * [Hunt The Yeti](https://bitbucket.org/sparklinlabs/hunt-the-yeti) &mdash; A polished arcade game [created for Ludum Dare 31](http://sparklinlabs.itch.io/hunt-the-yeti)
+  * [Murder at the Residence Gudul](https://bitbucket.org/sparklinlabs/residence-gudul) &mdash; A dystopian point'n'click adventure [created for the Global Game Jam 2015](http://sparklinlabs.itch.io/gudul)
+  * [Fat Kevin](https://bitbucket.org/sparklinlabs/fat-kevin) &mdash; A cell-shaded 3D adventure [created for Ludum Dare 33](http://sparklinlabs.itch.io/fat-kevin)
+  * [Superpowers home page demo](https://bitbucket.org/sparklinlabs/superpowers-demo/) &mdash; A showcase of various features of Superpowers
 
-Then restart your server.
+![Screenshot from Fat Kevin](http://i.imgur.com/H4nan3c.png)

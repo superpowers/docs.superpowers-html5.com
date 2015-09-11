@@ -1,16 +1,14 @@
 # Projets de démonstration
 
-  * [The Mouse and the Key](https://bitbucket.org/sparklinlabs/superpowers-mouse-key-demo/) &mdash; Démo de jeu de plateforme 2D
-  * [Aircraft over the Ocean](https://bitbucket.org/sparklinlabs/superpowers-aircraft-water) &mdash; Démo de la lumière et des ombres
-  * [Hunt The Yeti](https://bitbucket.org/sparklinlabs/hunt-the-yeti) &mdash; Un jeu d'arcade complet [créé pour le Ludum Dare 31](http://sparklinlabs.itch.io/hunt-the-yeti)
-  * [Démo page d'accueil Superpowers](https://bitbucket.org/sparklinlabs/superpowers-demo/) &mdash; Une démo physique avec Cannon.js et plusieurs salles intéractives
+Vous trouverez les instructions pour récupérer chaque projet sur leur page. Il suffit généralement de récupérer le ZIP sur la page Téléchargements et de le décompresser dans [votre dossier `projects`](/fr/bien-demarrer/installer-superpowers), puis de redémarrer votre serveur.
 
-<img src="/images/mickey.png" alt="Projet démo The Mouse and the Key" height="400" />
+Vous trouverez toutes sortes de [projets démo par Sparklin Labs sur Bitbucket](https://bitbucket.org/sparklinlabs/profile/repositories?search=superpowers-) présentant diverses fonctionnalités.
 
-Décompressez-les dans le dossier qui contient vos projets :
+## Jeux complets
 
-  * Sur Windows: `%APPDATA%\Superpowers\projects`
-  * Sur OS X: `~/Library/Superpowers/projects`
-  * Sur Linux: `~/.local/share/Superpowers/projects`
+  * [Hunt The Yeti](https://bitbucket.org/sparklinlabs/hunt-the-yeti) &mdash; Un jeu d'arcade [créé pour le Ludum Dare 31](http://sparklinlabs.itch.io/hunt-the-yeti)
+  * [Murder at the Residence Gudul](https://bitbucket.org/sparklinlabs/residence-gudul) &mdash; Une aventure point'n'click dystopique [créée pour le Global Game Jam 2015](http://sparklinlabs.itch.io/gudul)
+  * [Fat Kevin](https://bitbucket.org/sparklinlabs/fat-kevin) &mdash; Une aventure 3D en cell-shading [créée pour le Ludum Dare 33](http://sparklinlabs.itch.io/fat-kevin)
+  * [Démo page d'accueil Superpowers](https://bitbucket.org/sparklinlabs/superpowers-demo/) &mdash; Jeu vitrine présentant différentes fonctionnalités de Superpowers
 
-Puis redémarrez votre serveur.
+![Capture d'écran de Fat Kevin](http://i.imgur.com/H4nan3c.png)
