@@ -16,3 +16,13 @@ Vous devriez voir une liste de serveurs et votre serveur local se lancera automa
 
 Double-cliquez sur "My Server" et une fenêtre va s'ouvrir. Vous serez invité à saisir un nom d'utilisateur.  
 Celui-ci n'est pas encore lié à votre compte Superpowers mais vous voudrez probablement utiliser le même quand même.
+
+## Où se trouve mes données ?
+
+Par défaut, la configuration de votre serveur et vos projets sont stockés aux endroits suivants, en fonction du système d'exploitation que vous utilisez :
+
+  * Sous Windows : `%APPDATA%\Superpowers`
+  * Sous OS X : `~/Library/Superpowers` (Utiliser l'option "Aller au dossier" du Finder)
+  * Sous Linux : `~/.local/share/Superpowers`
+
+Pour rendre Superpowers transportable (par exemple sur une clé USB), vous pouvez déplacer le fichier `config.json` et le dossier `projects` dans le dossier `app` de Superpowers et ils seront automatiquement utilisés à la place. Faites attention quand vous mettez à jour, il faudra alors déplacer ces fichiers de l'ancienne version à la nouvelle manuellement.
