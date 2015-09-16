@@ -22,7 +22,7 @@ Metaphorically, your game is a movie set and you're the director. With your scri
 // Summon our first actor, he'll play the main character
 let mainCharacterActor = new Sup.Actor("Main Character");
 // Tell our actor to slip into the "Leonard" costume (sprite)
-new Sup.SpriteRenderer(mainCharacterActor, Sup.get("Leonard", Sup.Sprite));
+new Sup.SpriteRenderer(mainCharacterActor, "Leonard");
 
 // Summon a second person on stage, he'll be the camera man
 let cameraManActor = new Sup.Actor("Camera Man");
@@ -30,10 +30,10 @@ let cameraManActor = new Sup.Actor("Camera Man");
 new Sup.Camera(cameraManActor);
 
 // Place our actors. The main character actor is at the center of the stage
-mainCharacterActor.setPosition(new Sup.Math.Vector3(0,0,0));
+mainCharacterActor.setPosition(0, 0, 0);
 
 // The camera man will be looking at the main actor from a distance
-cameraManActor.setPosition(new Sup.Math.Vector3(0,0,5));
+cameraManActor.setPosition(0, 0, 5));
 ```
 
 <p>Lines beginning with `//` are comments. Superpowers doesn't care about them, I only put them here to explain what's happening.</p>

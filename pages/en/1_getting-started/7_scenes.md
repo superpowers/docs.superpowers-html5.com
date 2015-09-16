@@ -38,8 +38,8 @@ Now that our scene is all set, let's go back to our script. We can get rid of al
 ```
 class CharacterBehavior extends Sup.Behavior {
   update() {
-    if (Sup.Input.isKeyDown("LEFT")) this.actor.move(new Sup.Math.Vector3(-0.1, 0, 0));
-    if (Sup.Input.isKeyDown("RIGHT")) this.actor.move(new Sup.Math.Vector3(0.1, 0, 0));
+    if (Sup.Input.isKeyDown("LEFT")) this.actor.move(-0.1, 0, 0);
+    if (Sup.Input.isKeyDown("RIGHT")) this.actor.move(0.1, 0, 0);
   }
 }
 Sup.registerBehavior(CharacterBehavior);

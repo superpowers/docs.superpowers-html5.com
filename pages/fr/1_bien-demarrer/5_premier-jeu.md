@@ -22,7 +22,7 @@ Métaphoriquement, votre jeu est comme un film dont vous êtes le metteur en sc�
 // Appelons notre premier acteur sur le plateau, il jouera le personnage principal
 let mainCharacterActor = new Sup.Actor("Main Character");
 // Disons à notre acteur de mettre le costume (sprite) "Leonard"
-new Sup.SpriteRenderer(mainCharacterActor, Sup.get("Leonard", Sup.Sprite));
+new Sup.SpriteRenderer(mainCharacterActor, "Leonard");
 
 // Appelons une seconde personne sur le plateau, ce sera notre caméraman
 let cameraManActor = new Sup.Actor("Camera Man");
@@ -30,10 +30,10 @@ let cameraManActor = new Sup.Actor("Camera Man");
 new Sup.Camera(cameraManActor);
 
 // Plaçons nos acteurs. Le personnage principal est au centre de la scène
-mainCharacterActor.setPosition(new Sup.Math.Vector3(0,0,0));
+mainCharacterActor.setPosition(0, 0, 0);
 
 // Le caméraman doit s'éloigner pour filmer l'acteur principal
-cameraManActor.setPosition(new Sup.Math.Vector3(0,0,5));
+cameraManActor.setPosition(0, 0, 5);
 ```
 
 <p>Les lignes commençant par `//` sont des commentaires. Superpowers ne fait pas attention à ces lignes, elles ne sont là que pour expliquer comment tout fonctionne.</p>

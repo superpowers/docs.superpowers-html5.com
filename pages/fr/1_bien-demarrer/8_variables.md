@@ -95,5 +95,5 @@ let bigBonusActor = new Sup.Actor("Gros Bonus");
 // ... ici on rajoutait probablement un rendu de sprite ou de modèle ...
 
 // C'est un gros bonus, donc nous remplaçons la valeur de points par défaut avec 50.
-bigBonusActor.addBehavior(BonusBehavior, { points : 50 });
+bigBonusActor.addBehavior(BonusBehavior, { points: 50 });
 ```

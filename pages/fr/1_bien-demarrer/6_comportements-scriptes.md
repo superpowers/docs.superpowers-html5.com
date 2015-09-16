@@ -35,12 +35,12 @@ class CharacterBehavior extends Sup.Behavior {
   update() {
     if (Sup.Input.isKeyDown("LEFT")) {
       // Déplacer l'acteur du comportement actif sur l'axe X (en négatif)
-      this.actor.move(new Sup.Math.Vector3(-0.1, 0, 0));
+      this.actor.move(-0.1, 0, 0);
     }
 
     if (Sup.Input.isKeyDown("RIGHT")) {
       // La même chose, mais en positif, pour un déplacement vers la droite
-      this.actor.move(new Sup.Math.Vector3(0.1, 0, 0));
+      this.actor.move(0.1, 0, 0);
     }
   }
 
