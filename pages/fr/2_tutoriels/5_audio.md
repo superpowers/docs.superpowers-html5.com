@@ -1,6 +1,10 @@
 # Sons et musique
 
 <div class="note">
+  Cette page n'a pas encore été traduite. [Vous pouvez contribuer à sa traduction sur Bitbucket](https://bitbucket.org/superpowers/docs.sparklinlabs.com/src/tip/pages/fr/?at=default).
+</div>
+
+<div class="note">
   **Heads up!** `Sup.Audio.SoundInstance` was renamed to `Sup.Audio.SoundPlayer` in Superpowers v0.12, for clarity.
 </div>
 

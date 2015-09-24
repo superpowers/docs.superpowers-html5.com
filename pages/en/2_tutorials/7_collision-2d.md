@@ -11,7 +11,7 @@ The plugin adds a new type of component in the scene editor, offering two types 
 
 The `Box` body type lets you define a box with a specific size and offset.
 
-![](/images/collision-box.png)
+![](/images/2d-collision/collision-box.png)
 
 Make sure to untick `Movable` for props that should be static.
 
@@ -23,7 +23,7 @@ By default, any non-empty tile will collide with other bodies. You can set a pro
 
 You can also specify a comma-separated list of layer indices that should collide. For instance, you can set layer `0` as the collision layer and other layers will be ignored.
 
-![](/images/collision-map.png)
+![](/images/2d-collision/collision-map.png)
 
 ## Making things collide
 

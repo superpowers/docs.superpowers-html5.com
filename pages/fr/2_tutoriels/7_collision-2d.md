@@ -11,7 +11,7 @@ Le plugin ajoute un nouveau type de composant dans l'éditeur de scène qui vous
 
 Le corps de type `Box` définit une boite avec une taille spécifique et un éventuel décalage par rapport à l'origine de l'acteur.
 
-![](/images/collision-box.png)
+![](/images/2d-collision/collision-box.png)
 
 Assurez-vous de décocher `Movable` pour les éléments de décor qui devraient être statiques.
 
@@ -23,7 +23,7 @@ Par défaut, toute case (*tile*) non vide engendrera une collision avec d'autres
 
 Vous pouvez également spécifier une liste de calques, séparés par des virgules, devant entrer en collision. Par exemple, vous pouvez définir le calque `0` comme calque de collision, et les autres calques seront ignorés.
 
-![](/images/collision-map.png)
+![](/images/2d-collision/collision-map.png)
 
 ## Répondre aux collisions
 

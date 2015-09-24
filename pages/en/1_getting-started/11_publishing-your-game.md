@@ -2,7 +2,7 @@
 
 Superpowers comes with a one-click `Export Game` button, located right next to the `Debug` and `Run` buttons.
 
-!["Export game" button](/images/export-game-button.png)
+!["Export game" button](/images/publishing-your-game/export-game-button.png)
 
 <div class="note">
   <p>**Exporting is only available from the app**, not when accessing Superpowers through the browser,
