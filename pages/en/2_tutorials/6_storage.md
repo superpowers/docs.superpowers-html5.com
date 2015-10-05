@@ -3,6 +3,21 @@
 You can use `Sup.Storage.get` and `.set` to save and restore strings of data.  
 This data is saved locally to the player's disk.
 
+```
+// ... When the player chooses a name
+Sup.Storage.set("characterName", "Leonard");
+
+// ... When loading the game again later
+let characterName = Sup.Storage.get("characterName");
+```
+
+You can also pass a default value as a second parameter to `Sup.Storage.get`.
+It will be returned if no value was found for the requested key.
+
+```
+let characterName = Sup.Storage.get("characterName", "Unnamed");
+```
+
 Additionally, `Sup.Storage.clear` lets you clear all stored data for your game.
 
 <div class="note">
@@ -11,7 +26,24 @@ Additionally, `Sup.Storage.clear` lets you clear all stored data for your game.
 
 ## Storing more than strings
 
-To store and retrieve complex objects, you can (de)serialize them using `JSON.stringify` and `.parse`.
+To store and retrieve numbers, arrays or complex objects, you can use `Sup.Storage.setJSON` and `.getJSON`.  
+Internally, it will (de)serialize them using `JSON.stringify` and `.parse`.
+
+```
+let weapon = {
+  name: "Hand blender",
+  damage: 9001,
+  mode: "manual"
+};
+
+Sup.Storage.setJSON("weapon", weapon);
+
+// ... Later
+let weapon = Sup.Storage.getJSON("weapon");
+```
+
+Class information isn't saved, only the various properties. So for instance, if you store a `Sup.Math.Vector2` object,
+you'll only get back an object of type `{ x: number; y: number; }` and you'll need to rebuild a vector from it.
 
 ## Saving on exit
 
@@ -57,18 +89,11 @@ cameraActor.setLocalPosition(0, 0, 10);
 
 // Save character position on exit
 Sup.Input.on("exit", () => {
-  // Sup.Storage stores strings so we have to serialize as JSON to save our position
-  Sup.Storage.set("myCharacterPosition", JSON.stringify({ x: actor.getX(), y: actor.getY() }));
+  Sup.Storage.setJSON("myCharacterPosition", { x: actor.getX(), y: actor.getY() });
 });
 
 
 // Restore saved character position on load
-let savedPositionJSON = Sup.Storage.get("myCharacterPosition");
-
-if (savedPositionJSON != null) {
-  // Conversely, when loading, we need to deserialize
-  // from a JSON string to our x and y number values
-  let { x, y } = JSON.parse(savedPositionJSON);
-  actor.setPosition(x, y, 0);
-}
+let savedPosition = Sup.Storage.getJSON("myCharacterPosition", { x: 0, y: 0 });
+actor.setPosition(savedPosition.x, savedPosition.y, 0);
 ```

@@ -20,7 +20,7 @@ Métaphoriquement, votre jeu est comme un film dont vous êtes le metteur en sc�
 
 ```
 // Appelons notre premier acteur sur le plateau, il jouera le personnage principal
-let mainCharacterActor = new Sup.Actor("Main Character");
+let mainCharacterActor = new Sup.Actor("Personnage Principal");
 // Disons à notre acteur de mettre le costume (sprite) "Leonard"
 new Sup.SpriteRenderer(mainCharacterActor, "Leonard");
 
@@ -29,7 +29,7 @@ let cameraManActor = new Sup.Actor("Camera Man");
 // Donnons lui une caméra
 new Sup.Camera(cameraManActor);
 
-// Plaçons nos acteurs. Le personnage principal est au centre de la scène
+// Plaçons nos acteurs. Le personnage principal sera au centre de la scène
 mainCharacterActor.setPosition(0, 0, 0);
 
 // Le caméraman doit s'éloigner pour filmer l'acteur principal

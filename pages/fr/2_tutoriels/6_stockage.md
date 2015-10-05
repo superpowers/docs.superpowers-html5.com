@@ -3,6 +3,21 @@
 Vous pouvez utiliser `Sup.Storage.get` et `.set` pour sauvegarder et restaurer des chaînes de caractères de données.
 Ces données sont sauvegardées localement sur le disque du joueur.
 
+```
+// ... Quand le joueur choisit un nom
+Sup.Storage.set("characterName", "Leonard");
+
+// ... Quand il relance le jeu plus tard
+let characterName = Sup.Storage.get("characterName");
+```
+
+Vous pouvez aussi passer une valeur par défaut comme second paramètre à `Sup.Storage.get`.
+Elle sera retournée si aucune valeur stockée n'est trouvée pour la clé demandée.
+
+```
+let characterName = Sup.Storage.get("characterName", "Sans nom");
+```
+
 De plus, `Sup.Storage.clear` vous permet d'effacer toutes les données stockées pour votre jeu.
 
 <div class="note">
@@ -11,7 +26,24 @@ De plus, `Sup.Storage.clear` vous permet d'effacer toutes les données stockées
 
 ## Stocker plus que des chaînes de caractères
 
-Pour stocker ou récupérer des objets complexes, vous pouvez les (dé)sérialiser en utilisant `JSON.stringify` et `.parse`.
+Pour stocker ou récupérer des nombres, tableaux ou objets complexes, vous pouvez utiliser `Sup.Storage.setJSON` et `.getJSON`.
+En interne, ils seront (dé)sérialiser avec `JSON.stringify` et `.parse`.
+
+```
+let weapon = {
+  name: "Mélangeur à main",
+  damage: 9001,
+  mode: "manual"
+};
+
+Sup.Storage.setJSON("weapon", weapon);
+
+// ... Plus tard
+let weapon = Sup.Storage.getJSON("weapon");
+```
+
+La classe d'un objet n'est pas sauvegardée, seulement ses différentes propriétés. Si par exemple, vous stockez un objet `Sup.Math.Vector2`,
+vous recupérerez seulement un objet de type `{ x: number; y: number; }` et vous devrez recréer un vecteur à partir de celui-ci. 
 
 ## Sauvegarder en quittant
 
@@ -57,19 +89,11 @@ cameraActor.setLocalPosition(0, 0, 10);
 
 // Sauvegarder la position du personnage en quittant
 Sup.Input.on("exit", () => {
-  // Sup.Storage stocke des chaînes de caractères,
-  // donc nous devons sérialiser un JSON pour sauvegarder la position
-  Sup.Storage.set("myCharacterPosition", JSON.stringify({ x: actor.getX(), y: actor.getY() }));
+  Sup.Storage.setJSON("myCharacterPosition", { x: actor.getX(), y: actor.getY() });
 });
 
 
 // Restaurer la position du personnage au lancement
-let savedPositionJSON = Sup.Storage.get("myCharacterPosition");
-
-if (savedPositionJSON != null) {
-  // Inversement, au chargement, nous devons désérialiser
-  // une chaîne de caractères JSON en nos valeurs numériques x et y
-  let { x, y } = JSON.parse(savedPositionJSON);
-  actor.setPosition(x, y, 0);
-}
+let savedPosition = Sup.Storage.getJSON("myCharacterPosition", { x: 0, y: 0 });
+actor.setPosition(savedPosition.x, savedPosition.y, 0);
 ```
