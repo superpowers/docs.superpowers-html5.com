@@ -50,7 +50,7 @@ Instead, get the body's current velocity with `this.actor.arcadeBody2D.getVeloci
 </div>
 
 ```
-Sup.ArcadePhysics2D.setGravity(new Sup.Math.Vector3(0, -0.02, 0));
+Sup.ArcadePhysics2D.setGravity(0, -0.02);
 ```
 
 Pretty straightforward right?

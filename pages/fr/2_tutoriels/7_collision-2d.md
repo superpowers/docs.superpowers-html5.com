@@ -50,7 +50,7 @@ Au lieu de cela, récupérez la vélocité de votre corps avec `this.actor.arcad
 </div>
 
 ```
-Sup.ArcadePhysics2D.setGravity(new Sup.Math.Vector3(0, -0.02, 0));
+Sup.ArcadePhysics2D.setGravity(0, -0.02);
 ```
 
 Assez simple, non ?
