@@ -25,6 +25,10 @@ You can also specify a comma-separated list of layer indices that should collide
 
 ![](/images/2d-collision/collision-map.png)
 
+<div class="note">
+  The scale of the actor isn't taken into account. You should leave it to 1 and use the pixels / unit setting on the map instead.
+</div>
+
 ## Making things collide
 
 In order for your character to collide with the environment, you should put the following code in the update of a behavior attached to it:
