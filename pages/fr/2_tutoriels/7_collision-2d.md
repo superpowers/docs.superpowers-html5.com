@@ -25,6 +25,10 @@ Vous pouvez également spécifier une liste de calques, séparés par des virgul
 
 ![](/images/2d-collision/collision-map.png)
 
+<div class="note">
+  L'échelle de l'acteur n'est pas pris en compte. Vous devriez laisser l'échelle à 1 et utiliser le réglage `Pixels / unit` sur le tile map.
+</div>
+
 ## Répondre aux collisions
 
 Pour que votre personnage puisse entrer en collision avec l'environnement, placez le code suivant dans la fonction `update` d'un comportement attaché à votre acteur :
