@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "express": "^4.12.3",
+    "express-expose": "^0.3.4",
     "highlight.js": "^8.4.0",
     "jade": "^1.9.2",
     "marked": "^0.3.3",
@@ -13,6 +14,6 @@
     "stylus": "^0.50.0"
   },
   "devDependencies": {
-    "typescript": "1.5.0-alpha"
+    "typescript": "1.6.2"
   }
 }

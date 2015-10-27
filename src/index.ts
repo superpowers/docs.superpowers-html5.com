@@ -3,12 +3,14 @@
 import * as path from "path";
 import * as fs from "fs";
 import * as express from "express";
+let expose = require("express-expose"); // import * as expose from "express-expose";
 let stylus = require("stylus"); // import * as stylus from "stylus";
 let nib = require("nib"); // import * as nib from "nib";
 import * as marked from "marked";
 let highlight = require("highlight.js"); // import * as highlight from "highlight.js";
 
-let app = express();
+
+let app: express.Express = expose(express());
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "jade");
 
@@ -30,8 +32,9 @@ interface PageDesc {
   title: string;
 }
 
-let pages: { [language: string]: { [categoryName: string]: Category } } = null;
-let pageContents: { [language: string]: { [categoryName: string]: { [pageName: string]: string } } } = null;
+let languages: { [languageCode: string]: string } = null;
+let pages: { [languageCode: string]: { [categoryName: string]: Category } } = null;
+let pageContents: { [languageCode: string]: { [categoryName: string]: { [pageName: string]: string } } } = null;
 
 app.get("/", (req, res) => {
   let firstCategoryName = Object.keys(pages["en"])[0];
@@ -40,28 +43,35 @@ app.get("/", (req, res) => {
 });
 app.use(express.static(`${__dirname}/../public`));
 
-app.get("/:language", (req, res) => {
+app.get("/:languageCode", (req, res) => {
   if (process.env.NODE_ENV !== "production") readMD();
 
-  let languagePages = pages[req.params.language];
+  let languagePages = pages[req.params.languageCode];
   if (languagePages == null) { res.status(404).render("404", { language: "en", pages: pages["en"] }); return; }
 
   let firstCategoryName = Object.keys(languagePages)[0];
   let firstCategory = languagePages[firstCategoryName];
 
-  res.redirect(`/${req.params.language}/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
+  res.redirect(`/${req.params.languageCode}/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
 });
 
-app.get("/:language/:categoryName/:pageName", (req, res) => {
+app.get("/:languageCode/:categoryName/:pageName", (req, res) => {
   if (process.env.NODE_ENV !== "production") readMD();
 
-  let activeCategory = (pages[req.params.language] != null) ? pages[req.params.language][req.params.categoryName] : null;
+  let activePages = pages[req.params.languageCode];
+
+  let activeCategory = (pages[req.params.languageCode] != null) ? activePages[req.params.categoryName] : null;
   let activePage = (activeCategory != null) ? activeCategory.pages[req.params.pageName] : null;
-  if (activePage == null) { res.status(404).render("404", { language: req.params.language, pages: pages[req.params.language] }); return; }
+  if (activePage == null) { res.status(404).render("404", { language: req.params.languageCode, pages: activePages }); return; }
 
-  let pageContent = pageContents[req.params.language][req.params.categoryName][req.params.pageName];
+  let pageContent = pageContents[req.params.languageCode][req.params.categoryName][req.params.pageName];
 
-  res.render("page", { language: req.params.language, activeCategory, activePage, pageContent, pages: pages[req.params.language] });
+  (<any>res).expose({
+    pages: pages,
+    categoryIndex: Object.keys(activePages).indexOf(req.params.categoryName),
+    pageIndex: Object.keys(activeCategory.pages).indexOf(req.params.pageName)
+  });
+  res.render("page", { activeLanguageCode: req.params.languageCode, activeCategory, activePage, pageContent, pages, languages });
 });
 
 app.use((req, res, next) => {
@@ -71,35 +81,41 @@ app.use((req, res, next) => {
 marked.setOptions({ highlight: (code) => { return highlight.highlight("typescript", code).value; } });
 
 function readMD() {
-  let languages = fs.readdirSync(`${__dirname}/../pages`);
+  let languageCodes = fs.readdirSync(`${__dirname}/../pages`);
 
+  languages = {};
   pages = {};
   pageContents = {};
 
-  for (let language of languages) {
-    let categoryFolders = fs.readdirSync(`${__dirname}/../pages/${language}`);
+  for (let languageCode of languageCodes) {
+    let language = fs.readFileSync(`${__dirname}/../pages/${languageCode}/index.md`, { encoding: "utf8" });
+    language = language.substring(2, language.indexOf("\n"));
+    languages[languageCode] = language;
+
+    let categoryFolders = fs.readdirSync(`${__dirname}/../pages/${languageCode}`);
+    categoryFolders = categoryFolders.filter((x) => x.indexOf(".") === -1);
     categoryFolders.sort((a, b) => parseInt(a.split("_")[0]) - parseInt(b.split("_")[0]));
 
-    pages[language] = {};
-    pageContents[language] = {};
+    pages[languageCode] = {};
+    pageContents[languageCode] = {};
 
     for (let categoryFolder of categoryFolders) {
       let categoryName = categoryFolder.split(".", 2)[0].split("_", 2)[1];
-      let category: Category = pages[language][categoryName] = { title: categoryName, name: categoryName, pages: {} };
-      pageContents[language][categoryName] = {};
+      let category: Category = pages[languageCode][categoryName] = { title: categoryName, name: categoryName, pages: {} };
+      pageContents[languageCode][categoryName] = {};
 
-      let pageFilenames = fs.readdirSync(`${__dirname}/../pages/${language}/${categoryFolder}`);
+      let pageFilenames = fs.readdirSync(`${__dirname}/../pages/${languageCode}/${categoryFolder}`);
       pageFilenames.sort((a, b) => parseInt(a.split("_")[0]) - parseInt(b.split("_")[0]));
       for (let pageFilename of pageFilenames) {
         let pageName = pageFilename.split(".", 2)[0].split("_", 2)[1];
 
-        let pageContentMD = fs.readFileSync(`${__dirname}/../pages/${language}/${categoryFolder}/${pageFilename}`, { encoding: "utf8" });
+        let pageContentMD = fs.readFileSync(`${__dirname}/../pages/${languageCode}/${categoryFolder}/${pageFilename}`, { encoding: "utf8" });
         let pageTitle = pageContentMD.substring(2, pageContentMD.indexOf("\n"));
 
         if (pageFilename === "index.md") {
           category.title = pageTitle;
         } else {
-          pageContents[language][categoryName][pageName] = marked(pageContentMD);
+          pageContents[languageCode][categoryName][pageName] = marked(pageContentMD);
           category.pages[pageName] = { name: pageName, title: pageTitle };
         }
       }

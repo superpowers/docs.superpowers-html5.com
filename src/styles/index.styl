@@ -33,22 +33,36 @@ nav
   background #ddd
   bottom 0
 
-  ol
+  display flex
+  flex-flow column
+
+  .language
+    margin 0.5em
+
+  .language select
+    padding 0.25em
+    width 100%
+
+  .menu
+    flex 1
+    overflow-y auto
+
+  .menu ol
     list-style none
     margin 0
     padding 0
 
-  li
+  .menu li
     padding 0
     margin 0
 
-  > ol > li
+  .menu > ol > li
     text-transform uppercase
     color #666
     background #ccc
     padding 0.25em 0.5em
 
-  > ol ol
+  .menu > ol ol
     padding 0.5em
 
   a

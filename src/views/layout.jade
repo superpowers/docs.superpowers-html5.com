@@ -8,16 +8,21 @@ html
     link(rel="stylesheet",href="/styles/highlight.css")
   body
     nav
-      ol
-        for category in pages
-          - var isCategoryActive = activeCategory != null && category.name == activeCategory.name
-          li= category.title
-          ol
-            for page in category.pages
-              - var isActive = isCategoryActive && page.name == activePage.name
-              li
-                a(href="/#{language}/#{category.name}/#{page.name}",class= isActive ? 'active' : '')= page.title
-
+      .menu
+        ol
+          each category in pages[activeLanguageCode]
+            - var isCategoryActive = activeCategory != null && category.name == activeCategory.name
+            li= category.title
+            ol
+              each page in category.pages
+                - var isActive = isCategoryActive && page.name == activePage.name
+                li
+                  a(href="/#{activeLanguageCode}/#{category.name}/#{page.name}",class= isActive ? 'active' : '')= page.title
+      .language
+        select
+          each language, languageCode in languages
+            - var isLanguageActive = activeLanguageCode == languageCode
+            option(value=languageCode,selected=isLanguageActive)= language
     main
       header
         a(href="https://sparklinlabs.com/")
@@ -26,3 +31,15 @@ html
 
       .page
         block content
+    script!= javascript
+    script.
+      var languageSelector = document.querySelector(".language select");
+      languageSelector.addEventListener("change", function(event) {
+        
+        var activePages = app.pages[languageSelector.value];
+        var activeCategoryName = Object.keys(activePages)[app.categoryIndex];
+        var activeCategoryPages = activePages[Object.keys(activePages)[app.categoryIndex]].pages;
+        var activePageName = Object.keys(activeCategoryPages)[app.pageIndex];
+        
+        window.location.href = "/" + languageSelector.value + "/" + activeCategoryName + "/" + activePageName;
+      });
