@@ -47,7 +47,7 @@ app.get("/:languageCode", (req, res) => {
   if (process.env.NODE_ENV !== "production") readMD();
 
   let languagePages = pages[req.params.languageCode];
-  if (languagePages == null) { res.status(404).render("404", { language: "en", pages: pages["en"] }); return; }
+  if (languagePages == null) { res.status(404).render("404", { activeLanguageCode: "en", pages, languages }); return; }
 
   let firstCategoryName = Object.keys(languagePages)[0];
   let firstCategory = languagePages[firstCategoryName];
@@ -60,9 +60,9 @@ app.get("/:languageCode/:categoryName/:pageName", (req, res) => {
 
   let activePages = pages[req.params.languageCode];
 
-  let activeCategory = (pages[req.params.languageCode] != null) ? activePages[req.params.categoryName] : null;
+  let activeCategory = (activePages != null) ? activePages[req.params.categoryName] : null;
   let activePage = (activeCategory != null) ? activeCategory.pages[req.params.pageName] : null;
-  if (activePage == null) { res.status(404).render("404", { language: req.params.languageCode, pages: activePages }); return; }
+  if (activePage == null) { res.status(404).render("404", { activeLanguageCode: activePages != null ? req.params.languageCode : "en", pages, languages }); return; }
 
   let pageContent = pageContents[req.params.languageCode][req.params.categoryName][req.params.pageName];
 
@@ -75,7 +75,14 @@ app.get("/:languageCode/:categoryName/:pageName", (req, res) => {
 });
 
 app.use((req, res, next) => {
-  res.status(404).render("404", { language: "en", pages: pages["en"] });
+  let languageCode = req.path.split("/")[1];
+  if (pages[languageCode] == null) languageCode = "en";
+  let pageContent = pageContents[languageCode]["misc"]["404"];
+
+  // Terrible hack for grabbing the page title, woops
+  let activePage = { name: "404", title: pageContent.substring(pageContent.indexOf(">") + 1, pageContent.indexOf("\n") - 5) };
+
+  res.status(404).render("page", { activeLanguageCode: languageCode, activePage, pageContent, pages, languages });
 });
 
 marked.setOptions({ highlight: (code) => { return highlight.highlight("typescript", code).value; } });
@@ -97,7 +104,11 @@ function readMD() {
     categoryFolders.sort((a, b) => parseInt(a.split("_")[0]) - parseInt(b.split("_")[0]));
 
     pages[languageCode] = {};
-    pageContents[languageCode] = {};
+    pageContents[languageCode] = {
+      misc: {
+        "404": marked(fs.readFileSync(`${__dirname}/../pages/${languageCode}/404.md`, { encoding: "utf8" }))
+      }
+    };
 
     for (let categoryFolder of categoryFolders) {
       let categoryName = categoryFolder.split(".", 2)[0].split("_", 2)[1];
