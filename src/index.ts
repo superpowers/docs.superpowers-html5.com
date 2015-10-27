@@ -43,11 +43,11 @@ app.get("/", (req, res) => {
 });
 app.use(express.static(`${__dirname}/../public`));
 
-app.get("/:languageCode", (req, res) => {
+app.get("/:languageCode", (req, res, next) => {
   if (process.env.NODE_ENV !== "production") readMD();
 
   let languagePages = pages[req.params.languageCode];
-  if (languagePages == null) { res.status(404).render("404", { activeLanguageCode: "en", pages, languages }); return; }
+  if (languagePages == null) { next(); return; }
 
   let firstCategoryName = Object.keys(languagePages)[0];
   let firstCategory = languagePages[firstCategoryName];
@@ -55,14 +55,14 @@ app.get("/:languageCode", (req, res) => {
   res.redirect(`/${req.params.languageCode}/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
 });
 
-app.get("/:languageCode/:categoryName/:pageName", (req, res) => {
+app.get("/:languageCode/:categoryName/:pageName", (req, res, next) => {
   if (process.env.NODE_ENV !== "production") readMD();
 
   let activePages = pages[req.params.languageCode];
 
   let activeCategory = (activePages != null) ? activePages[req.params.categoryName] : null;
   let activePage = (activeCategory != null) ? activeCategory.pages[req.params.pageName] : null;
-  if (activePage == null) { res.status(404).render("404", { activeLanguageCode: activePages != null ? req.params.languageCode : "en", pages, languages }); return; }
+  if (activePage == null) { next(); return; }
 
   let pageContent = pageContents[req.params.languageCode][req.params.categoryName][req.params.pageName];
 
