@@ -2,7 +2,7 @@
   "name": "superpowers-docs",
   "version": "1.0.0",
   "scripts": {
-    "build": "cd src && tsc"
+    "build": "tsc -p src"
   },
   "dependencies": {
     "express": "^4.12.3",

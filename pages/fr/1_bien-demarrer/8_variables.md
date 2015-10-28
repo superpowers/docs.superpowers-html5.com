@@ -14,7 +14,7 @@ Quand un événement a lieu, vous pouvez incrémenter la valeur :
 ```
 // ... Quand le joueur atteint la sortie ...
 currentLevel++;
-Sup.loadScene("Level" + currentLevel);
+Sup.loadScene(`Level ${currentLevel}`);
 ```
 
 Quand vous déclarez une variable dans une fonction, elle n'existe que pendant que cette fonction s'exécute :
@@ -33,7 +33,6 @@ De même, si une variable déclarée dans une fonction existe seulement pendant 
 
 ```
 class MyClass {
-
 	doSomething() {
     let i = 0;
   }
