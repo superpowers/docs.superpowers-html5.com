@@ -93,8 +93,160 @@ Sup.registerBehavior(PlayerBehavior);
 
 `.getTouches()` returns contact information for each side of the box body. We use it to ensure the player is on the ground before letting them jump.
 
+## Making it look nice
+
+To make it look better, we will support some animations and flip the player depending on the movement direction.
+
+```
+class PlayerBehavior extends Sup.Behavior {
+  speed = 0.3;
+  jumpSpeed = 0.45;
+
+  update() {
+    Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
+
+    // As explained above, we get the current velocity
+    let velocity = this.actor.arcadeBody2D.getVelocity();
+
+    // We override the `.x` component based on the player's input
+    if (Sup.Input.isKeyDown("LEFT")) {
+      velocity.x = -this.speed;
+      // When going left, we have to flip the sprite
+      this.actor.spriteRenderer.setHorizontalFlip(true);
+    } else if (Sup.Input.isKeyDown("RIGHT")) {
+      velocity.x = this.speed;
+      // When going right, we cancel the flip
+      this.actor.spriteRenderer.setHorizontalFlip(false);
+    } else velocity.x = 0;
+
+    // If the player is on the ground and wants to jump,
+    // we update the `.y` component accordingly
+    let touchBottom = this.actor.arcadeBody2D.getTouches().bottom;
+    if (touchBottom) {
+      if (Sup.Input.wasKeyJustPressed("UP")) {
+        velocity.y = this.jumpSpeed;
+        this.actor.spriteRenderer.setAnimation("Jump");
+      } else {
+        // There we should play either 'Idle' or 'Run' depending on the horizontal speed
+        if (velocity.x === 0) this.actor.spriteRenderer.setAnimation("Idle");
+        else this.actor.spriteRenderer.setAnimation("Run");
+      }
+    } else {
+      // There we should play either 'Jump' or 'Fall' depending on the vertical speed
+      if (velocity.y >= 0) this.actor.spriteRenderer.setAnimation("Jump");
+      else this.actor.spriteRenderer.setAnimation("Fall");
+    }
+
+    // Finally, we apply the velocity back to the ArcadePhysics body
+    this.actor.arcadeBody2D.setVelocity(velocity);
+  }
+}
+Sup.registerBehavior(PlayerBehavior);
+```
+
+There we use the methods `.setHorizontalFlip` and `.setAnimation` on the sprite renderer.
+
+The animation is choosed based on the velocity of the player and whether we are touching the ground or not.
+
+## Going further
+
+One thing you probably want to add now is one-way platforms.
+To do so, we will start by making two groups of actors in the scene.
+
+![](/images/2d-collision/scene.png)
+
+We have the group of solids bodies, containing the map and the T-Rex and we have the group of platforms.
+
+Now here is what the code looks like.
+```
+Sup.ArcadePhysics2D.setGravity(0, -0.02);
+
+class PlayerBehavior extends Sup.Behavior {
+  speed = 0.3;
+  jumpSpeed = 0.45;
+
+  solidBodies: Sup.ArcadePhysics2D.Body[] = [];
+  platformBodies: Sup.ArcadePhysics2D.Body[] = [];
+
+  awake() {
+    // We get and store all the bodies in two lists
+    let solidActors = Sup.getActor("Solids").getChildren();
+    for (let solidActor of solidActors) this.solidBodies.push(solidActor.arcadeBody2D);
+    let platformActors = Sup.getActor("Platforms").getChildren();
+    for (let platformActor of platformActors) this.platformBodies.push(platformActor.arcadeBody2D);
+  }
+
+  update() {
+    // First, we do the check with solid bodies
+    Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, this.solidBodies);
+    let touchSolids = this.actor.arcadeBody2D.getTouches().bottom;
+    let velocity = this.actor.arcadeBody2D.getVelocity();
+
+    // When falling, we do the check with one-way platforms
+    let touchPlatforms = false;
+    if (velocity.y < 0) {
+      let position = this.actor.getLocalPosition();
+      // We must change the size of the player body so only the feet are checked
+      // To do so, we reduce the height of the body and adapt the offset
+      this.actor.arcadeBody2D.setSize(1.5, 0.4);
+      this.actor.arcadeBody2D.setOffset({ x: 0, y: 0.2 });
+      // Then we override the body position using the current actor position
+      this.actor.arcadeBody2D.warpPosition(position);
+
+      // Now, we can do check with every platform
+      for (let platformBody of this.platformBodies) {
+        Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, platformBody);
+        if (this.actor.arcadeBody2D.getTouches().bottom) {
+          touchPlatforms = true;
+          velocity.y = 0;
+          break;
+        }
+      }
+
+      // After the check, we have to reset the body to its normal size
+      position = this.actor.getLocalPosition();
+      this.actor.arcadeBody2D.setSize(1.5, 1.8);
+      this.actor.arcadeBody2D.setOffset({ x: 0, y: 0.9 });
+      this.actor.arcadeBody2D.warpPosition(position);
+    }
+
+    // We override the `.x` component based on the player's input
+    if (Sup.Input.isKeyDown("LEFT")) {
+      velocity.x = -this.speed;
+      // When going left, we have to flip the sprite
+      this.actor.spriteRenderer.setHorizontalFlip(true);
+    } else if (Sup.Input.isKeyDown("RIGHT")) {
+      velocity.x = this.speed;
+      // When going right, we cancel the flip
+      this.actor.spriteRenderer.setHorizontalFlip(false);
+    } else velocity.x = 0;
+
+    // If the player is on the ground and wants to jump,
+    // we update the `.y` component accordingly
+    let touchBottom = touchSolids || touchPlatforms;
+    if (touchBottom) {
+      if (Sup.Input.wasKeyJustPressed("UP")) {
+        velocity.y = this.jumpSpeed;
+        this.actor.spriteRenderer.setAnimation("Jump");
+      } else {
+        // There, we should play either 'Idle' or 'Run' depending on the horizontal speed
+        if (velocity.x === 0) this.actor.spriteRenderer.setAnimation("Idle");
+        else this.actor.spriteRenderer.setAnimation("Run");
+      }
+    } else {
+      // There, we should play either 'Jump' or 'Fall' depending on the vertical speed
+      if (velocity.y >= 0) this.actor.spriteRenderer.setAnimation("Jump");
+      else this.actor.spriteRenderer.setAnimation("Fall");
+    }
+
+    // Finally, we apply the velocity back to the ArcadePhysics body
+    this.actor.arcadeBody2D.setVelocity(velocity);
+  }
+}
+Sup.registerBehavior(PlayerBehavior);
+```
+
 You can [download the demo project](https://bitbucket.org/sparklinlabs/superpowers-collision-demo) and try it out!
-It features an improved version of the behavior that handles animation and orientation of the player as well.
 
 ![](http://i.imgur.com/v4tWyIN.gif)
 
