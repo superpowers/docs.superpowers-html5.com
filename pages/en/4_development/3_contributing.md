@@ -6,3 +6,7 @@ We're not quite ready to start accepting pull requests for Superpowers.
 We're currently stabilizing the core of the project and will be open sourcing in the next few months.
 
 You're still welcome to share your patches with the community if you fixed something in your local copy of Superpowers!
+
+## Documentation and translation
+
+You can submit [documentation fixes, improvements or contribute to translations](https://bitbucket.org/superpowers/docs.sparklinlabs.com/src/tip/pages/en/?at=default).
