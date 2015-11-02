@@ -25,7 +25,7 @@ Les instructions suivantes partent du principe que vous utilisez Blender, mais l
   Depuis le menu `File`, sélectionnez `Export > Collada (Default) (.dae)`.<br>
   Cochez la case `Triangulate`.
 
-  <p>Glissez-déposez le fichier `.dae` résultant sur l'exécutable du [convertisseur COLLADA2glTF](https://github.com/KhronosGroup/glTF/wiki/Converter-builds).<br>
+  <p>Glissez-déposez le fichier `.dae` résultant sur l'exécutable du [convertisseur COLLADA2glTF](https://github.com/KhronosGroup/glTF/releases).<br>
   Vous obtiendrez plusieurs fichiers, nous aurons seulement besoin du `.gltf` et du `.bin`.
 
   <p>Répétez le processus pour chaque action que vous souhaitez exporter, en activant l'action auparavant.
