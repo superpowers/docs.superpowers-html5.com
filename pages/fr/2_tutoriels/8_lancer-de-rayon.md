@@ -1,9 +1,5 @@
 # Rayons et sélection à la souris
 
-<div class="note">
-  Cette page n'a pas encore été traduite. [Vous pouvez contribuer à sa traduction sur Bitbucket](https://bitbucket.org/superpowers/docs.sparklinlabs.com/src/tip/pages/fr/?at=default).
-</div>
-
 Le lancer de rayon permet de détecter les intersections entre un rayon et des objets géométriques.
 On peut l'utiliser pour vérifier si une balle à toucher un joueur ou si la souris survole un bouton, par exemple.
 
@@ -12,32 +8,32 @@ On peut l'utiliser pour vérifier si une balle à toucher un joueur ou si la sou
 ```
 let ray = new Sup.Math.Ray();
 
-// You can choose an origin and direction
+// Vous pouvez définir l'origine et la destination
 ray.setOrigin(0, 1, 2);
 ray.setDirection(0, 0, 1);
 
-// Or you can set it up from a camera and mouse position
+// Ou vous pouvez le définir en fonction de la position de la souris par rapport à une caméra
 ray.setFromCamera(someCameraComponent, Sup.Input.getMousePosition());
 ```
 
-## Checking for intersection with actors
+## Vérification de l'intersection avec des acteurs
 
 ```
-let hits = ray.intersectActors([ /* a list of actors */ ]);
+let hits = ray.intersectActors([ /* une liste d'acteurs */ ]);
 
-// The hits are sorted by distance from closest to farthest
+// les intersections sont triés par distance, de la plus courte à la plus longue
 for (let hit of hits) {
-  Sup.log(`Actor ${hit.actor.getName()} was hit by ray at ${hit.distance}`);
-  // The `hit` object also has the point coordinates and normal of the hit
+  Sup.log(`L'acteur ${hit.actor.getName()} a été frappé par le rayon à ${hit.distance}`);
+  // L'objet `hit` contient également les coordonées du point ainsi que la normale
 }
 ```
-## Checking for intersection with a plane
+## Vérification de l'intersection avec un plan
 
 ```
-// A plane can be set with a normal and distance from that normal
-// (Alternatively, you could use `plane.setFromPoint(normal, point);`)
+// Un plan peut être défini avec une normale et la distance à partir ce celle-ci
+// (Sinon, vous pouvez utiliser `plane.setFromPoint(normal, point);`)
 let plane = new Sup.Math.Plane(Sup.Math.Vector3.forward(), 10);
 
 let hit = ray.intersectPlane(plane);
-if (hit != null) Sup.log(`The ray hit the plane at ${hit.point}`);
+if (hit != null) Sup.log(`Le rayon a frappé le plan à ${hit.point}`);
 ```
