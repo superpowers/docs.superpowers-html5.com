@@ -33,6 +33,6 @@ Lorsque vous partagez du code, ne partagez pas qu'une seule ligne, fournissez su
 
 ## Endroits où demander de l'aide
 
-[Le forum Superpowers sur Reddit](https://reddit.com/r/superpowers) est le meilleur endroit pour demander de l'aide (ainsi que pour partager vos projets, bugs ou suggestions !). Alternativement, vous pouvez utiliser [le groupe Skype](https://sparklinlabs.com/skype/fr) si vous pensez que l'aide en temps réel est plus adaptée.
+[Le forum Superpowers sur Reddit](https://reddit.com/r/superpowers_fr) est le meilleur endroit pour demander de l'aide (ainsi que pour partager vos projets, bugs ou suggestions !). Alternativement, vous pouvez utiliser [le groupe Skype](https://sparklinlabs.com/skype/fr) si vous pensez que l'aide en temps réel est plus adaptée.
 
 Oh, et quand vous faites un truc cool, partagez-le avec <a href="https://twitter.com/SuperpowersDev" target="_blank">@SuperpowersDev</a> sur Twitter, nous serons heureux de vous retweeter !
