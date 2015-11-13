@@ -7,7 +7,7 @@ Par défaut, votre serveur n'accepte que les connexions venant de votre ordinate
 </div>
 
 <div class="note">
-  <p>**Vous aurez probablement besoin de <a href="https://www.google.com/search?q=configurer%20la%redirectionM20de%20port" target="_blank">configurer votre box</a>** et/ou pare-feu pour autoriser (ou faire suivre) les connexions TCP sur les numéros de port utilisés par votre serveur (4237 et 4238 par défaut).
+  <p>**Vous aurez probablement besoin de <a href="https://www.google.com/search?q=configurer%20la%20redirection%20de%20port" target="_blank">configurer votre box</a>** et/ou pare-feu pour autoriser (ou faire suivre) les connexions TCP sur les numéros de port utilisés par votre serveur (4237 et 4238 par défaut).
 </div>
 
 Une fois que votre serveur est ouvert, <a href="https://www.google.fr/search?q=mon%20ip" target="_blank">récuperez votre adresse IP publique</a> et vous pourrez envoyer un lien sous la forme : `ip:port` aux personnes qui veulent travailler avec vous (par exemple `1.2.3.4:4237`). Ils peuvent coller le lien dans la barre d'adresse de leur navigateur pour vous rejoindre sans rien installer ou ils peuvent l'ajouter à leur liste de serveurs dans le lanceur.
