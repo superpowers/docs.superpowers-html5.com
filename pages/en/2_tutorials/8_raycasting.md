@@ -27,6 +27,7 @@ for (let hit of hits) {
   // The `hit` object also has the point coordinates and normal of the hit
 }
 ```
+
 ## Checking for intersection with a plane
 
 ```

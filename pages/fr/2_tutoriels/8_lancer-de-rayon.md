@@ -3,7 +3,7 @@
 Le lancer de rayon permet de détecter les intersections entre un rayon et des objets géométriques.
 On peut l'utiliser pour vérifier si une balle à toucher un joueur ou si la souris survole un bouton, par exemple.
 
-## Setting up a ray
+## Préparer un rayon
 
 ```
 let ray = new Sup.Math.Ray();
@@ -16,24 +16,25 @@ ray.setDirection(0, 0, 1);
 ray.setFromCamera(someCameraComponent, Sup.Input.getMousePosition());
 ```
 
-## Vérification de l'intersection avec des acteurs
+## Intersection avec des acteurs
 
 ```
 let hits = ray.intersectActors([ /* une liste d'acteurs */ ]);
 
-// les intersections sont triés par distance, de la plus courte à la plus longue
+// Les intersections sont triées par distance, de la plus courte à la plus longue
 for (let hit of hits) {
   Sup.log(`L'acteur ${hit.actor.getName()} a été frappé par le rayon à ${hit.distance}`);
-  // L'objet `hit` contient également les coordonées du point ainsi que la normale
+  // L'objet `hit` contient également les coordonnées du point ainsi que la normale
 }
 ```
-## Vérification de l'intersection avec un plan
+
+## Intersection avec un plan
 
 ```
-// Un plan peut être défini avec une normale et la distance à partir ce celle-ci
+// Un plan peut être défini avec une normale et la distance à partir de celle-ci
 // (Sinon, vous pouvez utiliser `plane.setFromPoint(normal, point);`)
 let plane = new Sup.Math.Plane(Sup.Math.Vector3.forward(), 10);
 
 let hit = ray.intersectPlane(plane);
-if (hit != null) Sup.log(`Le rayon a frappé le plan à ${hit.point}`);
+if (hit != null) Sup.log(`Le rayon a frappé le plan en ${hit.point}`);
 ```
