@@ -1,7 +1,7 @@
 # Sons et musique
 
 <div class="note">
-  **A noter !** Pour plus de clareté, `Sup.Audio.SoundInstance` a été renommé en `Sup.Audio.SoundPlayer` dans Superpowers v0.12.
+  **A noter !** Pour plus de clarté, `Sup.Audio.SoundInstance` a été renommé en `Sup.Audio.SoundPlayer` dans Superpowers v0.12.
 </div>
 
 ## Jouer un effet sonore
@@ -40,7 +40,7 @@ sfxPlayer.setVolume(0.8);
 sfxPlayer.play();
 ```
 
-## Répéter un musique en fond (ou une mitraillette...)
+## Répéter une musique en fond (ou une mitraillette...)
 
 Pour répéter un effet sonore ou une musique, vous devrez garder une référence au lecteur audio
 de sorte à pouvoir arrêter la lecture plus tard.
