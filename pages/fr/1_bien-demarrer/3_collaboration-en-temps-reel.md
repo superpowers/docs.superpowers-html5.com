@@ -23,7 +23,7 @@ Une fois que votre serveur est ouvert, <a href="https://www.google.fr/search?q=m
 Il peut être utile de lancer Superpowers sur un serveur sans interface graphique pour ne pas avoir besoin de garder allumé votre ordinateur de bureau tout le temps.  
 Les instructions suivantes devraient fonctionner avec la plupart des serveurs Linux, y compris sur un Raspberry Pi.
 
-  * Installez <a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager" target="_blank">node.js v0.12.x</a> ou <a href="https://iojs.org/" target="_blank">io.js v1.x</a>.
+  * Installez <a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager" target="_blank">node.js v4.x</a>.
   * Téléchargez la dernière version de Superpowers pour Linux et décompressez-la avec `unzip`. Vous pouvez supprimer tous les fichiers à la racine du dossier à l'exception du dossier `app`.
   * Utilisez `cd` pour naviguer à la racine du dossier Superpowers.
   * Lancez `node app/server`.

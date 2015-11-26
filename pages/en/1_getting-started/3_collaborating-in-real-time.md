@@ -23,7 +23,7 @@ Once your server is open, <a href="https://www.google.com/search?q=my%20ip" targ
 It might be useful to run Superpowers on a headless server so that you don't have to keep your desktop computer on at all times.  
 This should work on any Linux server including a Raspberry Pi.
 
-  * Install <a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager" target="_blank">node.js v0.12.x</a> or <a href="https://iojs.org/" target="_blank">io.js v1.x</a>.
+  * Install <a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager" target="_blank">node.js v4.x</a>.
   * Download the latest Superpowers release for Linux and `unzip` it. You can get rid of all files at the root except the `app` folder.
   * Use `cd` to navigate at the root of the Superpowers folder.
   * Run `node app/server`.
