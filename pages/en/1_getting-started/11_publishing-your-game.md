@@ -97,10 +97,10 @@ Read on to see where to put those two files.
   <p>Unpack the Electron ZIP archive and rename the folder to something like `my-game-linux-x64`.
 
   <ul>
-    <li>Remove `locales/` and `version`, we don't need those
-    <li>Put a copy of your exported game folder in `resources/`, renaming it `app/`
+    <li>Remove `locales` and `version`, we don't need those
+    <li>Put a copy of your exported game folder in `resources`, renaming it `app`
     <li>Rename `electron` to something like `My Game`. This is the executable players will click on
-    <li>Create `package.json` and `main.js`, as detailed above, in `resources/app/`
+    <li>Create `package.json` and `main.js`, as detailed above, in `resources/app`
   </ul>
 
   <p>That's it, pack it all up into a ZIP archive and upload.
