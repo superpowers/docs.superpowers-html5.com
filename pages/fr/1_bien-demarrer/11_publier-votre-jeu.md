@@ -11,7 +11,8 @@ Superpowers inclut un bouton `Export Game`, situé juste à côté des boutons `
 
 ## Publier votre jeu sur le Web
 
-Vous pouvez mettre en ligne le dossier exporté sur n'importe quel hébergeur Web, ou le compresser et l'héberger en tant qu'application HTML5 sur un portail de jeu en ligne, tel qu'<a href="http://itch.io/" target="_blank">itch.io</a> ou <a href="http://gamejolt.com" target="_blank">Game Jolt</a>.
+Vous pouvez mettre en ligne le dossier exporté sur n'importe quel hébergeur Web, ou le compresser et l'héberger en tant qu'application HTML5 sur un portail de jeu en ligne,
+tel qu'<a href="http://itch.io/" target="_blank">itch.io</a> ou <a href="http://gamejolt.com" target="_blank">Game Jolt</a>.
 
 ## Publier votre jeu sur PC
 
@@ -23,80 +24,101 @@ Vous pouvez mettre en ligne le dossier exporté sur n'importe quel hébergeur We
   <p>Nous espérons automatiser la préparation des paquets pour chaque plateforme dans une version future.
 </div>
 
-Si vous souhaitez proposer en téléchargement une version exécutable de votre jeu, vous pouvez utiliser NW.js. NW.js est simplement une version retravaillée du moteur de Chrome pour lancer des applications et jeux HTML5 autonomes, en lieu et place d'un navigateur complet.
+Si vous souhaitez proposer en téléchargement une version exécutable de votre jeu, vous pouvez utiliser Electron.
+Electron est simplement une version retravaillée du moteur de Chrome pour lancer des applications et jeux HTML5 autonomes, en lieu et place d'un navigateur complet.
 
 <div class="action">
-  <p>Téléchargez la version appropriée de <a href="http://nwjs.io/" target="_blank">NW.js</a>. Nous recommandons de supporter Windows à la fois en 32 et 64-bits, mais les versions 64-bits devrait suffire pour Linux et OS X (Ca fait des années qu'Apple n'a pas sorti de matériel 32-bits).
+  <p>Téléchargez la version appropriée de <a href="https://github.com/atom/electron/releases" target="_blank">Electron</a>.
+  Nous recommandons de supporter Windows à la fois en 32 et 64-bits, mais les versions 64-bits devrait suffire
+  pour Linux et OS X (Ca fait des années qu'Apple n'a pas sorti de matériel 32-bits).
 </div>
+
+Electron nécessite deux fichiers pour lancer votre jeu :
 
 ### package.json
 
-NW.js utilise un fichier nommé `package.json` pour déterminer comment lancer votre jeu. Voici comment il devrait se présenter :
-
 ```
 {
-  "name": "Mon Jeu",
-  "main": "app://mon-jeu/game/player/index.html",
-  "window": {
-    "width": 1000,
-    "height": 600,
-    "toolbar": false,
-    "frame": true,
-    "resizable": true
-  }
+  "name": "my-game",
+  "version": "1.0.0",
+  "main": "main.js"
 }
 ```
 
 Assurez-vous de remplacer `Mon Jeu` et `mon-jeu` par le nom de votre jeu.
 
-Vous pouvez bien sûr modifier les paramètres de la fenêtre. Lisez la suite pour voir que faire de ce fichier.
+### main.js
+
+```
+const electron = require("electron");
+var mainWindow = null;
+
+electron.app.on("window-all-closed", () => {
+  if (process.platform != "darwin") electron.app.quit();
+});
+
+electron.app.on("ready", () => {
+  mainWindow = new electron.BrowserWindow({
+    width: 1280, height: 720,
+    useContentSize: true,
+    // NOTE: Vous pouvez activer ce qui suit au besoin
+    // resizable: false,
+    // icon: `${__dirname}/icon.png`
+  });
+  mainWindow.setMenuBarVisibility(false);
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  mainWindow.on("closed", () => { mainWindow = null; });
+});
+```
+
+Vous pouvez bien sûr modifier les paramètres de la fenêtre.
+Lisez la suite pour voir où mettre ces fichiers.
 
 ### Packaging pour Windows (32-bits et 64-bits)
 
 <div class="action">
-  <p>Décompressez l'archive NW.js pour chaque architecture et renommez les dossiers selon le modèle `mon-jeu-win-ia32` (32-bits) et `mon-jeu-win-x64` (64 bits).
+  <p>Décompressez l'archive Electron pour chaque architecture et renommez les dossiers selon le modèle `mon-jeu-win-ia32` (32-bits) et `mon-jeu-win-x64` (64 bits).
 
   <p>Pour chacun de ces dossiers :
 
   <ul>
-    <li>Supprimez `nwjc.exe` et `pdf.dll`, on n'en a pas besoin
-    <li>Placez une copie du dossier de votre jeu exporté à la racine, en le renommant `game`
-    <li>Renommez `nw.exe` par exemple en `Mon Jeu.exe`. Il s'agit de l'exécutable qu'utiliseront les joueurs
-    <li>Créez un fichier `package.json`, comme décrit plus haut, à la racine
+    <li>Supprimez `locales`, `pdf.dll` et `version`, on n'en a pas besoin
+    <li>Placez une copie du dossier de votre jeu exporté dans `resources`, en le renommant `app`
+    <li>Renommez `electron.exe` par exemple en `Mon Jeu.exe`. Il s'agit de l'exécutable qu'utiliseront les joueurs
+    <li>Créez `package.json` et `main.js` comme décrit plus haut, dans `resources/app`
   </ul>
 
-  <p>C'est terminé, créez une archive ZIP de ce dossier et mettez-la en ligne.
+  <p>C'est tout, créez une archive ZIP de ce dossier et mettez-la en ligne.
 </div>
 
 ### Packaging pour Linux
 
 <div class="action">
-  <p>Décompressez l'archive NW.js et renommez le dossier selon le modèle `mon-jeu-linux-x64`.
+  <p>Décompressez l'archive Electron et renommez le dossier selon le modèle `mon-jeu-linux-x64`.
 
   <ul>
-    <li>Supprimez `nwjc`, on n'en a pas besoin
-    <li>Placez une copie de votre dossier de jeu exporté à la racine, en le renommant `game`
-    <li>Renommez `nw` par exemple en `Mon Jeu`. Il s'agit de l'exécutable qu'utiliseront les joueurs
-    <li>Créez un fichier `package.json`, comme décrit plus haut, à la racine
+    <li>Supprimez `locales` et `version`, on n'en a pas besoin
+    <li>Placez une copie de votre dossier de jeu exporté dans `resources`, en le renommant `app`
+    <li>Renommez `electron` par exemple en `Mon Jeu`. Il s'agit de l'exécutable qu'utiliseront les joueurs
+    <li>Créez `package.json` et `main.js` comme décrit plus haut, dans `resources/app`
   </ul>
 
-  <p>C'est terminé, créez une archive de ce dossier et mettez-la en ligne.
+  <p>C'est tout, créez une archive de ce dossier et mettez-la en ligne.
 </div>
 
 ### Packaging pour OS X
 
 <div class="action">
-  <p>Décompressez l'archive NW.js et renommez le dossier selon le modèle `mon-jeu-osx-x64`.
+  <p>Décompressez l'archive Electron et renommez le dossier selon le modèle `mon-jeu-osx-x64`.
 
   <ul>
-    <li>Supprimez `nwjc`, on n'en a pas besoin
-    <li>Créez un dossier `app.nw` dans `nwjs.app/Contents/Resources`
-    <li>Placez une copie de votre dossier de jeu exporté dans `app.nw`, en le renommant `game`
-    <li>Renommez `nwjs.app` par exemple en `Mon Jeu.app`. Il s'agit de l'exécutable qu'utiliseront les joueurs
-    <li>Créez un fichier `package.json`, comme décrit ci-dessus, dans `Mon Jeu.app/Contents/Resources/app.nw`
+    <li>Supprimez `version`, on n'en a pas besoin
+    <li>Placez une copie de votre dossier de jeu exporté dans `Electron.app/Contents/Resources/`, en le renommant `app`
+    <li>Renommez `Electron.app` par exemple en `Mon Jeu.app`. Il s'agit de l'exécutable qu'utiliseront les joueurs
+    <li>Créez `package.json` et `main.js` comme décrit plus haut, dans `My Game.app/Contents/Resources/app`
   </ul>
 
-  <p>C'est terminé, créez une archive ZIP de ce dossier et mettez-la en ligne.
+  <p>C'est tout, créez une archive ZIP de ce dossier et mettez-la en ligne.
 </div>
 
 ## Packaging pour mobile

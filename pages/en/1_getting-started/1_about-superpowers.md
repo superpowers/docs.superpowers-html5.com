@@ -6,7 +6,7 @@ It can be extended with plugins and lets you collaborate in real-time.
 [Watch the intro video on YouTube](https://www.youtube.com/watch?v=T7XoWWvGPd4)
 
 Superpowers is still under development. You can choose to support us over at <a href="https://sparklinlabs.com/" target="_blank">SparklinLabs.com</a> to get early access.  
-Or wait a few months and Superpowers will be open source and free to use for everyone :)
+Or wait a few weeks and Superpowers will be open source and free to use for everyone :)
 
 <a href="https://sparklinlabs.com/" target="_blank">
   <img src="http://i.imgur.com/jdtBCpV.png" alt="Superpowers IDE" height="300" /> 
