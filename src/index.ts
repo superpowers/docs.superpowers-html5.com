@@ -7,7 +7,7 @@ let expose = require("express-expose"); // import * as expose from "express-expo
 let stylus = require("stylus"); // import * as stylus from "stylus";
 let nib = require("nib"); // import * as nib from "nib";
 import * as marked from "marked";
-let highlight = require("highlight.js"); // import * as highlight from "highlight.js";
+let hljs = require("highlight.js"); // import * as highlight from "highlight.js";
 
 
 let app: express.Express = expose(express());
@@ -85,7 +85,7 @@ app.use((req, res, next) => {
   res.status(404).render("page", { activeLanguageCode: languageCode, activePage, pageContent, pages, languages });
 });
 
-marked.setOptions({ highlight: (code) => { return highlight.highlight("typescript", code).value; } });
+marked.setOptions({ highlight: (code) => { return hljs.highlight("typescript", code).value; } });
 
 function readMD() {
   let languageCodes = fs.readdirSync(`${__dirname}/../pages`);
