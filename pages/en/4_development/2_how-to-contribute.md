@@ -16,16 +16,18 @@ and someone will point you to the right one if needed.
 
 ### Superpowers's source code [is hosted on GitHub](https://github.com/superpowers)
 
- * [superpowers/superpowers](https://github.com/superpowers/superpowers) — Superpowers's core
+GitHub is a website for collaborating on projects. Superpowers is split over several repositories:
+
+ * [superpowers/superpowers-launcher](https://github.com/superpowers/superpowers) — The launcher
+ * [superpowers/superpowers](https://github.com/superpowers/superpowers) — The main client/server
  * [superpowers/superpowers-game](https://github.com/superpowers/superpowers-game) — The Superpowers Game system
  * [superpowers/superpowers-html5.com](https://github.com/superpowers/superpowers-html5.com) — Superpowers's website
- * [superpowers/docs.superpowers-html5.com](https://github.com/superpowers/docs.superpowers-html5.com) — Superpowers's documentation
 
-Other systems and plugins might be hosted elsewhere by other developers unaffiliated with the Superpowers project.
+Other systems and plugins might be hosted elsewhere by developers unaffiliated with the Superpowers project.
 
 ## Reporting and triaging bugs
 
-Bugs should be reported on GitHub. When in doubt, feel free to open an issue on [the core repository](https://github.com/superpowers/superpowers).
+Bugs should be reported on GitHub. When in doubt, feel free to [open an issue in the core repository](https://github.com/superpowers/superpowers/issues/new).
 
 You can help triage bugs and make them more useful by:
 
@@ -35,9 +37,9 @@ You can help triage bugs and make them more useful by:
 
 ## New features and suggestions
 
-The core development team uses [a Trello board](https://trello.com/b/eQUeNKrq/superpowers) to keep track of planned features.
+Check out [the Roadmap](/en/development/roadmap) for an idea of where development is headed.
 
-Ideas and suggestions for new features should be posted [on the forum](http://itch.io/t/9542/the-superpowers-game-maker-megathread) `FIXME: Link?`.
+Ideas and suggestions for new features should be posted [on the forums](http://itch.io/engine/superpowers/community).
 Once a feature proposal gets support and traction in the community,
 you can create an issue on GitHub to discuss its design in details before moving on to implementation.
 
@@ -48,7 +50,13 @@ New pages should be treated as new features, following the same proposal and dis
 
 `FIXME: It should probably be rewritten as a Superpowers project and published on GitHub Pages?!`
 
+## Contributing code
+
+See [the build instructions](/en/development/building-superpowers) to get the development version of Superpowers
+running on your own computer.
+
 ## Sending a pull request
 
- * Make your pull request as small as possible. Don't bundle many unrelated changes together.
+ * Use imperative in your commits message, for instance `Add flux capacitor` not `Added a flux capacitor`
  * Try to stick to the existing coding style. You can use the `tslint` plugin in Visual Studio Code to help.
+ * Make your pull request as small as possible. Don't bundle many unrelated changes together.

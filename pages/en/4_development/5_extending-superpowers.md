@@ -2,41 +2,138 @@
 
 Superpowers is a highly extensible platform.
 While it is primarily used to make video games, it can be repurposed for any kind of creative work.
+Make sure you have [the development version of Superpowers](/en/development/building-superpowers).
 
 ## Systems and plugins
 
-In Superpowers land, a system allows building a type of project.
-The default distribution ships with a single system, `Superpowers Game`
-which lets you make 2D and 3D games with TypeScript.
-You can add your own systems to provide entirely different project types.
+Superpowers currently ships with a single system, `Superpowers Game` which lets you make 2D and 3D games with TypeScript.
+You can build your own systems to provide entirely different project types.
 
-The system itself provides the shared components (like a game engine) upon which
-various plugins will build to provide editors and tools.
-
-Systems are stored in the `systems` folder, inside your Superpowers app.
-Plugins are stored in `systems/SYSTEM_NAME/plugins/AUTHOR_NAME/PLUGIN_NAME`.
+The system itself provides the shared components (like a game engine for instance)
+upon which various plugins will build to provide editors and tools.
 
 ## Setting up your own system
 
-At the very minimum, a system can actually be just an empty folder in `systems`.
-But that's not very useful.
+Systems are stored in the `systems` folder, inside your Superpowers app.
 
-You'll want to create `systems/SYSTEM_NAME/public/locales/en/system.json` to describe your system.
+<div class="note">
+  **In Superpowers v1.0, systems and plugins will be moved** to [the user data folder](/en/getting-started/setting-up-superpowers).
+</div>
+
+At its very minimum, a system can be an empty folder in `systems`. But that's not very useful.
+
+First, you'll want to create a file named `systems/SYSTEM_NAME/public/locales/en/system.json`, to describe your system.
 For instance:
 
     {
       "title": "Puppet Show",
-      "description": "Puppet Show is an engine for making animated puppet shows."
+      "description": "Puppet Show is an engine for creating animated puppet shows."
     }
 
-## Setting up a plugin
-
-`TODO: package.json, pluginGulpfile.js, ...`
+These strings will appear in the project creation popup.
 
 ## Running a project
 
 When a project using your system is launched (or published), the `public/index.html` file from your system will be its entry point.
-You can put whatever you want in it, but you'll probably want to write a script to load the exported assets and start some kind of engine
-to run your project.
+It's up to you to decide what steps your system's `public/index.html` should take in order to run a project. Here are a few examples:
 
-`TODO: Example!`
+In Superpowers Game, `public/index.html` loads `public/SupRuntime.js`, which is generated
+from [`SupRuntime/src/index.ts`](https://github.com/superpowers/superpowers-game/blob/master/SupRuntime/src/index.ts).
+
+ 1. It first loads all APIs, components and runtime code exposed by the plugins
+ 2. Then it load all the project assets
+ 3. Finally, it starts the game engine's main loop
+
+In contrast, Superpowers LÖVE's [`public/index.html`](https://github.com/superpowers/superpowers-love2d/blob/master/public/index.html)
+loads `public/index.js`, which is generated from [`player/src/index.ts`](https://github.com/superpowers/superpowers-love2d/blob/master/player/src/index.ts).
+
+ 1. It checks if the user has provided the path to the `love` executable, and if not, asks for it
+ 2. It then downloads all the game's assets from the server into a temporary folder
+ 3. Finally, it launches the `love` executable, pointing it at the temporary folder
+
+As a final example, Superpowers Web has basically no runtime to speak of.
+It [simply redirects](https://github.com/superpowers/superpowers-web/blob/master/player/src/index.ts) to the exported project's own `index.html`.
+
+## Setting up a plugin
+
+Plugins are stored in `systems/SYSTEM_NAME/plugins/AUTHOR_NAME/PLUGIN_NAME`.
+
+At the root of your plugin, you'll need a `package.json` file
+(following [npm's package.json file format](https://docs.npmjs.com/files/package.json)).
+
+Here's what it might look like:
+
+    {
+      "name": "superpowers-my-system-my-plugin",
+      "description": "My plugin for Superpowers Puppet Show",
+      "version": "1.0.0",
+      "license": "ISC",
+      "scripts": {
+        "build": "gulp --gulpfile=../../../../../scripts/pluginGulpfile.js --cwd=."
+      }
+    }
+
+[Gulp](http://gulpjs.com/) is the build tool used throughout Superpowers,
+and [`pluginGulpfile.js`](https://github.com/superpowers/superpowers/blob/master/scripts/pluginGulpfile.js)
+is a shared build file for your plugins that ships as part of Superpowers's main repository.
+
+It assumes you're using Jade, Stylus and TypeScript to build your plugin. If you'd rather use something else,
+you can write your own Gulpfile instead (or run whatever build command you want in your `package.json`'s `build` script).
+
+## Anatomy of a plugin
+
+A plugin can do 3 types of things:
+
+  * Define asset and/or resource classes in `data/`
+  * Provide asset editors and/or tools in `editors/`
+  * System-specific stuff like exposing scripting APIs, scene components for Superpowers Game, etc.
+
+The plugin's `public` folder contains all the files that will be exposed to the client (the user's browser).
+Many of them will be generated by compiling source files (written in Jade, Stylus and TypeScript for instance)
+into files that can be consumed by the browser directly (HTML, CSS and JavaScript).
+
+## Plugin build process
+
+If you're using `pluginGulpfile.js`, several things will happen when you run `npm run build` in your plugin's folder.
+
+If it exists, `data/index.ts` will automatically be compiled to `data/index.js` so it can be loaded by the server.
+A [browserified](http://browserify.org/) version of `data/index.js` will then be generated at `public/bundles/data.js` for
+the client to load.
+
+Any other folders at the root of your plugin containing an `index.ts` file will have a browserified bundle generated
+and placed in `public/bundles/FOLDER_NAME.js`.
+
+## Asset editors and asset classes
+
+Superpowers projects are basically made of a tree of assets.
+Your plugin can define one or more asset types.
+
+Each asset type is a class that inherits from `SupCore.Data.Base.Asset` ([example](https://github.com/superpowers/superpowers-game/blob/master/plugins/default/sprite/data/SpriteAsset.ts)).
+
+It must be registered with `SupCore.system.data.registerAssetClass` in `data/index.ts`.
+The first parameter should be the name of the editor associated with the asset type ([example](https://github.com/superpowers/superpowers-game/blob/master/plugins/default/sprite/data/index.ts)).
+
+Asset classes are used both by the server and the client, but they use different methods prefixed with `server_` or `client_`.
+
+<div class="note">
+  <b>More details soon!</b> It's late and tomorrow is Open Source launch day. I'll come back to this ASAP :D
+</div>
+
+## Tools and resource classes
+
+Asset editors and tools are very similar.
+Editors simply become tools (i.e. they appear in the lower part of the project sidebar) when they don't have an asset class associated with them.
+
+Resources are similar to assets, but there is only exactly one instance of them in every project.
+They are used to store project-wide settings or information. Tools will often subscribe to one or more resources that they allow editing.
+A tool might edit a settings resource that is then used in the associated asset editor for project-wide configuration.
+
+A resource class must inherit from `SupCore.Data.Base.Resource` and be registered under a unique name.
+For instance, the startup scene of a Superpowers Game project is stored in [the `gameSettings` resource](https://github.com/superpowers/superpowers-game/tree/master/plugins/default/gameSettings/data).
+
+----
+
+<div class="note">
+  <b>More soon!</b> In the meantime, check out [Florent Poujol's documentation](https://github.com/florentpoujol/superpowers-tutorials/blob/dev/md/plugins/) (which might be a bit outdated since we've made a lot of changes recently)
+</div>
+

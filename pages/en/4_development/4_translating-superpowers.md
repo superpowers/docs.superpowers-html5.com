@@ -17,4 +17,4 @@ The very first localization file you'll need is `common.json`. Copy it from the 
 ## Testing your changes
 
 Most of the localized strings will be baked into various `index.YOUR_LANGUAGE_CODE.html` files when building Superpowers.
-To test your changes, execute `npm run build` and reload Superpowers afterwards.
+To test your changes, execute `npm run build` and restart Superpowers afterwards.
