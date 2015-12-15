@@ -16,11 +16,10 @@ Lorsque vous créez une nouvelle révision pour votre projet, vous pouvez soit a
 
 ## Fichiers à ne pas versionner
 
-Il y a certains fichiers que vous ne voudrez sans doute pas sauvegarder dans votre dépôt :
+Il y a quelques répertoires que vous ne voudrez sans doute pas sauvegarder dans votre dépôt :
 
-  * `internals.json` change tout le temps et peut être reconstruit automatiquement
   * Le répertoire `rooms/` contient votre historique de chat récent
-  * `members.json` contient les informations des membres du projet que vous ne voulez pas forcément sauvegarder
+  * Le répertoire `trashedAssets/` contient les assets supprimés
 
 Vous pouvez utiliser un fichier `.gitignore` ou `.hgignore` pour les ignorer.
 

@@ -16,11 +16,10 @@ When creating a new revision for your project, either wait 60s or stop your serv
 
 ## What not to put under source control
 
-There are a few files you probably don't want to commit to your repository:
+There are a couple folders you probably don't want to commit to your repository:
 
-  * `internals.json` changes all the time and can be reconstructed automatically
   * The `rooms/` folder contains your recent chat log history
-  * `members.json` contains project membership information which you might or might not want keep around
+  * The `trashedAssets/` folder contains deleted assets
 
 You can use a `.gitignore` or `.hgignore` file to blacklist those.
 
