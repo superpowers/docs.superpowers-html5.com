@@ -33,7 +33,7 @@ new Sup.Camera(cameraManActor);
 mainCharacterActor.setPosition(0, 0, 0);
 
 // The camera man will be looking at the main actor from a distance
-cameraManActor.setPosition(0, 0, 5));
+cameraManActor.setPosition(0, 0, 5);
 ```
 
 <p>Lines beginning with `//` are comments. Superpowers doesn't care about them, I only put them here to explain what's happening.</p>
