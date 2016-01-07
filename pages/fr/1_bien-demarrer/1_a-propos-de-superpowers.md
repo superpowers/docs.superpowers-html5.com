@@ -8,7 +8,7 @@ Il peut être étendu avec des plugins et vous pouvez l'utiliser en collaboratio
 Superpowers est en développement depuis plus d'un an.
 C'est déjà un très bon environnement de développement mais il est encore en constante évolution.
 
-Nous avons décidé de le rendre gratuit et <i>open source</i>.
+Nous avons décidé de le rendre gratuit et <a href="http://github.com/superpowers" target="_blank">open source.
 Si vous appréciez notre travail, vous pouvez nous soutenir sur <a href="https://patreon.com/SparklinLabs" target="_blank">patreon.com/SparklinLabs</a>.  
 
 <a href="http://superpowers-html5.com/" target="_blank">
