@@ -5,15 +5,20 @@ It can be extended with plugins and lets you collaborate in real-time.
 
 [Watch the intro video on YouTube](https://www.youtube.com/watch?v=T7XoWWvGPd4)
 
-Superpowers is still under development. You can choose to support us over at <a href="https://sparklinlabs.com/" target="_blank">SparklinLabs.com</a> to get early access.  
-Or wait a few weeks and Superpowers will be open source and free to use for everyone :)
+Superpowers has been in development for over a year.
+It is a great IDE already but it is still evolving fast.
 
-<a href="https://sparklinlabs.com/" target="_blank">
+We've decided to make it free and <a href="http://github.com/superpowers" target="_blank">open source</a>.
+If you like it, you can choose to support our work
+over at <a href="https://patreon.com/SparklinLabs" target="_blank">patreon.com/SparklinLabs</a>.
+
+<a href="http://superpowers-html5.com/" target="_blank">
   <img src="http://i.imgur.com/jdtBCpV.png" alt="Superpowers IDE" height="300" /> 
-  <img src="https://sparklinlabs.com/images/pictures/demo-game.gif" alt="Superpowers demo" height="300" />
+  <img src="http://i.imgur.com/rDSabRb.gif" alt="Superpowers demo" height="300" />
 </a>
 
 You can [contribute to this documentation on Bitbucket](http://bitbucket.org/superpowers/docs.sparklinlabs.com).
+We'll migrate it to GitHub very soon.
 
 ## Conventions
 
