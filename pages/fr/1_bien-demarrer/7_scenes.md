@@ -14,8 +14,8 @@ Nous allons reconstruire notre plateau depuis le début mais en utilisant une sc
 
 <div class="action">
   <p>Créez un nouvel acteur, nommez-le `Main Character` et placez-le en (0, 0, 0).  
-  Ajoutez un composant `SpriteRenderer` et entrez le nom `Leonard` pour le sprite à utiliser.  
-  Ajoutez un autre composant, cette fois-ci de type `Behavior` et entrez `CharacterBehavior` comme classe à utiliser.
+  Ajoutez un composant `Sprite Renderer` et entrez le nom `Leonard` pour le sprite à utiliser.  
+  Ajoutez un autre composant, cette fois-ci de type `Behavior` et choisissez `CharacterBehavior` comme classe à utiliser.
 </div>
 
 <div class="action">

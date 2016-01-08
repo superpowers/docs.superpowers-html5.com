@@ -14,8 +14,8 @@ We're going to rebuild our movie set from before but using a scene instead of wr
 
 <div class="action">
   <p>Create an actor named `Main Character` and place it in (0, 0, 0).  
-  Add a `SpriteRenderer` component on it and enter `Leonard` as the sprite to use.  
-  Add another component, this time of type `Behavior` and enter `CharacterBehavior` as the class to use.
+  Add a `Sprite Renderer` component on it and enter `Leonard` as the sprite to use.  
+  Add another component, this time of type `Behavior` and select `CharacterBehavior` as the class to use.
 </div>
 
 <div class="action">
