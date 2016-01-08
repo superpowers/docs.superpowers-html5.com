@@ -15,19 +15,24 @@ like [GitExtensions](http://gitextensions.github.io/), [SourceTree](https://www.
     make sure submodules are initialized in `superpowers/systems/supGame`.
     GitExtensions does it by default. When using the command line, you'll need to run `git submodule update --init`.
   5. Open a terminal in the `superpowers` folder and run `npm run build`
-  
+
 It will take a few minutes to build everything.
 
  * Once it's done, run `node server`
  * Open `http://localhost:4237/` in your browser
  * Later, you can hit `Ctrl+C` in the terminal to stop the server
 
+## Running the app with Electron
+
+ 1. Open a terminal and install Electron by running `npm install -g electron-prebuilt`
+ 2. Go in the right folder with `cd superpowers/launcher`
+ 3. Start the launcher with `electron .`
+
 ## Rebuilding all or parts of Superpowers
 
 You can use `npm run build` to rebuild all of Superpowers. You can optionally specify a filter to only rebuild some paths.
 
 For instance `npm run build supGame` will only rebuild stuff within the `supGame` folder.
-
 
 ## Enabling development mode
 
