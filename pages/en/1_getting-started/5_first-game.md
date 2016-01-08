@@ -7,10 +7,13 @@
 Make sure to set the grid size correctly so that your entire image is visible in the preview pane (bottom).
 
 <div class="action">
-  <p>**Create a TypeScript asset** named `Game` and open it up.
+  <p>**Create a Script asset** named `Game` and open it up.
 </div>
 
-Scripts are used to tell Superpowers what to do with your assets. When you run your game, **Superpowers reads each script in order from top to bottom** and executes the instructions in them. Superpowers comes with <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a> as its scripting language.
+Scripts are used to tell Superpowers what to do with your assets.
+When you run your game, **Superpowers reads each script in order from top to bottom**
+and executes the instructions in them.
+Superpowers comes with <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a> as its scripting language.
 
 Metaphorically, your game is a movie set and you're the director. With your scripts, you will be enlisting actors, giving them costumes to put on and telling them how to behave. If you have no scripts, nobody will show up and the screen will stay black.
 

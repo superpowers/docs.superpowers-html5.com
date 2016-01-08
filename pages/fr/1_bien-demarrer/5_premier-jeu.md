@@ -1,16 +1,19 @@
 # Votre premier jeu
 
 <div class="action">
-  <p>**Créez une ressource de type Sprite**, appelez-le `Leonard`, ouvrez-le en double-cliquant dessus et uploadez une petite image.  
+  <p>**Créez un asset de type Sprite**, appelez-le `Leonard`, ouvrez-le en double-cliquant dessus et uploadez une petite image.  
 </div>
 
 Assurez-vous de bien définir la taille de la grille, pour que l'image soit entiérement visible dans le panneau de prévisualisation (en bas).
 
 <div class="action">
-  <p>**Créez un script TypeScript**, appelez-le `Game` et ouvrez-le.
+  <p>**Créez un asset de type Script**, appelez-le `Game` et ouvrez-le.
 </div>
 
-Les scripts sont utilisés pour indiquer à Superpowers que faire avec vos ressources. Quand vous lancez votre jeu, **Superpowers lit chaque script dans l'ordre, de haut en bas** et exécute les instructions situées à l'intérieur. Superpowers utilise <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a> comme language de script.
+Les scripts sont utilisés pour indiquer à Superpowers que faire avec vos assets.
+Quand vous lancez votre jeu, **Superpowers lit chaque script dans l'ordre, de haut en bas**
+et exécute les instructions situées à l'intérieur.
+Superpowers utilise <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a> comme language de script.
 
 Métaphoriquement, votre jeu est comme un film dont vous êtes le metteur en scène. Dans vos scripts, vous indiquez quels acteurs participent, quels costumes ils doivent enfiler et quels seront leurs rôles. Sans script, tout le monde restera dans les coulisses, personne ne sera sur le plateau et l'écran restera donc noir.
 
@@ -39,7 +42,7 @@ cameraManActor.setPosition(0, 0, 5);
 <p>Les lignes commençant par `//` sont des commentaires. Superpowers ne fait pas attention à ces lignes, elles ne sont là que pour expliquer comment tout fonctionne.</p>
 
 <div class="note">
-  <p><b>IMPORTANT:</b> Appuyez sur `Ctrl+S` pour appliquer les changements faits dans vos scripts. Vous remarquez que l'indicateur `draft` dans l'arbre de ressources disparaît quand votre script est sauvegardé.</p>
+  <p><b>IMPORTANT:</b> Appuyez sur `Ctrl+S` pour appliquer les changements faits dans vos scripts. Vous remarquez que l'indicateur `draft` dans l'arbre d'assets disparaît quand votre script est sauvegardé.</p>
 </div>
 
 Superpowers peut détecter certaines erreurs de script (erreurs de syntaxe, référence ou de type) à la volée, donc si vous voyez des mots en rouges quand vous avez fini, vous savez que vous devez relire ces lignes et les lignes autour. Les messages d'erreurs détaillés sont affichés en bas de l'éditeur.
