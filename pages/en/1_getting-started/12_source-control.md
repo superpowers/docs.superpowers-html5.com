@@ -22,13 +22,3 @@ There are a couple folders you probably don't want to commit to your repository:
   * The `trashedAssets/` folder contains deleted assets
 
 You can use a `.gitignore` or `.hgignore` file to blacklist those.
-
-## Line endings and Git
-
-When using Git on Windows with the `core.autocrlf` option set to `true`, you'll need to commit a `.gitattributes` file at the root of your project with the following content:
-
-```
-*.txt text eol=lf
-```
-
-This will prevent Git from fiddling with line endings automatically, which would cause issues when editing your scripts.

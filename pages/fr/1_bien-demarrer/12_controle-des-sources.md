@@ -22,13 +22,3 @@ Il y a quelques répertoires que vous ne voudrez sans doute pas sauvegarder dans
   * Le répertoire `trashedAssets/` contient les assets supprimés
 
 Vous pouvez utiliser un fichier `.gitignore` ou `.hgignore` pour les ignorer.
-
-## Fins de ligne et Git
-
-Si vous utilisez Git sur Windows avec l'option `core.autocrlf` configurée à `true`, vous devrez ajouter un fichier `.gitattributes` à la racine de votre dépôt avec le contenu suivant :
-
-```
-*.txt text eol=lf
-```
-
-Ca empêchera Git de modifier les caractères de fins de ligne automatiquement, ce qui pourrait causer des soucis lors de l'édition de vos scripts.
