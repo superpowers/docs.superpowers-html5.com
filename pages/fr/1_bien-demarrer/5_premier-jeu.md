@@ -4,7 +4,7 @@
   <p>**Créez un asset de type Sprite**, appelez-le `Leonard`, ouvrez-le en double-cliquant dessus et uploadez une petite image.  
 </div>
 
-Assurez-vous de bien définir la taille de la grille, pour que l'image soit entiérement visible dans le panneau de prévisualisation (en bas).
+Assurez-vous de bien définir la taille de la grille à la taille de l'image, pour que l'image soit entièrement visible dans le panneau de prévisualisation (en bas).
 
 <div class="action">
   <p>**Créez un asset de type Script**, appelez-le `Game` et ouvrez-le.
