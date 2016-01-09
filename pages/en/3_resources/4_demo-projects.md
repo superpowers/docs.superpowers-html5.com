@@ -2,7 +2,7 @@
 
 Instructions for setting up a project can be found on each project's page. Generally, it involves going to the Downloads page and unzipping them into [your `projects` folder](/en/getting-started/setting-up-superpowers), then restarting your server.
 
-You can find all kinds of [demo projects by Sparklin Labs on Bitbucket](https://bitbucket.org/sparklinlabs/profile/repositories?search=superpowers-) to learn various aspects of the software.
+You can find all kinds of demos and example projects [on GitHub](https://github.com/superpowers-extra) (in the process of migrating from [Bitbucket](https://bitbucket.org/sparklinlabs/profile/repositories?search=superpowers-)) to learn various aspects of the software.
 
 ## Full games
 

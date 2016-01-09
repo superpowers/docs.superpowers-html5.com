@@ -2,7 +2,7 @@
 
 Vous trouverez les instructions pour récupérer chaque projet sur leur page. Il suffit généralement de récupérer le ZIP sur la page Téléchargements et de le décompresser dans [votre dossier `projects`](/fr/bien-demarrer/installer-superpowers), puis de redémarrer votre serveur.
 
-Vous trouverez toutes sortes de [projets démo par Sparklin Labs sur Bitbucket](https://bitbucket.org/sparklinlabs/profile/repositories?search=superpowers-) présentant diverses fonctionnalités.
+Vous trouverez toutes sortes de démos et projets exemples [sur GitHub](https://github.com/superpowers-extra) (en cours de migration [depuis Bitbucket](https://bitbucket.org/sparklinlabs/profile/repositories?search=superpowers-)) présentant diverses fonctionnalités.
 
 ## Jeux complets
 
