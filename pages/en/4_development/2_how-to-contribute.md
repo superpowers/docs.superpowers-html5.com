@@ -58,5 +58,6 @@ running on your own computer.
 ## Sending a pull request
 
  * Use imperative in your commits message, for instance `Add flux capacitor` not `Added a flux capacitor`
+ * If you're fixing a bug with an existing issue number of GitHub, mention it in the commit message: `Increase gigawatt output, closes #6`  
  * Try to stick to the existing coding style. You can use the `tslint` plugin in Visual Studio Code to help.
  * Make your pull request as small as possible. Don't bundle many unrelated changes together.
