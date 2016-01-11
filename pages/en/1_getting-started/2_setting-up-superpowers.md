@@ -1,7 +1,7 @@
 # Setting up Superpowers
 
 <div class="action">
-  <p>Download the correct ZIP for your platform from <a href="https://sparklinlabs.com/account" target="_blank">your account page</a>.  
+  <p>Download the correct ZIP for your platform from <a href="https://sparklinlabs.itch.io/superpowers" target="_blank">the download page</a>.  
   Unzip it in a convenient location and double-click on `Superpowers`.  
   The launcher will start. Click anywhere to dismiss the splash screen.
 </div>

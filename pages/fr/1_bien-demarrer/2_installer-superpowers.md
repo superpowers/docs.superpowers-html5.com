@@ -1,7 +1,7 @@
 # Installer Superpowers
 
 <div class="action">
-  <p>Télécharger le ZIP pour votre plateforme depuis <a href="https://sparklinlabs.com/account" target="_blank">votre compte</a>.  
+  <p>Télécharger le ZIP pour votre plateforme depuis <a href="https://sparklinlabs.itch.io/superpowers" target="_blank">la page de téléchargement</a>.  
   Décompressez-le et double-cliquez sur `Superpowers`.  
   Cliquez n'importe où pour passer l'écran de démarrage.
 </div>
