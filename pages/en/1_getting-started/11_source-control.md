@@ -4,10 +4,6 @@ Source control lets you create checkpoints in your project, compare old revision
 
 Superpowers projects can easily be kept under [source control](https://en.wikipedia.org/wiki/Revision_control). While there is no built-in support at the moment, existing tools like Git and Mercurial work great.
 
-<div class="note">
-  <b>Check out "Line endings and Git"</b> below if you encounter script editing issues with Git on Windows.
-</div>
-
 ## Delay when making changes
 
 In order to minimize its performance footprint, the Superpowers server doesn't write every change you make to a project to the disk immediately. Saving to disk might be delayed for up to 60 seconds.

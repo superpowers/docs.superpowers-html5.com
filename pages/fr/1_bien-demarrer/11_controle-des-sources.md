@@ -4,10 +4,6 @@ La [gestion des versions](https://fr.wikipedia.org/wiki/Gestion_de_versions) per
 
 Les projets Superpowers sont bien adaptés pour être utilisés avec un outil de gestion de versions. Bien qu'il n'y ait pas de support intégré pour le moment, des outils existants comme Git ou Mercurial fonctionnent parfaitement.
 
-<div class="note">
-  <b>Consultez "Fins de ligne et Git"</b> plus bas si vous rencontrez des problèmes d'édition des scripts avec Git sur Windows.
-</div>
-
 ## Délai lors des modifications
 
 De façon à minimiser son impact sur les performances, le serveur Superpowers n'écrit pas immédiatement sur le disque tous les changements que vous faites à un projet. L'écriture sur le disque peut avoir un délai allant jusqu'à 60 secondes.
