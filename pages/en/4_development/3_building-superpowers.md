@@ -10,9 +10,9 @@ like [GitExtensions](http://gitextensions.github.io/), [SourceTree](https://www.
 
   1. Install [Node.js](http://nodejs.org/) 4.x.
   2. Clone [Superpowers's core repository](https://github.com/superpowers/superpowers) under the name `superpowers`
-  3. Clone the [Superpowers Game repository](https://github.com/superpowers/superpowers-game) as `superpowers/systems/supGame` (you might need to create the `systems` folder manually)
+  3. Clone the [Superpowers Game repository](https://github.com/superpowers/superpowers-game) as `superpowers/systems/game` (you might need to create the `systems` folder manually)
   4. Since Superpowers Game uses a [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) to reference the [Common Superpowers plugins repository](https://github.com/superpowers/superpowers-common-plugins),
-    make sure submodules are initialized in `superpowers/systems/supGame`.
+    make sure submodules are initialized in `superpowers/systems/game`.
     GitExtensions does it by default. When using the command line, you'll need to run `git submodule update --init`.
   5. Open a terminal in the `superpowers` folder and run `npm run build`
 
@@ -32,7 +32,7 @@ It will take a few minutes to build everything.
 
 You can use `npm run build` to rebuild all of Superpowers. You can optionally specify a filter to only rebuild some paths.
 
-For instance `npm run build supGame` will only rebuild stuff within the `supGame` folder.
+For instance `npm run build game` will only rebuild stuff within the `game` folder.
 
 ## Enabling development mode
 
