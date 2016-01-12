@@ -44,7 +44,7 @@ open your browser's dev tools and look for errors in the Console tab.
 
 Enabling development mode will also add the `None` language to the language selector, which is useful for finding strings that need to be internationalized.
 
-To enable development mode, open your server in your browser, open the dev tools with `F12` and type the following in the console:  and type the following in the Console:
+To enable development mode, open your server in your browser, open the dev tools with `F12` and type the following in the console:
 
     localStorage.setItem("superpowers-dev-mode", "true");
 
