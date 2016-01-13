@@ -15,7 +15,7 @@ give too much control or information to random websites. For instance,
 to avoid user fingerprinting, the Web doesn't let you list all connected gamepads.
 You'll need to ask the user to press a button to use their gamepad.
 
-You can use [HTML5 Rocks' game pad tester](http://www.html5rocks.com/en/tutorials/doodles/gamepad/gamepad-tester/tester.html)
+You can use [HTML5gamepad.com's test tool](http://html5gamepad.com/)
 to find out how gamepad buttons are mapped to indices.
 
 ## Mouse coordinates

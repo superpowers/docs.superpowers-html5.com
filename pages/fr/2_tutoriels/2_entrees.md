@@ -12,7 +12,8 @@ La liste complète des noms de touche peut être trouvée dans le navigateur d'A
 
 Les APIs Web présentent quelques bizarreries, émanant du fait que le navigateur ne doit pas donner trop de contrôle ou d'informations à des sites Web quelconques. Par exemple, pour éviter de faciliter l'identification d'un utilisateur, les navigateurs ne permettent pas de lister toutes les manettes connectées. Vous devrez demander à l'utilisateur d'appuyer sur un bouton pour utiliser sa manette.
 
-Vous pouvez utiliser [l'outil de test de manette de HTML5 Rocks](http://www.html5rocks.com/en/tutorials/doodles/gamepad/gamepad-tester/tester.html) pour voir les indices associés à chaque bouton d'une manette.
+Vous pouvez utiliser [l'outil de test de manette HTML5gamepad.com](http://html5gamepad.com/)
+pour voir les indices associés à chaque bouton d'une manette.
 
 ## Coordonnées de la souris
 
