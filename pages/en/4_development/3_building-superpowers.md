@@ -9,7 +9,7 @@ If you are not already familiar with Git and GitHub,
 You can either [use the command line version of Git](http://git-scm.com/) or a Git client app
 like [GitExtensions](http://gitextensions.github.io/), [SourceTree](https://www.sourcetreeapp.com/) or [GitHub Desktop](https://desktop.github.com/).
 
-## Cloning Superpowers and Superpowers Game
+## Building Superpowers and Superpowers Game
 
 In a terminal, run the following commands:
 
@@ -25,15 +25,18 @@ mkdir systems
 git clone https://github.com/superpowers/superpowers/superpowers-game systems/game
 git submodule update --init systems/game
 
-# Build everything 
+# Build everything. This will take a few minutes. 
 npm run build
 ```
 
-It will take a few minutes to build everything.
+Once it's done, run:
 
- * Once it's done, run `node server`
- * Open `http://localhost:4237/` in your browser
- * Later, you can hit `Ctrl+C` in the terminal to stop the server
+```bash
+node server start
+```
+
+Open `http://localhost:4237/` in your browser.
+Later, you can hit `Ctrl+C` in the terminal to stop the server.
 
 ## Running the app with Electron
 
