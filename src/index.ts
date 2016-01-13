@@ -85,7 +85,11 @@ app.use((req, res, next) => {
   res.status(404).render("page", { activeLanguageCode: languageCode, activePage, pageContent, pages, languages });
 });
 
-marked.setOptions({ highlight: (code) => { return hljs.highlight("typescript", code).value; } });
+marked.setOptions({ highlight: (code, lang) => {
+    if (lang == null) lang = "typescript";
+    return hljs.highlight(lang, code).value;
+  }
+});
 
 function readMD() {
   let languageCodes = fs.readdirSync(`${__dirname}/../pages`);

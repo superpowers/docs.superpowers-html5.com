@@ -1,20 +1,33 @@
 # Building Superpowers 
 
-## GitHub and Git
+## Prerequisites
 
-First of all, if you are not already familiar with it, you'll need to
-[learn a bit about GitHub (and its underlying revision control system, Git)](https://google.com/search?q=learn+git+github).
+You'll need to install [Node.js](http://nodejs.org/) 4.x and a Git client.
 
-You can either [use the command line version of Git](http://git-scm.com/) or install a Git client app
+If you are not already familiar with Git and GitHub,
+[we recommend reading up on them](https://google.com/search?q=learn+git+github).  
+You can either [use the command line version of Git](http://git-scm.com/) or a Git client app
 like [GitExtensions](http://gitextensions.github.io/), [SourceTree](https://www.sourcetreeapp.com/) or [GitHub Desktop](https://desktop.github.com/).
 
-  1. Install [Node.js](http://nodejs.org/) 4.x.
-  2. Clone [Superpowers's core repository](https://github.com/superpowers/superpowers) under the name `superpowers`
-  3. Clone the [Superpowers Game repository](https://github.com/superpowers/superpowers-game) as `superpowers/systems/game` (you might need to create the `systems` folder manually)
-  4. Since Superpowers Game uses a [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) to reference the [Common Superpowers plugins repository](https://github.com/superpowers/superpowers-common-plugins),
-    make sure submodules are initialized in `superpowers/systems/game`.
-    GitExtensions does it by default. When using the command line, you'll need to run `git submodule update --init`.
-  5. Open a terminal in the `superpowers` folder and run `npm run build`
+## Cloning Superpowers and Superpowers Game
+
+In a terminal, run the following commands:
+
+```bash
+# Clone Superpowers's core repository in "superpowers"
+git clone https://github.com/superpowers/superpowers superpowers
+
+cd superpowers
+mkdir systems
+
+# Clone the Superpowers Game repository in "superpowers/systems/game"
+# Make sure its submodules are initialized
+git clone https://github.com/superpowers/superpowers/superpowers-game systems/game
+git submodule update --init systems/game
+
+# Build everything 
+npm run build
+```
 
 It will take a few minutes to build everything.
 
@@ -24,15 +37,24 @@ It will take a few minutes to build everything.
 
 ## Running the app with Electron
 
- 1. Open a terminal and install Electron by running `npm install -g electron-prebuilt`
- 2. Go in the right folder with `cd superpowers/launcher`
- 3. Start the launcher with `electron .`
+```bash
+# Only needed the first time or everytime you want to update Electron
+npm install -g electron-prebuilt
+
+cd superpowers/launcher
+electron .
+```
 
 ## Rebuilding all or parts of Superpowers
 
-You can use `npm run build` to rebuild all of Superpowers. You can optionally specify a filter to only rebuild some paths.
+```bash
+# Rebuild it all
+cd superpowers
+npm run build
 
-For instance `npm run build game` will only rebuild stuff within the `game` folder.
+# To rebuild only parts of Superpowers, you can filter paths
+npm run build game
+```
 
 ## Enabling development mode
 
