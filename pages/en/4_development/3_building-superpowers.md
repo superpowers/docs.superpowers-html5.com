@@ -9,6 +9,8 @@ If you are not already familiar with Git and GitHub,
 You can either [use the command line version of Git](http://git-scm.com/) or a Git client app
 like [GitExtensions](http://gitextensions.github.io/), [SourceTree](https://www.sourcetreeapp.com/) or [GitHub Desktop](https://desktop.github.com/).
 
+We also recommend using a text editor with good TypeScript support like [Visual Studio Code](https://code.visualstudio.com/) for development.
+
 ## Building Superpowers and Superpowers Game
 
 In a terminal, run the following commands:
