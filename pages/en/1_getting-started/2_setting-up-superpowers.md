@@ -56,7 +56,7 @@ This should work on any Linux server including a Raspberry Pi.
   * Install <a href="https://nodejs.org/" target="_blank">node.js v4.x</a>.
   * Download the latest Superpowers release for Linux and `unzip` it. You can get rid of all files at the root except the `app` folder.
   * Use `cd` to navigate at the root of the Superpowers folder.
-  * Run `node app/server`.
+  * Run `node app/server start`.
 
 By default, Superpowers will store configuration and projects files in `$XDG_DATA_HOME/Superpowers` (or `~/.local/share/Superpowers` if `$XGD_DATA_HOME` is undefined). You can use the `--data-path=` option to override that behavior.
 
