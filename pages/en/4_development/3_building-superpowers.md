@@ -22,10 +22,18 @@ git clone https://github.com/superpowers/superpowers superpowers
 cd superpowers
 mkdir systems
 
+pushd systems
+
 # Clone the Superpowers Game repository in "superpowers/systems/game"
+git clone https://github.com/superpowers/superpowers-game game
+
+pushd game
+
 # Make sure its submodules are initialized
-git clone https://github.com/superpowers/superpowers/superpowers-game systems/game
-git submodule update --init systems/game
+git submodule update --init
+
+popd
+popd
 
 # Build everything. This will take a few minutes. 
 npm run build
