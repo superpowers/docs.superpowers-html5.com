@@ -4,7 +4,7 @@ Superpowers is a highly extensible platform.
 While it is primarily used to make video games, it can be repurposed for any kind of creative work.
 Make sure you have [the development version of Superpowers](/en/development/building-superpowers).
 
-You can find [a simple and heavily-commented example system on GitHub](https://github.com/superpowers/superpowers-dummy).
+You can find [a simple and heavily-commented example system on GitHub](https://github.com/superpowers-extra/superpowers-dummy).
 
 ## Systems and plugins
 
