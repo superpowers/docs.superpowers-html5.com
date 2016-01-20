@@ -151,7 +151,7 @@ function readMD() {
     }
 
     const languageCategoryNames = Object.keys(categories);
-    for (const i = 0; i < languageCategoryNames.length; i++) {
+    for (let i = 0; i < languageCategoryNames.length; i++) {
       const category = categories[languageCategoryNames[i]];
       const englishCategory = pages["en"][englishCategoryNames[i]];
       const englishPageNames = Object.keys(englishCategory.pages);
