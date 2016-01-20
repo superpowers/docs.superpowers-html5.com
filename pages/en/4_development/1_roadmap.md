@@ -1,6 +1,6 @@
 # Roadmap
 
-The core development team uses [a Trello board](https://trello.com/b/eQUeNKrq/superpowers) to keep track of planned features.
+Before migrating to GitHub, the core development team used [a Trello board](https://trello.com/b/eQUeNKrq/superpowers) to keep track of planned features, but we are slowly moving away from it.
 
 ## Superpowers v2.0 or later
 
