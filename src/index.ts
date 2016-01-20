@@ -3,14 +3,14 @@
 import * as path from "path";
 import * as fs from "fs";
 import * as express from "express";
-let expose = require("express-expose"); // import * as expose from "express-expose";
-let stylus = require("stylus"); // import * as stylus from "stylus";
-let nib = require("nib"); // import * as nib from "nib";
+const expose = require("express-expose"); // import * as expose from "express-expose";
+const stylus = require("stylus"); // import * as stylus from "stylus";
+const nib = require("nib"); // import * as nib from "nib";
 import * as marked from "marked";
-let hljs = require("highlight.js"); // import * as highlight from "highlight.js";
+const hljs = require("highlight.js"); // import * as highlight from "highlight.js";
 
 
-let app: express.Express = expose(express());
+const app: express.Express = expose(express());
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "jade");
 
@@ -37,8 +37,8 @@ let pages: { [languageCode: string]: { [categoryName: string]: Category } } = nu
 let pageContents: { [languageCode: string]: { [categoryName: string]: { [pageName: string]: string } } } = null;
 
 app.get("/", (req, res) => {
-  let firstCategoryName = Object.keys(pages["en"])[0];
-  let firstCategory = pages["en"][firstCategoryName];
+  const firstCategoryName = Object.keys(pages["en"])[0];
+  const firstCategory = pages["en"][firstCategoryName];
   res.redirect(`/en/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
 });
 app.use(express.static(`${__dirname}/../public`));
@@ -46,11 +46,11 @@ app.use(express.static(`${__dirname}/../public`));
 app.get("/:languageCode", (req, res, next) => {
   if (process.env.NODE_ENV !== "production") readMD();
 
-  let languagePages = pages[req.params.languageCode];
+  const languagePages = pages[req.params.languageCode];
   if (languagePages == null) { next(); return; }
 
-  let firstCategoryName = Object.keys(languagePages)[0];
-  let firstCategory = languagePages[firstCategoryName];
+  const firstCategoryName = Object.keys(languagePages)[0];
+  const firstCategory = languagePages[firstCategoryName];
 
   res.redirect(`/${req.params.languageCode}/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
 });
@@ -58,15 +58,15 @@ app.get("/:languageCode", (req, res, next) => {
 app.get("/:languageCode/:categoryName/:pageName", (req, res, next) => {
   if (process.env.NODE_ENV !== "production") readMD();
 
-  let activePages = pages[req.params.languageCode];
+  const activePages = pages[req.params.languageCode];
 
-  let activeCategory = (activePages != null) ? activePages[req.params.categoryName] : null;
-  let activePage = (activeCategory != null) ? activeCategory.pages[req.params.pageName] : null;
+  const activeCategory = (activePages != null) ? activePages[req.params.categoryName] : null;
+  const activePage = (activeCategory != null) ? activeCategory.pages[req.params.pageName] : null;
   if (activePage == null) { next(); return; }
 
-  let pageContent = pageContents[req.params.languageCode][req.params.categoryName][req.params.pageName];
+  const pageContent = pageContents[req.params.languageCode][req.params.categoryName][req.params.pageName];
 
-  (<any>res).expose({
+  (res as any).expose({
     pages: pages,
     categoryIndex: Object.keys(activePages).indexOf(req.params.categoryName),
     pageIndex: Object.keys(activeCategory.pages).indexOf(req.params.pageName)
@@ -77,10 +77,10 @@ app.get("/:languageCode/:categoryName/:pageName", (req, res, next) => {
 app.use((req, res, next) => {
   let languageCode = req.path.split("/")[1];
   if (pages[languageCode] == null) languageCode = "en";
-  let pageContent = pageContents[languageCode]["misc"]["404"];
+  const pageContent = pageContents[languageCode]["misc"]["404"];
 
   // Terrible hack for grabbing the page title, woops
-  let activePage = { name: "404", title: pageContent.substring(pageContent.indexOf(">") + 1, pageContent.indexOf("\n") - 5) };
+  const activePage = { name: "404", title: pageContent.substring(pageContent.indexOf(">") + 1, pageContent.indexOf("\n") - 5) };
 
   res.status(404).render("page", { activeLanguageCode: languageCode, activePage, pageContent, pages, languages });
 });
@@ -98,7 +98,7 @@ function readMD() {
   pages = {};
   pageContents = {};
 
-  for (let languageCode of languageCodes) {
+  for (const languageCode of languageCodes) {
     let language = fs.readFileSync(`${__dirname}/../pages/${languageCode}/index.md`, { encoding: "utf8" });
     language = language.substring(2, language.indexOf("\n"));
     languages[languageCode] = language;
@@ -114,18 +114,18 @@ function readMD() {
       }
     };
 
-    for (let categoryFolder of categoryFolders) {
-      let categoryName = categoryFolder.split(".", 2)[0].split("_", 2)[1];
-      let category: Category = pages[languageCode][categoryName] = { title: categoryName, name: categoryName, pages: {} };
+    for (const categoryFolder of categoryFolders) {
+      const categoryName = categoryFolder.split(".", 2)[0].split("_", 2)[1];
+      const category: Category = pages[languageCode][categoryName] = { title: categoryName, name: categoryName, pages: {} };
       pageContents[languageCode][categoryName] = {};
 
-      let pageFilenames = fs.readdirSync(`${__dirname}/../pages/${languageCode}/${categoryFolder}`);
+      const pageFilenames = fs.readdirSync(`${__dirname}/../pages/${languageCode}/${categoryFolder}`);
       pageFilenames.sort((a, b) => parseInt(a.split("_")[0]) - parseInt(b.split("_")[0]));
-      for (let pageFilename of pageFilenames) {
-        let pageName = pageFilename.split(".", 2)[0].split("_", 2)[1];
+      for (const pageFilename of pageFilenames) {
+        const pageName = pageFilename.split(".", 2)[0].split("_", 2)[1];
 
-        let pageContentMD = fs.readFileSync(`${__dirname}/../pages/${languageCode}/${categoryFolder}/${pageFilename}`, { encoding: "utf8" });
-        let pageTitle = pageContentMD.substring(2, pageContentMD.indexOf("\n"));
+        const pageContentMD = fs.readFileSync(`${__dirname}/../pages/${languageCode}/${categoryFolder}/${pageFilename}`, { encoding: "utf8" });
+        const pageTitle = pageContentMD.substring(2, pageContentMD.indexOf("\n"));
 
         if (pageFilename === "index.md") {
           category.title = pageTitle;
@@ -137,12 +137,12 @@ function readMD() {
     }
   }
 
-  let englishCategoryNames = Object.keys(pages["en"]);
+  const englishCategoryNames = Object.keys(pages["en"]);
 
-  for (let language in pages) {
+  for (const language in pages) {
     if (language === "en") continue;
 
-    let categories = pages[language];
+    const categories = pages[language];
     if (Object.keys(categories).length < englishCategoryNames.length) {
       for (let i = Object.keys(categories).length; i < englishCategoryNames.length; i++) {
         categories[englishCategoryNames[i]] = pages["en"][englishCategoryNames[i]];
@@ -150,11 +150,11 @@ function readMD() {
       }
     }
 
-    let languageCategoryNames = Object.keys(categories);
-    for (let i = 0; i < languageCategoryNames.length; i++) {
-      let category = categories[languageCategoryNames[i]];
-      let englishCategory = pages["en"][englishCategoryNames[i]];
-      let englishPageNames = Object.keys(englishCategory.pages);
+    const languageCategoryNames = Object.keys(categories);
+    for (const i = 0; i < languageCategoryNames.length; i++) {
+      const category = categories[languageCategoryNames[i]];
+      const englishCategory = pages["en"][englishCategoryNames[i]];
+      const englishPageNames = Object.keys(englishCategory.pages);
 
       if (Object.keys(category.pages).length < englishPageNames.length) {
         for (let j = Object.keys(category.pages).length; j < englishPageNames.length; j++) {
@@ -167,7 +167,15 @@ function readMD() {
 }
 readMD();
 
-let config = JSON.parse(fs.readFileSync(`${__dirname}/../config.json`, { encoding: "utf8" }));
+let config: any;
+try {
+  config = JSON.parse(fs.readFileSync(`${__dirname}/../config.json`, { encoding: "utf8" }));
+} catch (err) {
+  config = {
+    port: 9051
+  };
+}
+
 app.listen(config.port, "127.0.0.1", () => {
   console.log(`Server listening on port ${config.port}`);
 });

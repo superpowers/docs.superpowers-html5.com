@@ -1,6 +1,4 @@
-syntax: glob
-node_modules/*
-*.sublime-*
+**/node_modules
 config.json
 public/styles/*.css
 src/*.js

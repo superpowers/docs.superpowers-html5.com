@@ -1,10 +1,8 @@
-# Superpowers Documentation
+# docs.superpowers-html5.com
 
-This is the repository for [docs.sparklinlabs.com](http://docs.sparklinlabs.com)
+This is the repository for the official documentation of Superpowers at [docs.superpowers-html5.com](http://docs.superpowers-html5.com). 
 
-## How to contribute
-
-[Fork this repository](https://bitbucket.org/superpowers/docs.sparklinlabs.com/fork), commit your changes in a new branch and push them to your fork,  then send a pull request.
+(This website will be turned into a Superpowers Web project in the future.)
 
 ## How to run the website locally
 
@@ -13,14 +11,8 @@ Make sure you have [Node.js](https://nodejs.org) installed. Clone the repository
     npm install
     npm run build
 
-Create a file named `config.json` at the root of the repository and put the following content in it:
+To start the server, run:
 
-    {
-      "port": 9051
-    }
-
-You can use any value you want for the port. To start the server, run:
-
-    node src/index.js
+    npm start
 
 And go to http://localhost:9051
