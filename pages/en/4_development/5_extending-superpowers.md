@@ -187,9 +187,27 @@ and use them with `SupClient.i18n.t("namespace:path.to.key")`.
 
 `public/locales/$LANGUAGE_CODE/plugin.json` should contain an `editors.*.title` key for each of your editors.
 
-## Generic API plugin system
+## Generic plugin API
 
-`TODO: Talk about SupCore.system.registerPlugin, Superpowers Game's ComponentConfig classes and how plugins expose TypeScript APIs.`
+You can use `SupCore.system.registerPlugin` to expose bits of code or data that can be reused by other plugins.
+For instance, the Superpowers Game system uses this facility to let each plugin expose TypeScript APIs, as well as component configuration classes.
+
+Each such plugin must be attached to a context (for instance `"typescriptAPI"`) and given a name ([example](https://github.com/superpowers/superpowers-game/blob/273611624b3168a629514c2a644b71d9ac325387/plugins/default/sound/typescriptAPI/index.ts)).  
+You should also define an interface to get type checking ([example](https://github.com/superpowers/superpowers-game/blob/273611624b3168a629514c2a644b71d9ac325387/plugins/default/typescript/typescriptAPI/TypeScriptAPIPlugin.d.ts)).
+
+On the server-side, `SupCore.system.requireForAllPlugins` lets you require a module for all plugins.  
+This can be used to conveniently load all registered plugins for a particular context ([examples](https://github.com/superpowers/superpowers-game/search?utf8=%E2%9C%93&q=SupCore.system.requireForAllPlugins&type=Code)) .
+
+On the client-side, you'll need to load them by appending a `<script>` tag for each plugin.
+To get a list of all plugins, you can fetch `/systems/${SupCore.system.id}/plugins.json` (TODO: Update once plugins can be disabled per project)
+([example](https://github.com/superpowers/superpowers-game/blob/ca8cfec4d95870759382719ebec624a600b4cbc0/plugins/default/typescript/editors/script/network.ts#L315)).
+
+Once the scripts are all loaded, you can use `SupCore.system.getPlugins` to access the plugins in a typed fashion ([examples](https://github.com/superpowers/superpowers-game/search?utf8=%E2%9C%93&q=SupCore.system.getPlugins&type=Code)).
+
+### Client-only plugins
+
+For client-only stuff, a similar registration and retrieval API is available as `SupClient.registerPlugin` and `SupClient.getPlugins`.  
+It is used by Superpowers Game to register component editor classes and documentation pages ([examples](https://github.com/superpowers/superpowers-game/search?utf8=%E2%9C%93&q=SupClient.registerPlugin)).
 
 ## Running a project
 
