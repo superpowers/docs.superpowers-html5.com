@@ -55,7 +55,7 @@ Les instructions suivantes devraient fonctionner avec la plupart des serveurs Li
 
   * Installez <a href="https://nodejs.org/" target="_blank">node.js v4.x</a>.
   * Téléchargez la dernière version de Superpowers pour Linux et décompressez-la avec `unzip`. Vous pouvez supprimer tous les fichiers à la racine du dossier à l'exception du dossier `app`.
-  * Utilisez `cd` pour naviguer à la racine du dossier Superpowers.
+  * Utilisez `cd resources/app` à la racine du dossier Superpowers.
   * Lancez `node app/server start`.
 
 Par défaut, Superpowers stocke les fichiers de configuration et de projets dans `$XDG_DATA_HOME/Superpowers` (ou `~/.local/share/Superpowers` si `$XGD_DATA_HOME` n'est pas défini). Vous pouvez utiliser l'option `--data-path=` pour changer cet emplacement.
