@@ -15,7 +15,6 @@ You'll see a list of servers and your own local server should start up right awa
 </div>
 
 Double-click on "My Server" and a window will open. You'll be asked to choose a username.  
-This is not yet linked to your Superpowers account but you probably want to use the same.
 
 ## Where's my data stored?
 
