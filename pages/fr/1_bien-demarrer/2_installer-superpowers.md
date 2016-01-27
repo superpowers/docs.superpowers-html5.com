@@ -15,7 +15,6 @@ Vous devriez voir une liste de serveurs et votre serveur local se lancera automa
 </div>
 
 Double-cliquez sur "My Server" et une fenêtre va s'ouvrir. Vous serez invité à saisir un nom d'utilisateur.  
-Celui-ci n'est pas encore lié à votre compte Superpowers mais vous voudrez probablement utiliser le même quand même.
 
 ## Où se trouve mes données ?
 
