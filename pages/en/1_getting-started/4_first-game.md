@@ -2,6 +2,7 @@
 
 <div class="action">
   <p>**Create a Sprite asset**, name it `Leonard`, open it up by double-clicking and upload a small image.  
+  You can use [Leonard, Superpowers's mascott](http://superpowers-html5.com/images/superpowers-logo.png) for instance).</p>
 </div>
 
 Make sure to set the grid size to match your image's size so that your entire image is visible in the preview pane (bottom).

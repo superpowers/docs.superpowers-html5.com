@@ -2,6 +2,7 @@
 
 <div class="action">
   <p>**Créez un asset de type Sprite**, appelez-le `Leonard`, ouvrez-le en double-cliquant dessus et uploadez une petite image.  
+  Vous pouvez utiliser [Léonard, la mascotte de Superpowers](http://superpowers-html5.com/images/superpowers-logo.png) par exemple).
 </div>
 
 Assurez-vous de bien définir la taille de la grille à la taille de l'image, pour que l'image soit entièrement visible dans le panneau de prévisualisation (en bas).
