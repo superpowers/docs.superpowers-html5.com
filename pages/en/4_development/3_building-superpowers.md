@@ -67,6 +67,10 @@ npm run build
 
 # To rebuild only parts of Superpowers, you can filter paths
 npm run build game
+
+# To build in verbose mode
+# (Notice you need twice the double dashes)
+npm run build -- --verbose
 ```
 
 ## Enabling development mode
