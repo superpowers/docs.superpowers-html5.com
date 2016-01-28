@@ -5,6 +5,8 @@ Before migrating to GitHub, the core development team used [a Trello board](http
 ## Superpowers v2.0 or later
 
  * [Allow enabling/disabling plugins on a per-project basis](https://github.com/superpowers/superpowers/issues/73) and only export enabled plugins for shorter load times
+ * [Authentication, access rights and user settings](https://github.com/superpowers/superpowers/issues/55)
+ * [Support exporting for various platforms right from Superpowers](https://github.com/superpowers/superpowers/issues/35)
  * Superpowers Game:
    * [Allow choosing which assets to load on startup and loading the rest dynamically](https://github.com/superpowers/superpowers-game/issues/33) for shorter load times
    * [Typed asset tree](https://github.com/superpowers/superpowers-game/issues/35) to increase confidence when reorganizing assets
