@@ -45,11 +45,13 @@ Electron nécessite deux fichiers pour lancer votre jeu :
 }
 ```
 
-Assurez-vous de remplacer `Mon Jeu` et `mon-jeu` par le nom de votre jeu.
+Assurez-vous de remplacer `mon-jeu` par le nom de votre jeu en minuscule avec des tirets pour séparer les mots.
 
 ### main.js
 
 ```
+"use strict";
+
 const electron = require("electron");
 var mainWindow = null;
 
