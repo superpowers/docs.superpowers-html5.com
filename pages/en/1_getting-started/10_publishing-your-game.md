@@ -45,11 +45,13 @@ Electron requires that you create two files in order to run your game:
 }
 ```
 
-Make sure to replace `my-game` with your game's name.
+Make sure to replace `my-game` with your game's name, using lowercase dash-separated words.
 
 ### main.js
 
 ```
+"use strict";
+
 const electron = require("electron");
 var mainWindow = null;
 
