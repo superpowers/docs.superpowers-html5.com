@@ -40,7 +40,7 @@ mainCharacterActor.setPosition(0, 0, 0);
 cameraManActor.setPosition(0, 0, 5);
 ```
 
-<p>Lines beginning with `//` are comments. Superpowers doesn't care about them, I only put them here to explain what's happening.</p>
+Lines beginning with `//` are comments. Superpowers doesn't care about them, I only put them here to explain what's happening.
 
 <div class="note">
   <p><b>IMPORTANT:</b> Make sure to press `Ctrl+S` to apply the changes made to your script. You'll notice the little `draft` indicator in the asset tree will disappear when your script is saved.</p>
