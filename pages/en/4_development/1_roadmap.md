@@ -26,7 +26,7 @@ This release will focus on making it easy to release and upgrade the major parts
 Release notes for all releases can be found on GitHub:
 
   * [Client/Server releases](https://github.com/superpowers/superpowers/releases)
-  * [Launcher releases](https://github.com/superpowers/superpowers-launcher/releases)
+  * [Launcher releases](https://github.com/superpowers/superpowers-app/releases)
   * [Superpowers Game releases](https://github.com/superpowers/superpowers-game/releases)
 
 Release notes for other systems can be found on their own repository.

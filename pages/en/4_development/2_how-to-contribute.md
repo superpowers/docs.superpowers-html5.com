@@ -19,9 +19,9 @@ and someone will point you to the right one if needed.
 GitHub is a website for collaborating on projects. Superpowers is split over several repositories:
 
  * [superpowers/superpowers](https://github.com/superpowers/superpowers) — The main client/server
+ * [superpowers/superpowers-app](https://github.com/superpowers/superpowers-app) — The desktop app
  * [superpowers/superpowers-game](https://github.com/superpowers/superpowers-game) — The Superpowers Game system
  * [superpowers/superpowers-html5.com](https://github.com/superpowers/superpowers-html5.com) — Superpowers's website
- * [superpowers/superpowers-launcher](https://github.com/superpowers/superpowers-launcher) — The upcoming redesigned launcher
 
 Other systems and plugins might be hosted elsewhere by developers unaffiliated with the Superpowers project.
 

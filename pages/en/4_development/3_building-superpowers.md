@@ -39,7 +39,7 @@ popd
 npm run build
 ```
 
-Once it's done, run:
+Once it's done, you can start a local server with:
 
 ```bash
 node server start
@@ -47,16 +47,6 @@ node server start
 
 Open `http://localhost:4237/` in your browser.
 Later, you can hit `Ctrl+C` in the terminal to stop the server.
-
-## Running the app with Electron
-
-```bash
-# Only needed the first time or everytime you want to update Electron
-npm install -g electron-prebuilt
-
-cd superpowers/launcher
-electron .
-```
 
 ## Rebuilding all or parts of Superpowers
 
@@ -71,6 +61,27 @@ npm run build game
 # To build in verbose mode
 # (Notice you need twice the double dashes)
 npm run build -- --verbose
+```
+
+## Building the desktop app
+
+The desktop app is powered by [Electron](http://electron.atom.io/).
+
+In a terminal, run the following commands:
+
+```bash
+git clone https://github.com/superpowers/superpowers-app superpowers-app
+cd superpowers-app
+npm run build
+
+# Run this everytime you want to update Electron
+npm install -g electron-prebuilt
+```
+
+Once it's done, you can start the app by running:
+
+```bash
+npm run start
 ```
 
 ## Enabling development mode
