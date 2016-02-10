@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-You'll need to install [Node.js](http://nodejs.org/) 4.x and a Git client.
+You'll need to install the latest version of [Node.js](http://nodejs.org/) and a Git client.
 
 If you are not already familiar with Git and GitHub,
 [we recommend reading up on them](https://google.com/search?q=learn+git+github).  
