@@ -5,7 +5,7 @@ There are many ways you can help advance Superpowers!
 
 ## Preamble
 
-Superpowers adheres to the [Contributor Covenant](https://github.com/superpowers/superpowers/tree/master/CODE_OF_CONDUCT.md).
+Superpowers adheres to the [Contributor Covenant](https://github.com/superpowers/superpowers-core/tree/master/CODE_OF_CONDUCT.md).
 By participating, you are expected to honor this code.
 
 As a new contributor, we want you to feel welcome and comfortable.
@@ -18,7 +18,7 @@ and someone will point you to the right one if needed.
 
 GitHub is a website for collaborating on projects. Superpowers is split over several repositories:
 
- * [superpowers/superpowers](https://github.com/superpowers/superpowers) — The main client/server
+ * [superpowers/superpowers](https://github.com/superpowers/superpowers-core) — The core (client/server)
  * [superpowers/superpowers-app](https://github.com/superpowers/superpowers-app) — The desktop app
  * [superpowers/superpowers-game](https://github.com/superpowers/superpowers-game) — The Superpowers Game system
  * [superpowers/superpowers-html5.com](https://github.com/superpowers/superpowers-html5.com) — Superpowers's website
@@ -27,7 +27,7 @@ Other systems and plugins might be hosted elsewhere by developers unaffiliated w
 
 ## Reporting and triaging bugs
 
-Bugs should be reported on GitHub. When in doubt, feel free to [open an issue in the core repository](https://github.com/superpowers/superpowers/issues/new).
+Bugs should be reported on GitHub. When in doubt, feel free to [open an issue in the core repository](https://github.com/superpowers/superpowers-core/issues/new).
 
 You can help triage bugs and make them more useful by:
 

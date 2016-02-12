@@ -17,7 +17,7 @@ In a terminal, run the following commands:
 
 ```bash
 # Clone the core repository in superpowers/core
-git clone https://github.com/superpowers/superpowers superpowers/core
+git clone https://github.com/superpowers/superpowers-core superpowers/core
 cd superpowers/core
 
 # Clone the Superpowers Game system in superpowers/core/systems/game

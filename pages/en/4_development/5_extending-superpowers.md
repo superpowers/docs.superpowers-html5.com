@@ -89,7 +89,7 @@ A plugin can do 3 types of things:
 ## Building your plugin
 
 [Gulp](http://gulpjs.com/) is the build tool used throughout Superpowers,
-and [`pluginGulpfile.js`](https://github.com/superpowers/superpowers/blob/master/scripts/pluginGulpfile.js)
+and [`pluginGulpfile.js`](https://github.com/superpowers/superpowers-core/blob/master/scripts/pluginGulpfile.js)
 is a shared build file for your plugins that ships as part of Superpowers's main repository.
 
 It assumes you're using Jade, Stylus and TypeScript to build your plugin. If you'd rather use something else,
@@ -128,9 +128,9 @@ An SVG icon for each editor should be placed in `public/editors/*/icon.svg`.
 Superpowers projects are basically made of a tree of assets.
 Your plugin can define one or more asset types.
 
-Each asset type is a class that inherits from [`SupCore.Data.Base.Asset`](https://github.com/superpowers/superpowers/blob/master/SupCore/Data/Base/Asset.ts) ([example](https://github.com/superpowers/superpowers-game/blob/master/plugins/default/sprite/data/SpriteAsset.ts)).
+Each asset type is a class that inherits from [`SupCore.Data.Base.Asset`](https://github.com/superpowers/superpowers-core/blob/master/SupCore/Data/Base/Asset.ts) ([example](https://github.com/superpowers/superpowers-game/blob/master/plugins/default/sprite/data/SpriteAsset.ts)).
 
-The `Asset` base class itself inherits from [`SupCore.Data.Base.Hash`](https://github.com/superpowers/superpowers/blob/master/SupCore/Data/Base/Hash.ts),
+The `Asset` base class itself inherits from [`SupCore.Data.Base.Hash`](https://github.com/superpowers/superpowers-core/blob/master/SupCore/Data/Base/Hash.ts),
 which stores a dictionary of data in its `.pub` property, with a schema for validating data.
 Properties can be marked as `mutable` in the schema, allowing clients to edit them directly through `setProperty` (more on editing below).
 
@@ -152,7 +152,7 @@ In order to allow editing the project's assets and resources, editors must subsc
 
 First of all, your editor should open a connection to the server through `SupClient.connect` ([example](https://github.com/superpowers/superpowers-game/blob/7ac686ab4e08681e90abb6d6b8de83bf8a1fec1f/plugins/default/sound/editors/sound/index.ts#L16)).
 
-Once connected, you'll probably want to create an instance of [`SupClient.ProjectClient`](https://github.com/superpowers/superpowers/blob/master/SupClient/src/ProjectClient.ts)
+Once connected, you'll probably want to create an instance of [`SupClient.ProjectClient`](https://github.com/superpowers/superpowers-core/blob/master/SupClient/src/ProjectClient.ts)
 ([example](https://github.com/superpowers/superpowers-game/blob/7ac686ab4e08681e90abb6d6b8de83bf8a1fec1f/plugins/default/sound/editors/sound/index.ts#L43)).
 It can be used to manage subscriptions to the project's assets tree (name of each asset, type, parent, order, etc.), or to particular assets and resources
 and it's easier than sending raw socket.io messages and keeping track of things yourself.
@@ -163,16 +163,16 @@ The callbacks on your subscriber object will be called when various events are r
 
 To edit an asset, you can use `projectClient.editAsset(assetId, command, args..., callback);`.
 
-The server, [through `RemoteProjectClient`](https://github.com/superpowers/superpowers/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/RemoteProjectClient.ts#L325)
+The server, [through `RemoteProjectClient`](https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/RemoteProjectClient.ts#L325)
 will call a method starting with `server_` followed by the command you specified.
 
-If the command's callback doesn't return an error, the server [will emit back the command to every client subscribed to the asset](https://github.com/superpowers/superpowers/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/RemoteProjectClient.ts#L346).
-In turn, on the client-side, `ProjectClient` [will call the corresponding `client_` method on your asset](https://github.com/superpowers/superpowers/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/SupClient/src/ProjectClient.ts#L157), applying the changes provided by the server.
+If the command's callback doesn't return an error, the server [will emit back the command to every client subscribed to the asset](https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/RemoteProjectClient.ts#L346).
+In turn, on the client-side, `ProjectClient` [will call the corresponding `client_` method on your asset](https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/SupClient/src/ProjectClient.ts#L157), applying the changes provided by the server.
 Then it will notify all subscribers of the change.
 
 In `server_` methods, whenever the asset is edited, you should call `this.emit("change");`
-to let the project server know that the asset has changed and should be [scheduled for a write to disk soon](https://github.com/superpowers/superpowers/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/ProjectServer.ts#L249).
-The server saves a particular asset to disk [no more often than once every 60s](https://github.com/superpowers/superpowers/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/ProjectServer.ts#L11).
+to let the project server know that the asset has changed and should be [scheduled for a write to disk soon](https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/ProjectServer.ts#L249).
+The server saves a particular asset to disk [no more often than once every 60s](https://github.com/superpowers/superpowers-core/blob/60145c1aba13f7ffd8056cdcf1aac6117999b2c3/server/ProjectServer.ts#L11).
 
 `TODO: We still need to design a way to stream large assets.`
 
@@ -181,7 +181,7 @@ The server saves a particular asset to disk [no more often than once every 60s](
 You can place JSON localization files in `public/locales/$LANGUAGE_CODE/$NAMESPACE.json` ([example](https://github.com/superpowers/superpowers-game/tree/master/plugins/default/sound/public/locales/en)).
 
 They will be made available through the `t("namespace:path.to.key")` function to your Jade templates.
-You can also load them up at runtime with [`SupClient.i18n.load`](https://github.com/superpowers/superpowers/blob/master/SupClient/src/i18n.ts)
+You can also load them up at runtime with [`SupClient.i18n.load`](https://github.com/superpowers/superpowers-core/blob/master/SupClient/src/i18n.ts)
 and use them with `SupClient.i18n.t("namespace:path.to.key")`.
 ([example](https://github.com/superpowers/superpowers-game/blob/master/plugins/default/sound/editors/sound/index.ts#L130))
 
