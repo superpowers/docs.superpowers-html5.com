@@ -11,7 +11,7 @@ like [GitExtensions](http://gitextensions.github.io/), [SourceTree](https://www.
 
 We also recommend using a text editor with good TypeScript support like [Visual Studio Code](https://code.visualstudio.com/) for development.
 
-## Building Superpowers and Superpowers Game
+## Building Superpowers core and systems
 
 In a terminal, run the following commands:
 
@@ -27,7 +27,9 @@ git clone --recursive https://github.com/superpowers/superpowers-game systems/ga
 npm run build
 ```
 
-Once it's done, you can start a local server with:
+### Running the server
+
+Once it's done, you can start the server with:
 
 ```bash
 node server start
@@ -36,14 +38,18 @@ node server start
 Open `http://localhost:4237/` in your browser.
 Later, you can hit `Ctrl+C` in the terminal to stop the server.
 
-## Rebuilding all or parts of Superpowers
+### Rebuilding selectively
+
+After updating the Git repositories or making changes, you'll need to rebuild.
 
 ```bash
-# Rebuild core and all systems
 cd superpowers/core
-npm run build
 
-# To rebuild only parts of Superpowers, you can filter paths
+# You can rebuild core and all systems with one command
+npm run build
+# Or rebuild only some specific folders like SupCore
+npm run build SupCore
+# or a particular system
 npm run build systems/game
 
 # To build in verbose mode
