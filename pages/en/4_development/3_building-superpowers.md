@@ -16,26 +16,14 @@ We also recommend using a text editor with good TypeScript support like [Visual 
 In a terminal, run the following commands:
 
 ```bash
-# Clone Superpowers's core repository in "superpowers"
-git clone https://github.com/superpowers/superpowers superpowers
+# Clone the core repository in superpowers/core
+git clone https://github.com/superpowers/superpowers superpowers/core
+cd superpowers/core
 
-cd superpowers
-mkdir systems
+# Clone the Superpowers Game system in superpowers/core/systems/game
+git clone --recursive https://github.com/superpowers/superpowers-game systems/game
 
-pushd systems
-
-# Clone the Superpowers Game repository in "superpowers/systems/game"
-git clone https://github.com/superpowers/superpowers-game game
-
-pushd game
-
-# Make sure its submodules are initialized
-git submodule update --init
-
-popd
-popd
-
-# Build everything. This will take a few minutes. 
+# Build it all. This will take a few minutes.
 npm run build
 ```
 
@@ -51,15 +39,15 @@ Later, you can hit `Ctrl+C` in the terminal to stop the server.
 ## Rebuilding all or parts of Superpowers
 
 ```bash
-# Rebuild it all
-cd superpowers
+# Rebuild core and all systems
+cd superpowers/core
 npm run build
 
 # To rebuild only parts of Superpowers, you can filter paths
-npm run build game
+npm run build systems/game
 
 # To build in verbose mode
-# (Notice you need twice the double dashes)
+# (Notice there are two pairs of double dashes)
 npm run build -- --verbose
 ```
 
@@ -70,17 +58,17 @@ The desktop app is powered by [Electron](http://electron.atom.io/).
 In a terminal, run the following commands:
 
 ```bash
-git clone https://github.com/superpowers/superpowers-app superpowers-app
-cd superpowers-app
+git clone https://github.com/superpowers/superpowers-app superpowers/app
+cd superpowers/app
 npm run build
-
-# Run this everytime you want to update Electron
-npm install -g electron-prebuilt
 ```
 
 Once it's done, you can start the app by running:
 
 ```bash
+# Install Electron the first time (and then everytime you want to update it)
+npm install -g electron-prebuilt
+
 npm run start
 ```
 
@@ -94,8 +82,8 @@ open your browser's dev tools and look for errors in the Console tab.
 
 Enabling development mode will also add the `None` language to the language selector, which is useful for finding strings that need to be internationalized.
 
-To enable development mode, open your server in your browser, open the dev tools with `F12` and type the following in the console:
+To enable development mode, open a Superpowers project, press `F12` to open the dev tools and type the following in the console:
 
     localStorage.setItem("superpowers-dev-mode", "true");
 
-Reload the page for the change to take effect.
+Reload for the change to take effect.
