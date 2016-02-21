@@ -37,9 +37,20 @@ let pages: { [languageCode: string]: { [categoryName: string]: Category } } = nu
 let pageContents: { [languageCode: string]: { [categoryName: string]: { [pageName: string]: string } } } = null;
 
 app.get("/", (req, res) => {
-  const firstCategoryName = Object.keys(pages["en"])[0];
-  const firstCategory = pages["en"][firstCategoryName];
-  res.redirect(`/en/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
+  let languageCode = req.header("Accept-Language");
+
+  if (languageCode != null) {
+    languageCode = languageCode.split(",")[0];
+    if (languages[languageCode] == null && languageCode.indexOf("-") !== -1) {
+      languageCode = languageCode.split("-")[0];
+    }
+  }
+
+  if (languages[languageCode] == null) languageCode = "en";
+
+  const firstCategoryName = Object.keys(pages[languageCode])[0];
+  const firstCategory = pages[languageCode][firstCategoryName];
+  res.redirect(`/${languageCode}/${firstCategoryName}/${firstCategory.pages[Object.keys(firstCategory.pages)[0]].name}`);
 });
 app.use(express.static(`${__dirname}/../public`));
 
