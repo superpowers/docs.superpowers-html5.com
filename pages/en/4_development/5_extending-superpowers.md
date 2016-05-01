@@ -95,8 +95,8 @@ is a shared build file for your plugins that ships as part of Superpowers's main
 It assumes you're using Jade, Stylus and TypeScript to build your plugin. If you'd rather use something else,
 you can write your own Gulpfile instead (or run whatever build command you want in your `package.json`'s `build` script).
 
-You can build your plugin by typing `npm run build` inside its folder.
-It will automatically be built with other plugins when running `npm run build` at the root of the Superpowers repository, too.
+You can build just your plugin by typing `npm run build $PLUGIN_AUTHOR/$PLUGIN_NAME` at the root of the Superpowers repository.
+Or, if you have `gulp` installed globally, you can directly run `npm run build` inside your plugin's folder.
 
 If you're using `pluginGulpfile.js`, several things will happen when you run `npm run build` in your plugin's folder.
 
