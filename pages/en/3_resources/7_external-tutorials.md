@@ -8,6 +8,6 @@ A tutorial series with lots of screenshots and step-by-step instructions.
 
 A series of detailed tutorials with free assets and source projects.
 
-## [Translation of tutorials into Russian](http://sup.pajamdev.ru/)
+## [Translation of tutorials into Russian](http://pajamdev.tk/sup/)
 
 Перевод документации и уроков на русский язык.
