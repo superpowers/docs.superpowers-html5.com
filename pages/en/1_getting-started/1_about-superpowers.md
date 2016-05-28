@@ -17,8 +17,7 @@ over at <a href="https://patreon.com/SparklinLabs" target="_blank">patreon.com/S
   <img src="http://i.imgur.com/rDSabRb.gif" alt="Superpowers demo" height="300" />
 </a>
 
-You can [contribute to this documentation on Bitbucket](http://bitbucket.org/superpowers/docs.sparklinlabs.com).
-We'll migrate it to GitHub very soon.
+You can [contribute to this documentation on GitHub](https://github.com/superpowers/docs.superpowers-html5.com).
 
 ## Conventions
 
