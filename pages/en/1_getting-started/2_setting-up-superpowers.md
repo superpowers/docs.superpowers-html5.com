@@ -3,7 +3,7 @@
 <div class="action">
   <p>Download the correct ZIP for your platform from <a href="https://sparklinlabs.itch.io/superpowers" target="_blank">the download page</a>.  
   Unzip it in a convenient location and double-click on `Superpowers`.  
-  The app will start. Click anywhere to dismiss the splash screen.
+  The app will start.
 </div>
 
 You'll see a list of servers and your own local server should start up right away.
