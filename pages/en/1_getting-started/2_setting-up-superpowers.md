@@ -3,18 +3,18 @@
 <div class="action">
   <p>Download the correct ZIP for your platform from <a href="https://sparklinlabs.itch.io/superpowers" target="_blank">the download page</a>.  
   Unzip it in a convenient location and double-click on `Superpowers`.  
-  The launcher will start. Click anywhere to dismiss the splash screen.
+  The app will start. Click anywhere to dismiss the splash screen.
 </div>
 
 You'll see a list of servers and your own local server should start up right away.
 
 <div class="note">
-  <p>**Superpowers uses TCP ports 4237 (for serving the client) and 4238 (for serving builds)** by default, because port 80 requires special privileges on Linux &amp; OS X. Additionally, programs like Skype might already be listening on it. You can change the ports used by Superpowers in the launcher's Settings tab.
+  <p>**Superpowers uses TCP ports 4237 (for serving the client) and 4238 (for serving builds)** by default, because port 80 requires special privileges on Linux &amp; OS X. Additionally, programs like Skype might already be listening on it. You can change the ports used by Superpowers in the app's server settings tab.
 
   <p>If you do so, make sure to also edit the address of the "My Server" entry in the servers list to use the correct port (Syntax is `ip:port`).
 </div>
 
-Double-click on "My Server" and a window will open. You'll be asked to choose a username.  
+Double-click on "My Server" and a tab will open. You'll be asked to choose a username.
 
 ## Where's my data stored?
 
@@ -39,7 +39,7 @@ By default, your server will only accept connections from the computer it is run
   to allow (or forward) inbound TCP connections on the port numbers your server is listening on (4237 and 4238 by default).
 </div>
 
-Once your server is open, <a href="https://www.google.com/search?q=my%20ip" target="_blank">get your public IP address</a> and you can send a link of the form `ip:port` to the people you want to work with (e.g.&nbsp;`1.2.3.4:4237`). They can either paste this link in their browser's address bar to join without installing anything or add it to their Superpowers servers list from the launcher.
+Once your server is open, <a href="https://www.google.com/search?q=my%20ip" target="_blank">get your public IP address</a> and you can send a link of the form `ip:port` to the people you want to work with (e.g.&nbsp;`1.2.3.4:4237`). They can either paste this link in their browser's address bar to join without installing anything or add it to their Superpowers servers list from the app.
 
 <div class="note">
   <p>**Make sure to share your public IP address** with those you want to collaborate with. `127.0.0.1` is a special address that always points to the computer you're using it on, so others won't be able to connect to your server with it.
@@ -52,7 +52,7 @@ Once your server is open, <a href="https://www.google.com/search?q=my%20ip" targ
 It might be useful to run Superpowers on a headless server so that you don't have to keep your desktop computer on at all times.  
 This should work on any Linux server including a Raspberry Pi.
 
-  * Install <a href="https://nodejs.org/" target="_blank">node.js v4.x</a>.
+  * Install the latest version of <a href="https://nodejs.org/" target="_blank">Node.js</a>.
   * Download the latest Superpowers release for Linux and `unzip` it. You can get rid of all files at the root except the `resources/app` folder.
   * Use `cd resources/app` from the root of the Superpowers folder.
   * Run `node server start`.
