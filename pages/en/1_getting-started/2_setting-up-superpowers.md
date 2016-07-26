@@ -11,7 +11,7 @@ You'll see a list of servers and your own local server should start up right awa
 <div class="note">
   <p>**Superpowers uses TCP ports 4237 (for serving the client) and 4238 (for serving builds)** by default, because port 80 requires special privileges on Linux &amp; OS X. Additionally, programs like Skype might already be listening on it. You can change the ports used by Superpowers in the app's server settings tab.
 
-  <p>If you do so, make sure to also edit the address of the "My Server" entry in the servers list to use the correct port (Syntax is `ip:port`).
+  <p>If you do so, make sure to also edit the address of the "My Server" entry in the servers list to use the correct port.
 </div>
 
 Double-click on "My Server" and a tab will open. You'll be asked to choose a username.
