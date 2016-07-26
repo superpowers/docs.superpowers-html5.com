@@ -3,18 +3,18 @@
 <div class="action">
   <p>Télécharger le ZIP pour votre plateforme depuis <a href="https://sparklinlabs.itch.io/superpowers" target="_blank">la page de téléchargement</a>.  
   Décompressez-le et double-cliquez sur `Superpowers`.  
-  Cliquez n'importe où pour passer l'écran de démarrage.
+  L'application démarre.
 </div>
 
 Vous devriez voir une liste de serveurs et votre serveur local se lancera automatiquement.
 
 <div class="note">
-  <p>**Superpowers utilise les ports TCP 4237 (pour servir le client) et 4238 (pour servir chaque version de vos jeux)** par défaut, car le port 80 a besoin de privilèges speciaux sur Linux &amp; OS X. En plus, certains programmes comme Skype écoutent déjà sur ce port. Vous pouvez changer les ports utilisés par Superpowers dans les paramètres du lanceur.
+  <p>**Superpowers utilise les ports TCP 4237 (pour servir le client) et 4238 (pour servir chaque version de vos jeux)** par défaut, car le port 80 a besoin de privilèges speciaux sur Linux &amp; OS X. En plus, certains programmes comme Skype écoutent déjà sur ce port. Vous pouvez changer les ports utilisés par Superpowers dans l'onglet Paramètres du serveur.
 
-  <p>Si vous le faites, pensez à changer l'adresse de votre serveur ("My Server") dans la liste des serveurs pour utiliser le bon port (La syntaxe est `ip:port`).
+  <p>Si vous le faites, pensez à changer l'adresse de votre serveur ("My Server") dans la liste des serveurs pour utiliser le bon port.
 </div>
 
-Double-cliquez sur "My Server" et une fenêtre va s'ouvrir. Vous serez invité à saisir un nom d'utilisateur.  
+Double-cliquez sur "My Server" et un onglet s'ouvrira. Vous serez invité à saisir un nom d'utilisateur.
 
 ## Où se trouve mes données ?
 
@@ -52,7 +52,7 @@ Une fois que votre serveur est ouvert, <a href="https://www.google.fr/search?q=m
 Il peut être utile de lancer Superpowers sur un serveur sans interface graphique pour ne pas avoir besoin de garder allumé votre ordinateur de bureau tout le temps.  
 Les instructions suivantes devraient fonctionner avec la plupart des serveurs Linux, y compris sur un Raspberry Pi.
 
-  * Installez <a href="https://nodejs.org/" target="_blank">node.js v4.x</a>.
+  * Installez la dernière version de <a href="https://nodejs.org/" target="_blank">Node.js</a>.
   * Téléchargez la dernière version de Superpowers pour Linux et décompressez-la avec `unzip`. Vous pouvez supprimer tous les fichiers à la racine du dossier à l'exception du dossier `app`.
   * Utilisez `cd resources/app` à la racine du dossier Superpowers.
   * Lancez `node server start`.
