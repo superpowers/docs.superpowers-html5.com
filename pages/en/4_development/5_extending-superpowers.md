@@ -250,4 +250,6 @@ You can use the following `.gitignore` file:
 
 <div class="note">
   <b>More soon!</b> In the meantime, check out [Florent Poujol's documentation](https://github.com/florentpoujol/superpowers-tutorials/blob/dev/md/plugins/) (which might be a bit outdated since we've made a lot of changes recently)
+
+  You should also [check out this explanation of the structure of a plugin on Gitter](https://gitter.im/superpowers/dev?at=579afb8d95550f1a4ef56006).
 </div>
