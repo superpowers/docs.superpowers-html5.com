@@ -111,7 +111,7 @@ Your plugin can expose zero or more editors in `editors/*/`. Again, assuming you
 
   * `editors/*/index.jade` will be transpiled to `public/editors/*/index.html`
   * `editors/*/index.styl` will be transpiled to `public/editors/*/index.css`
-  * `editors/*/index.ts` will be browserified to `public/editors/*/index.ts`
+  * `editors/*/index.ts` will be browserified to `public/editors/*/index.js`
 
 When an editor is associated with an asset type, it becomes an asset editor.
 Otherwise, it'll appear in the tool shelf in the bottom-left corner of the project window.
