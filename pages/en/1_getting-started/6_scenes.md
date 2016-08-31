@@ -7,23 +7,23 @@ We're going to rebuild our movie set from before but using a scene instead of wr
 <div class="action">
   <p>Create a new Scene asset named `Main Scene` and open it up.
 </div>
-
+<!-- Ok, this opens the "Scene Editor, right? That's what we see when we open this new scene? -->
 <div class="note">
   <p>**In the scene editor, use `WASD`** to move forward, backward, left and right, `Space` to go up and `Shift` to go down.
 </div>
-
+<!-- Okay, move *what*, exactly? The cursor? The crosshairs? WASD does *nothing* when I'm looking at this screen. The user needs more introduction as to what the Scene Editor is, what is does, and how it works. The speaker seems to assume the reader already knows all of these things. -->
 <div class="action">
   <p>Create an actor named `Main Character` and place it in (0, 0, 0).  
   Add a `Sprite Renderer` component on it and enter `Leonard` as the sprite to use.  
   Add another component, this time of type `Behavior` and select `CharacterBehavior` as the class to use.
 </div>
-
+<!-- Are these tasks being accomplished with code? If so, please include the appropriate code so we understand. -->
 <div class="action">
   <p>Click anywhere in the scene tree to unselect the actor you just created.  
   Create another actor named `Camera Man` and place it in (0, 0, 5).  
   Add a Camera component on it.
 </div>
-
+<!-- "Scene Tree"? I'm still looking at a blank Scene Editor. This is all very unclear. -->
 <div class="note">
   <p>**Make sure the `Camera Man` actor isn't parented to the `Main Character` actor** in the scene tree.  
   If it is, simply use drag'n'drop to clear the parenting.
