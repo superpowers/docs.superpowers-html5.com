@@ -31,7 +31,7 @@ Les instructions suivantes partent du principe que vous utilisez Blender, mais l
   <p>Répétez le processus pour chaque action que vous souhaitez exporter, en activant l'action auparavant.
 </div>
 
-Maintenant, importons votre modèle dans Superpowers.
+Maintenant, importons votre modèle dans Superpowers. Vous trouverez un modèle exemple dans les [asset packs Superpowers](https://github.com/sparklinlabs/superpowers-asset-packs/tree/master/3d-character/character/animation/bind-pose).
 
 <div class="action">
   <p>Créez un nouveau modèle 3D et cliquez sur le bouton `Upload`.<br>
