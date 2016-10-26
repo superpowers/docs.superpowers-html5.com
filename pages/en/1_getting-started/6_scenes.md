@@ -21,7 +21,7 @@ We're going to rebuild our movie set from before but using a scene instead of wr
 <div class="note">
   <p>**NOTE**, while in the *Scene Editor*, you can click on an Actor that's visible in the scene view, and modify their `position`, `rotation`, and `scale` by using the **MOVE**, **ROTATE**, and **SCALE** tools offered by the toolbar at the top. Choosing the **LOCAL** checkbox, will make all transformations effect the selected actor according to it's *local* axis, instead of it's *global* axis.
 </div>
-![](images/MoveRotateScale_Toolbar.png)
+![](/images/MoveRotateScale_Toolbar.png)
 <div class="note">
 <p>***HOWEVER,*** it is important to remember that while rotating an object based on it's local axis in the scene view may work, using the function `this.actor.rotateLocal` in an actor's behavior will not reproduce the same results on an actor who does not have a parent assigned to it. *In other words*: If your game object is at the **root** of the scene then `rotateLocal` is equivalent to `rotate`.
 </div>
