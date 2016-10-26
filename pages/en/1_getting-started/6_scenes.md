@@ -18,6 +18,10 @@ We're going to rebuild our movie set from before but using a scene instead of wr
   Add another component, this time of type `Behavior` and select `CharacterBehavior` as the class to use.
 </div>
 
+<div class="note">
+  <p>**NOTE**, while in the *Scene Editor*, you can click on an Actor that's visible in the scene view, and modify their 'position', 'rotation', and 'scale' by using the **MOVE**, **ROTATE**, and **SCALE** tools offered at the toolbar at the top. Choosing the **LOCAL** checkbox, will make all transformations effect the selected actor according to it's *local* axis', instead of it's *global* axis'. ***HOWEVER,*** it is important to remember that while rotating an object based on it's local axis' in the scene view may work, using the function `this.actor.rotateLocal` will not reproduce the same results on an actor who does not have a parent assigned to it. *In other words*: If your game object is at the root of the scene then `rotateLocal` is equivalent to `rotate`.
+</div>
+
 <div class="action">
   <p>Click anywhere in the scene tree to unselect the actor you just created.  
   Create another actor named `Camera Man` and place it in (0, 0, 5).  
