@@ -73,7 +73,7 @@ Once it's done, you can start the app by running:
 
 ```bash
 # Install Electron the first time (and then everytime you want to update it)
-npm install -g electron-prebuilt
+npm install -g electron
 
 npm run start
 ```
