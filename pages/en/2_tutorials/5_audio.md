@@ -62,7 +62,7 @@ you can store the sound player as a member variable of their behavior, like so:
 
 ```
 class SoldierBehavior {
-  sfxPlayer = new Sup.Audio.SoundInstance("Shoot", 1.0, { loop: true });
+  sfxPlayer = new Sup.Audio.SoundPlayer("Shoot", 1.0, { loop: true });
 
   update() {
     if (/* some condition for shooting */) {
