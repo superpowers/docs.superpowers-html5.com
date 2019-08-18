@@ -1,65 +1,65 @@
-# Basic collision in 2D
+# Основные столкновения в 2D
 
-Collision is often tricky to set up.
-Superpowersпоставляется с плагином ArcadePhysics2D чтобы облегчить общие дела.
-It's not perfect, but it does a decent job and it's very quick to set up when prototyping a game.
+Столкновение часто сложно настроить.
+Superpowers поставляется с плагином ArcadePhysics2D чтобы облегчить общие вещи.
+Он не идеален, но делает достойную работу и очень быстро настраивается при создании прототипа игры..
 
 Плагин добавляет новый тип компонента в scene editor,предлагая два типа тел:
 
 ## Тип тела box
 
-The `Box` body type lets you define a box with a specific size and offset.
+Тип тел `Box` позволяет определить бокс с определенным размером и смещением.
 
 ![](/images/2d-collision/collision-box.png)
 
-Make sure to untick `Movable` for props that should be static.
+Обязательно снимите флажок `Movable` для объектов, которые должны быть статичными.
 
-## Tile map body type
+## тип тела Tile map
 
-The `Tile Map` body type lets you collide with a tile map.
+Тип тел `Tile Map` позволяет столкновения с tile map.
 
-By default, any non-empty tile will collide with other bodies. You can set a property name in `Tile Set Property` to limit collisions to tiles that have this particular property. You can set up these tile properties in the tile set editor.
+По умолчанию любая непустая плитка сталкивается с другими телами. Вы можете установить имя свойства в `Tile Set Property` ограничить столкновения с плитками, которые имеют это конкретное свойство. Вы можете установить эти свойства плитки в редакторе набора плиток..
 
-You can also specify a comma-separated list of layer indices that should collide. For instance, you can set layer `0` as the collision layer and other layers will be ignored.
+Вы также можете указать список разделенных запятыми индексов слоев, которые должны сталкиваться. Например, вы можете установить слой `0` как слой столкновения, и другие слои будут игнорироваться.
 
 ![](/images/2d-collision/collision-map.png)
 
 <div class="note">
-  The scale of the actor isn't taken into account. You should leave it to 1 and use the `Pixels / unit` setting on the map instead.
+  Масштаб актера не учитывается. Вы должны оставить его равным 1 и вместо него использовать анстройку `Pixels / unit` карты.
 </div>
 
-## Making things collide
+## Заставить вещи сталкиваться
 
-In order for your character to collide with the environment, you should put the following code in the update of a behavior attached to it:
+Чтобы ваш персонаж сталкивался с окружающей средой, вы должны поместить следующий код в обновление поведения, прикрепленного к нему:
 
 ```
 Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
 ```
 
-The second argument of the function is a list a bodies. In this case, we're using all of them, but you can also maintain your own list of collidables.
+Второй аргумент функции - это список тел. В этом случае мы используем все из них, но вы также можете вести свой список списков.
 
 <div class="note">
-  Since ArcadePhysics2D's `.collides` function will update your actor's position while handling collisions, **you can't use `.move` or `.setPosition` directly anymore**.
+  Посольку функция ArcadePhysics2D's `.collides` обновит позицию вашего актера при обработке столкновений, **вы не можете использовать `.move` или `.setPosition` напрямую больше**.
 
-  If you need to teleport your actor, use `this.actor.arcadeBody2D.warpPosition(...)`.
+  Если вам нужно телепортировать вашего актера, используйте `this.actor.arcadeBody2D.warpPosition(...)`.
 </div>
 
-Instead, get the body's current velocity with `this.actor.arcadeBody2D.getVelocity()`, update its `.x` or `.y` component and then apply it back with `this.actor.arcadeBody2D.setVelocity(...)`.
+Вместо этого, получите текущую скорость тела с `this.actor.arcadeBody2D.getVelocity()`, обновите ее `.x` или `.y` компоненту и затем примените ее обратно `this.actor.arcadeBody2D.setVelocity(...)`.
 
-## Building a simple platformer
+## Сборка простого платформера
 
 <div class="action">
-  First, you'll need to setup the gravity.
+  Во-первых, вам нужно настроить гравитацию.
 </div>
 
 ```
 Sup.ArcadePhysics2D.setGravity(0, -0.02);
 ```
 
-Pretty straightforward, right?
+Довольно просто, правда?
 
 <div class="action">
-  In order to control your character, create a behavior script called `Player Behavior`.
+  Чтобы управлять своим персонажем, создайте сценарий поведения с именем `Player Behavior`.
 </div>
 
 ```
@@ -70,33 +70,33 @@ class PlayerBehavior extends Sup.Behavior {
   update() {
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
 
-    // As explained above, we get the current velocity
+    // Как объяснено выше, мы получаем текущую скорость
     let velocity = this.actor.arcadeBody2D.getVelocity();
 
-    // We override the `.x` component based on the player's input
+    // Мы перезаписываем компонент `.x` на основе ввода игрока
     if (Sup.Input.isKeyDown("LEFT")) velocity.x = -this.speed;
     else if (Sup.Input.isKeyDown("RIGHT")) velocity.x = this.speed;
     else velocity.x = 0;
 
-    // If the player is on the ground and wants to jump,
-    // we update the `.y` component accordingly
+    // Если игрок на земле и хочет прыгать,
+    // мы обновляем компоненту `.y` соответственно
     let touchBottom = this.actor.arcadeBody2D.getTouches().bottom;
     if (touchBottom && Sup.Input.wasKeyJustPressed("UP")) velocity.y = this.jumpSpeed;
 
-    // Finally, we apply the velocity back to the ArcadePhysics body
+    //Наконец, мы применяем скорость обратно к телу ArcadePhysics
     this.actor.arcadeBody2D.setVelocity(velocity);
   }
 }
 Sup.registerBehavior(PlayerBehavior);
 ```
 
-`.getTouches()` returns contact information for each side of the box body. We use it to ensure the player is on the ground before letting them jump.
+`.getTouches()` возвращает контактную информацию для каждой стороны корпуса коробки. Мы используем его, чтобы убедиться, что игрок на земле, прежде чем позволить им прыгать.
 
-## Making it look nice
+## Улучшим то как все выглядит
 
-To make it look better, let's add some animations and flip the player's sprite based on the movement direction.
+Чтобы он выглядел лучше, давайте добавим анимацию и перевернем спрайт игрока в зависимости от направления движения..
 
-We'll use the `.setAnimation` and `.setHorizontalFlip` methods on the sprite renderer to do so.
+Мы будем использовать методы `.setAnimation` и `.setHorizontalFlip` на рендере спрайта, чтобы сделать это.
 
 ```
 class PlayerBehavior extends Sup.Behavior {
@@ -106,34 +106,34 @@ class PlayerBehavior extends Sup.Behavior {
   update() {
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
 
-    // As explained above, we get the current velocity
+    // Как объяснено выше, мы получаем текущую скорость
     let velocity = this.actor.arcadeBody2D.getVelocity();
 
-    // We override the `.x` component based on the player's input
+    // Мы перекрываем компоненту `.x` на основе ввода игрока
     if (Sup.Input.isKeyDown("LEFT")) {
       velocity.x = -this.speed;
-      // When going left, we flip the sprite
+      // Идя налево, мы переворачиваем спрайт
       this.actor.spriteRenderer.setHorizontalFlip(true);
     } else if (Sup.Input.isKeyDown("RIGHT")) {
       velocity.x = this.speed;
-      // When going right, we clear the flip
+      //Когда идем направо, мы очищаем флип
       this.actor.spriteRenderer.setHorizontalFlip(false);
     } else velocity.x = 0;
 
-    // If the player is on the ground and wants to jump,
-    // we update the `.y` component accordingly
+    // Если игрок находится на земле и хочет прыгнуть,
+    // обновляем его `.y` cкомпоненту
     let touchBottom = this.actor.arcadeBody2D.getTouches().bottom;
     if (touchBottom) {
       if (Sup.Input.wasKeyJustPressed("UP")) {
         velocity.y = this.jumpSpeed;
         this.actor.spriteRenderer.setAnimation("Jump");
       } else {
-        // Here, we should play either "Idle" or "Run" depending on the horizontal speed
+        // Здесь мы должны играть либо "Idle" либо "Run" в зависимости от горизонтальной скорости
         if (velocity.x === 0) this.actor.spriteRenderer.setAnimation("Idle");
         else this.actor.spriteRenderer.setAnimation("Run");
       }
     } else {
-      // Here, we should play either "Jump" or "Fall" depending on the vertical speed
+      // Здесь мы должны играть либо "Jump" либо "Fall" в зависимости от вертикальной скорости
       if (velocity.y >= 0) this.actor.spriteRenderer.setAnimation("Jump");
       else this.actor.spriteRenderer.setAnimation("Fall");
     }
@@ -145,18 +145,18 @@ class PlayerBehavior extends Sup.Behavior {
 Sup.registerBehavior(PlayerBehavior);
 ```
 
-We choose the animation to play based on the velocity of the player and whether we are touching the ground or not.
+Мы выбираем анимацию для воспроизведения в зависимости от скорости игрока и от того, касаемся ли мы земли или нет.
 
-## Going further
+## Идем дальше
 
-One thing you probably want to add now is one-way platforms: platforms that you can jump through from below.
+Одна вещь, которую вы, вероятно, захотите добавить, это односторонние платформы: платформы, через которые вы можете прыгать снизу.
 
-To do so, we will start by making two groups of actors in the scene.
+Для этого мы начнем с создания двух групп актеров на сцене..
 
 ![](/images/2d-collision/scene.png)
 
-We'll have a group for solid bodies, containing the map and the T-Rex, and another for our one-way platforms.
-Here is what it looks like in code.
+У нас будет группа для твердых тел, содержащая карту и T-Rex, и еще одна для наших односторонних платформ.
+Вот как это выглядит в коде.
 
 ```
 Sup.ArcadePhysics2D.setGravity(0, -0.02);
@@ -169,7 +169,7 @@ class PlayerBehavior extends Sup.Behavior {
   platformBodies: Sup.ArcadePhysics2D.Body[] = [];
 
   awake() {
-    // We get and store all the bodies in two arrays, one for each group
+    // Мы получаем и храним все тела в двух массивах, по одному для каждой группы.
     let solidActors = Sup.getActor("Solids").getChildren();
     for (let solidActor of solidActors) this.solidBodies.push(solidActor.arcadeBody2D);
     let platformActors = Sup.getActor("Platforms").getChildren();
@@ -177,24 +177,24 @@ class PlayerBehavior extends Sup.Behavior {
   }
 
   update() {
-    // First, we'll check for collision with solid bodies
+    // Сначала проверим на столкновение с твердыми телами.
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, this.solidBodies);
     let touchSolids = this.actor.arcadeBody2D.getTouches().bottom;
     let velocity = this.actor.arcadeBody2D.getVelocity();
 
-    // Then we'll check for collision with one-way platforms,
-    // ... but only when falling! That's the trick.
+    // Затем мы проверим на столкновение с односторонними платформами,
+    // ... но только при падении! Вот и вся хитрость.
     let touchPlatforms = false;
     if (velocity.y < 0) {
       let position = this.actor.getLocalPosition();
-      // We must change the size of the player body so only the feet are checked
-      // To do so, we decrease the height of the body and adapt the offset
+      // Мы должны изменить размер тела игрока, чтобы проверялись только ноги
+      // Для этого мы уменьшаем высоту тела и адаптируем смещение
       this.actor.arcadeBody2D.setSize(1.5, 0.4);
       this.actor.arcadeBody2D.setOffset({ x: 0, y: 0.2 });
-      // Then we override the body position using the current actor position
+      // Затем мы переопределяем положение тела, используя текущую позицию актера.
       this.actor.arcadeBody2D.warpPosition(position);
 
-      // Now, check against every platform
+      // Теперь проверьте по каждой платформе
       for (let platformBody of this.platformBodies) {
         Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, platformBody);
         if (this.actor.arcadeBody2D.getTouches().bottom) {
@@ -204,51 +204,51 @@ class PlayerBehavior extends Sup.Behavior {
         }
       }
 
-      // Once done, reset the body to its full size
+      // После того, как сделано, сбросьте тело до его полного размера
       position = this.actor.getLocalPosition();
       this.actor.arcadeBody2D.setSize(1.5, 1.8);
       this.actor.arcadeBody2D.setOffset({ x: 0, y: 0.9 });
       this.actor.arcadeBody2D.warpPosition(position);
     }
 
-    // We override the velocity's `.x` component based on the player's input
+    // Мы перезаписываем компонент скорости .x на основе ввода игрока
     if (Sup.Input.isKeyDown("LEFT")) {
       velocity.x = -this.speed;
-      // When going left, we have to flip the sprite
+      // Идя налево, мы должны флипнуть спрайт
       this.actor.spriteRenderer.setHorizontalFlip(true);
     } else if (Sup.Input.isKeyDown("RIGHT")) {
       velocity.x = this.speed;
-      // When going right, we cancel the flip
+      // При движении вправо мы отменяем флип
       this.actor.spriteRenderer.setHorizontalFlip(false);
     } else velocity.x = 0;
 
-    // If the player is on the ground and wants to jump,
-    // we update the velocity's `.y` component accordingly
+    // Если игрок на земле и хочет прыгать,
+    // мы соответственно обновляем компонент скорости `.y`
     let touchBottom = touchSolids || touchPlatforms;
     if (touchBottom) {
       if (Sup.Input.wasKeyJustPressed("UP")) {
         velocity.y = this.jumpSpeed;
         this.actor.spriteRenderer.setAnimation("Jump");
       } else {
-        // Here, we should play either "Idle" or "Run" depending on the horizontal speed
+        // Здесь мы должны сыграть либо «холостой ход», либо «бег» в зависимости от горизонтальной скорости
         if (velocity.x === 0) this.actor.spriteRenderer.setAnimation("Idle");
         else this.actor.spriteRenderer.setAnimation("Run");
       }
     } else {
-      // Here, we should play either "Jump" or "Fall" depending on the vertical speed
+      // Здесь мы должны играть либо «Прыжок», либо «Падение» в зависимости от вертикальной скорости.
       if (velocity.y >= 0) this.actor.spriteRenderer.setAnimation("Jump");
       else this.actor.spriteRenderer.setAnimation("Fall");
     }
 
-    // Finally, we apply the velocity back to the ArcadePhysics body
+    // Наконец, мы применяем скорость обратно к телу ArcadePhysics
     this.actor.arcadeBody2D.setVelocity(velocity);
   }
 }
 Sup.registerBehavior(PlayerBehavior);
 ```
 
-You can [download the demo project](https://bitbucket.org/sparklinlabs/superpowers-collision-demo) and try it out!
+Вы можете [загрузить демо проект](https://bitbucket.org/sparklinlabs/superpowers-collision-demo) и попробовать его сами!
 
 ![](http://i.imgur.com/v4tWyIN.gif)
 
-More methods are available on the `.arcadeBody2D` component. Be sure to check the API browser within Superpowers.
+Дополнительные методы доступне в компоненте `.arcadeBody2D` . Обязательно проверьте API-браузер в Superpowers.

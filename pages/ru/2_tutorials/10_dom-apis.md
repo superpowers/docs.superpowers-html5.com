@@ -1,11 +1,11 @@
-# Using the DOM APIs
+# Используем DOM APIs
 
-## Why doesn't Superpowers expose the DOM APIs by default?
+## Почему Superpowers не выставляет DOM API по умолчанию?
 
-The DOM APIs are the standard functions and objects available to scripts in a Web browser.
-They include things like the `window` or `document` objects, `XMLHttpRequest` and so much more.
+DOM API - это стандартные функции и объекты, доступные для сценариев в веб-браузере.
+Они включают в себя такие вещи, как объекты `window` или `document` , `XMLHttpRequest` и т.п.
 
-We've decided to shield Superpowers games from all that stuff by default for two reasons:
+Мы решили защитить игры Superpowers от всего этого по умолчанию по двум причинам.:
 
  * First, because Superpowers often provides higher-level alternatives that are simpler to use and work great together.  
    For instance, Superpowers provides the `Sup.Storage` API to replace the DOM's `window.localStorage` API.
@@ -13,7 +13,7 @@ We've decided to shield Superpowers games from all that stuff by default for two
  * Second, because it leaves the door open to one day provide an alternative runtime that doesn't involve a Web browser context.  
    There could be an optimized native player, for instance. It's not something we're actively pursuing though.
 
-## How to use them anyway
+## Как их использовать в любом случае
 
 The good news is, you can still choose to access the DOM anyway.
 You could just do a one-off `declare var window;` at the top of your first script

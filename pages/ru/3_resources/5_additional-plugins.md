@@ -1,6 +1,6 @@
 # Additional plugins
 
-People from the community have built various plugins. They might work great for you!  
-Make sure to report any issue you encounter directly to the plugin's author.
+Люди из сообщества создали различные плагины. Они могут отлично работать для вас!
+Обязательно сообщайте о любой проблеме, с которой вы столкнулись, непосредственно автору плагина.
 
-  * <a href="http://superpowers.ralmn.fr" target="_blank">Community plugins repository</a> by Ralmn
+  * <a href="http://superpowers.ralmn.fr" target="_blank">Хранилище плагинов сообщества</a> by Ralmn

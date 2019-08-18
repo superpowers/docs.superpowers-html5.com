@@ -1,39 +1,39 @@
-# Prefabs and instantiation
+# Prefabs и instantiation
 
-Games often have projectiles, mobs or bonuses that get created
-("instantiated" in programming speak) and destroyed many times over.
+Игры часто имеют снаряды, мобов или бонусы, которые создаются
+(говорят "экземпляры" в программировании) и уничтожены много раз.
 
-They can be made up of a complex hierarchy of actors, or at the very least have multiple components.
-Rather than build them in code, you can use `Scene` assets as reusable prefabs.
+Они могут состоять из сложной иерархии акторов или, по крайней мере, состоять из нескольких компонентов.
+Вместо того, чтобы встраивать их в код, вы можете использовать `Scene` assets как переиспользуемый prefabs.
 
-## Instantiating the contents of a scene
+## Instantiating содержимого сцены
 
-You can use `Sup.appendScene("Scene Asset")` to add all the actors described in a scene to your stage.
-Existing actors won't be removed.
+Вы можете использовать `Sup.appendScene("Scene Asset")` чтобы добавить всех актеров, описанных в сцене, к вашей сцене.
+Существующие актеры не будут удалены.
 
 <div class="note">
-  **Under the hood**, `Sup.loadScene(...)` is equivalent to a call to `Sup.destroyAllActors()` followed by `Sup.appendScene(...)`.
+  **Зв кадром**, `Sup.loadScene(...)` эквивалентно вызову `Sup.destroyAllActors()` с последующим `Sup.appendScene(...)`.
 </div>
 
-You can append a scene as many times as you want, and optionally specify a parent actor as a second argument.
+Вы можете добавлять сцену столько раз, сколько хотите, и при желании указывать родительский актер в качестве второго аргумента.
 
-## Using prefabs in the scene editor
+## Используем prefabs в scene editor
 
-There's a `New Prefab` button next to the `New Actor` button in the scene editor.
-It lets you attach other scenes as part of your main scene.
+Кнопка `New Prefab` возле кнопки `New Actor` в редакторе сцены.
+Позволяет вам прикрепить другие сцены как часть вашей основной сцены.
 
 <div class="note">
-  **Prefabs even work recursively**, meaning you can have a scene referencing a second scene,
-  itself referencing a third scene and so on... Superpowers will automatically prevent circular references.
+  **Prefabs даже работает рекурсивно**, это означает, что у вас может быть сцена, ссылающаяся на вторую сцену,
+  сам ссылаясь на третью сцену и так далее... Superpowers будет автоматически предотвращать циклические ссылки.
 </div>
 
-In order for a scene to be usable as a prefab, it must have a single actor at its root.
-When used from another scene, this root actor's name will be overwritten by the prefab's name.
-For instance, you could have a scene named `Health Bonus` with a root actor named `Bonus Root`, and
-use it as a prefab under various names like `Secret Health Bonus`, `Health Bonus 3` and so on.
+Чтобы сцена могла быть использована в качестве префаба, в ее корне должен быть один актер.
+При использовании из другой сцены имя этого корневого актера будет заменено именем префаба.
+Например, вы можете иметь сцену с именем `Health Bonus` с корневым актером по имени `Bonus Root`, а также
+использовать его в качестве сборного под разными именами, такими как `Secret Health Bonus`, `Health Bonus 3` и т.п.
 
 <div class="note">
-  **Actor components in prefabs will be customizable** in a future version.
-  For now, you might get the prefab's name (using `Sup.Actor.getName()`) in a behavior to apply custom settings.
-  It's not ideal but hey, better than nothing!
+  **Компоненты актера в prefabs будут настраиваться** в будущей версии.
+  На данный момент вы можете получить имя префаба (используя `Sup.Actor.getName ()`) в поведении для применения пользовательских настроек.
+  Это не идеально, но эй, лучше, чем ничего!
 </div>
