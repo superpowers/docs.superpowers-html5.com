@@ -1,33 +1,33 @@
 # Saving game data
 
-You can use `Sup.Storage.get` and `.set` to save and restore strings of data.  
-This data is saved locally to the player's disk.
+Вы можете использовать `Sup.Storage.get` и `.set` чтобы сохранять и восстанавливать строки данных.  
+Эти данные сохраняются локально на диске игрока.
 
 ```
-// ... When the player chooses a name
+// ... Когда игрок выбирает имя
 Sup.Storage.set("characterName", "Leonard");
 
-// ... When loading the game again later
+// ... При загрузке игры снова позже
 let characterName = Sup.Storage.get("characterName");
 ```
 
-You can also pass a default value as a second parameter to `Sup.Storage.get`.
-It will be returned if no value was found for the requested key.
+Вы также можете передать значение по умолчанию в качестве второго параметра `Sup.Storage.get`.
+Будет возвращено, если для запрошенного ключа не найдено значение.
 
 ```
 let characterName = Sup.Storage.get("characterName", "Unnamed");
 ```
 
-Additionally, `Sup.Storage.clear` lets you clear all stored data for your game.
+Кроме того, `Sup.Storage.clear` позволяет вам очистить все сохраненные данные для вашей игры.
 
 <div class="note">
-  Internally, Superpowers uses the [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) so it has the same browser-dependent size limitations. It is best suited for small amounts of data. In any case, you probably shouldn't use it to store more than a few megabytes of data, as it is synchronous and will block the game while saving or loading.
+  Internally, Superpowers uses the [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) so it has the same browser-dependent size limitations. Лучше всего подходит для небольших объемов данных.. В любом случае, вам, вероятно, не следует использовать его для хранения более нескольких мегабайт данных, поскольку он является синхронным и заблокирует игру во время сохранения или загрузки.
 </div>
 
-## Storing more than strings
+## Хранить больше, чем строки
 
-To store and retrieve numbers, arrays or complex objects, you can use `Sup.Storage.setJSON` and `.getJSON`.  
-Internally, it will (de)serialize them using `JSON.stringify` and `.parse`.
+Для хранения и извлечения чисел, массивов или сложных объектов вы можете использовать `Sup.Storage.setJSON` и `.getJSON`.  
+Внутренне, он будет (де) сериализовать их, используя `JSON.stringify` и `.parse`.
 
 ```
 let weapon = {
@@ -42,8 +42,8 @@ Sup.Storage.setJSON("weapon", weapon);
 let weapon = Sup.Storage.getJSON("weapon");
 ```
 
-Class information isn't saved, only the various properties. So for instance, if you store a `Sup.Math.Vector2` object,
-you'll only get back an object of type `{ x: number; y: number; }` and you'll need to rebuild a vector from it.
+Информация о классе не сохраняется, только различные свойства. Так, например, если вы храните `Sup.Math.Vector2` object,
+вы получите только объект типа `{ x: number; y: number; }` и вам нужно будет восстановить вектор из него.
 
 ## Saving on exit
 

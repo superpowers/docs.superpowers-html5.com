@@ -1,53 +1,53 @@
-# Working with 3D models
+# Работа с 3D моделями
 
 ## Importing models
 
-Superpowers currently supports a subset of the OBJ (static) and glTF (animated) file formats.
+Superpowers поддерживает пока подмножество OBJ (static) и glTF (анимированный) форматы файлов.
 
 <div class="note">
-  <b>At the moment, only a single diffuse map is supported for each model.</b>
+  <b>На данный момент для каждой модели поддерживается только одна диффузная карта..</b>
   Material and shader support is coming soon.
 </div>
 
-### Animated glTF models
+### Анимированные glTF модели
 
-<a href="https://github.com/KhronosGroup/glTF">glTF</a> is a new format supported by the Khronos Group (the people behind OpenGL and Vulkan).  
-Most tools don't have native support right now, so you'll need to export COLLADA and then use [the COLLADA2glTF converter](https://github.com/KhronosGroup/glTF/wiki/Converter-builds).
+<a href="https://github.com/KhronosGroup/glTF">glTF</a> это новый формат поддерживаемый Khronos Group (люди стоящие за OpenGL и Vulkan).  
+Большинство инструментов сейчас не имеют встроенной поддержки, так что вам нужно будет экспортировать COLLADA а затем использовать [конвертер COLLADA2glTF](https://github.com/KhronosGroup/glTF/wiki/Converter-builds).
 
-The following instructions assume you're using Blender, but other tools should work similarly.
+Следующие инструкции предполагают, что вы используете Blender, но другие инструменты должны работать аналогично.
 
 <div class="note">
-  <p><b>Make sure you have a single mesh and a single material.</b> Your mesh should be parented to an armature and be at the origin (0,0,0).
+  <p><b>Убедитесь, что у вас есть одна сетка и один материал.</b> Ваша сетка должна быть связана с арматурой и находиться в начале координат (0,0,0).
 </div>
 
 <div class="action">
-  <p>Make sure your model is in its bind pose with no active action.<br>
-  From the `File` menu, select `Export > Collada (Default) (.dae)`.<br>
-  Check the `Triangulate` box.
+  <p>Убедитесь, что ваша модель находится в позе привязки без активных действий.<br>
+  Из меню `File` , выберите `Export > Collada (Default) (.dae)`.<br>
+  Отметьте `Triangulate`.
 
-  <p>Drag and drop the resulting `.dae` file onto the [the COLLADA2glTF converter](https://github.com/KhronosGroup/glTF/releases)'s executable.<br>
-  You'll get several files, we only care about the `.gltf` and the `.bin` ones.
+  <p>Перетащите получившийся `.dae` файл в [COLLADA2glTF конвертер](https://github.com/KhronosGroup/glTF/releases)'s executable.<br>
+  Вы получите несколько файлов, мы заботимся только о `.gltf` и `.bin` .
 
-  <p>Repeat the process for each action you want to export, making the action active beforehand.
+  <p>Повторите процесс для каждого действия, которое вы хотите экспортировать, предварительно сделав его активным..
 </div>
 
-Now let's import a model in Superpowers. You can find an example model in the [Superpowers asset packs](https://github.com/sparklinlabs/superpowers-asset-packs/tree/master/3d-character/character/animation/bind-pose).
+Теперь давайте импортируем модель в Superpowers. Вы можете найти пример модели в [Superpowers asset packs](https://github.com/sparklinlabs/superpowers-asset-packs/tree/master/3d-character/character/animation/bind-pose).
 
 <div class="action">
-  <p>Create a new 3D Model asset and click the `Upload` button.<br>
-  Select both the `.gltf` and `.bin` file at once in the file selection dialog (Holding down `Ctrl` lets you select multiple files on Windows).
+  <p>Создайте 3D Model asset и кликните `Upload` .<br>
+  Выделите оба файла и `.gltf` и `.bin` сразу в диалоге выбора файла (удерживая `Ctrl` можно выделить несколько файлов Windows).
 
-  <p>Use the `New` button to create animation and upload it with the `Upload` button next to it.
+  <p>Используйте кнопку `New` для создания анимации и загрузки ее по кнопке `Upload` .
 </div>
 
 ![](http://i.imgur.com/niveyoP.gif)
 
-## Attaching an item to a character's hand
+## Прикрепление предмета к руке персонажа
 
-It's pretty easy to attach an object to an animated bone, whether it's a weapon,
-a hat or a backpack.
+Довольно просто прикрепить объект к анимированной кости, будь то оружие,
+шляпа или рюкзак.
 
-Just use `Sup.ModelRenderer.getBoneTransform` to get a bone's current global position and orientation and apply it to the actor you want to attach.
+Просто используйте `Sup.ModelRenderer.getBoneTransform` чтобы получить текущую глобальную позицию и ориентацию кости и применить ее к актору который вы хотите присоединить.
 
 ```
 class CharacterHandBehavior extends Sup.Behavior {
@@ -55,8 +55,8 @@ class CharacterHandBehavior extends Sup.Behavior {
   itemActor: Sup.Actor;
 
   awake() {
-    // Setup `this.itemActor` here
-    // or when creating the CharacterHandBehavior
+    // настраивайте `this.itemActor` здесь
+    // или при создании CharacterHandBehavior
   }
 
   update() {
@@ -69,8 +69,8 @@ class CharacterHandBehavior extends Sup.Behavior {
 Sup.registerBehavior(CharacterHandBehavior);
 ```
 
-Here's a little demo. You can download [the source project](https://bitbucket.org/sparklinlabs/superpowers-model-demo/) and run it for yourself.
+Вот небольшая демонстрация. Вы можете скачать [the source project](https://bitbucket.org/sparklinlabs/superpowers-model-demo/) и запустить его для себя.
 
 ![](http://i.imgur.com/gep1b6u.gif)
 
-If the item doesn't fit right, you can add an offset with `this.itemActor.moveOriented(...)` or `this.itemActor.rotateLocalEulerAngles(...)`.
+Если элемент не подходит, вы можете добавить смещение с помощью `this.itemActor.moveOriented(...)` или `this.itemActor.rotateLocalEulerAngles(...)`.

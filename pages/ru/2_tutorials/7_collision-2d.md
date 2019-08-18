@@ -1,12 +1,12 @@
 # Basic collision in 2D
 
 Collision is often tricky to set up.
-Superpowers ships with the ArcadePhysics2D plugin to make the common cases easier.
+Superpowersпоставляется с плагином ArcadePhysics2D чтобы облегчить общие дела.
 It's not perfect, but it does a decent job and it's very quick to set up when prototyping a game.
 
-The plugin adds a new type of component in the scene editor, offering two types of bodies:
+Плагин добавляет новый тип компонента в scene editor,предлагая два типа тел:
 
-## Box body type
+## Тип тела box
 
 The `Box` body type lets you define a box with a specific size and offset.
 

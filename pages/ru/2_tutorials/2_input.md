@@ -1,14 +1,14 @@
-# Keys, mouse, gamepads...
+# Клавиши, мышки, геймпады...
 
-All input-related functions can be found in the `Sup.Input` namespace.
+Все входные функции можно найти в `Sup.Input` namespace.
 
-## Checking if any key has been pressed
+## Проверка, была ли нажата какая-либо клавиша
 
-You can pass the special values `"ANY"` and `"NONE"` to `Sup.Input.wasKeyJustPressed()` (and other similar functions) to find out if any/no key has been pressed during the last frame.
+Вы можете передать специальные значения `"ANY"` и `"NONE"` в `Sup.Input.wasKeyJustPressed()` (и другие подобные функции) выяснить, была ли нажата какая-либо клавиша в течение последнего кадра.
 
-The full list of key names can be found in the TypeScript API browser inside Superpowers.
+Полный список имен клавиш можно найти в браузере TypeScript API внутри Superpowers.
 
-## Working with gamepads
+## Работа с геймпадами
 
 The Web APIs have some quirks stemming from the fact that the browser must not
 give too much control or information to random websites. For instance,
@@ -20,9 +20,9 @@ to find out how gamepad buttons are mapped to indices.
 
 ## Mouse coordinates
 
-`Sup.Input.getMousePosition()` returns normalized `x` and `y` coordinates (range `-1` to `1`), with `y` increasing as the mouse moves up.
+`Sup.Input.getMousePosition()` возвращет нормалитзованные `x` и `y` координаты (в диапазоне `-1` to `1`), где `y` увеличивается при движении мыши вверх.
 
-If you need pixel coordinates, you can use the following snippet to convert:
+Если вам нужны пиксельные координаты, вы можете использовать следующий фрагмент для преобразования:
 
 ```
 let { x, y } = Sup.Input.getMousePosition();
@@ -31,17 +31,17 @@ x = (x + 1) / 2 * Sup.Input.getScreenSize().x;
 y = (1 - (y + 1) / 2) * Sup.Input.getScreenSize().y;
 ```
 
-Download [the example project](https://bitbucket.org/sparklinlabs/superpowers-mouse-pixels/) for a demo.
+Скачайие [пример проекта](https://bitbucket.org/sparklinlabs/superpowers-mouse-pixels/) для демо.
 
-## Locking the mouse and going fullscreen
+## Блокировка мыши и переход в полноэкранный режим
 
-`Sup.Input.lockMouse()` lets you disable the mouse pointer. It's great for first-person games with mouse look.
+`Sup.Input.lockMouse()` позволяет отключить указатель мыши. Отлично подходит для игр от первого лица с мышью.
 
-`Sup.Input.goFullscreen()` can be used to go fullscreen.
+`Sup.Input.goFullscreen()` можно использовать для перехода в полноэкранный режим.
 
-As with gamepads, for security reasons, a Web game can't go lock the mouse pointer or go fullscreen at will, but only as part of a mouse click event callback or similar user input. Superpowers abstracts these limitations from your game by letting you call `.lockMouse` and `.goFullscreen` at any point in time but know that the actual action will be delayed until the next time a mouse button is pressed or released.
+Как и в случае с геймпадами, по соображениям безопасности веб-игра не может блокировать указатель мыши или работать в полноэкранном режиме по желанию, а только как часть обратного вызова события щелчка мышью или аналогичного пользовательского ввода. Superpowers абстрагирует эти ограничения от вашей игры, позволяя вам вызвать `.lockMouse` и `.goFullscreen` в любой момент времени, но знайте, что фактическое действие будет отложено до следующего нажатия или отпускания кнопки мыши.
 
-A useful pattern is to setup the mouse lock or fullscreen when a mouse button has just been pressed, and the action will be effectively applied by Superpowers in its internal mouse button released event handler:
+Полезный шаблон - установить блокировку мыши или полноэкранный режим, когда кнопка мыши только что была нажата, и Superpowers будет эффективно применять это действие в своем обработчике события, выпущенного внутренней кнопкой мыши:
 
 ```
 if (Sup.Input.wasMouseButtonJustPressed(0)) {
@@ -49,34 +49,34 @@ if (Sup.Input.wasMouseButtonJustPressed(0)) {
 }
 ```
 
-In the browser, the player can also exit fullscreen or unlock the mouse pointer at any point in time by hitting `Escape`. Superpowers will automatically re-lock the mouse and/or switch back to fullscreen as soon as the user clicks back in the game, until you explicitely call `Sup.unlockMouse()` and/or `Sup.exitFullscreen()`.
+В браузере игрок также может выйти из полноэкранного режима или разблокировать указатель мыши в любой момент времени, нажав клавишу «Escape». Superpowers автоматически повторно заблокирует мышь и / или переключится обратно в полноэкранный режим, как только пользователь вернется в игру, пока вы явно не вызовете `Sup.unlockMouse ()` и / или `Sup.exitFullscreen ()`.
 
-You might want to pause your game when the mouse lock or fullscreen mode has been suspended.  
-To do so, you can use an event handler like so:
+Возможно, вы захотите приостановить игру, когда блокировка мыши или полноэкранный режим были приостановлены.
+Для этого вы можете использовать обработчик событий следующим образом:
 
 ```
 class MyBehavior extends Sup.Behavior {
 
   awake() {
     Sup.Input.on("mouseLockStateChange", this.onLockChange);
-    // To monitor fullscreen, the event should be "fullscreenStateChange" instead
+    // Для монитора в полноэкранном режиме событие должно быть «fullscreenStateChange»
   }
 
   onDestroy() {
-    // It is important that you clear your event handlers
-    // when the behavior gets destroyed (which happens
-    // when switching to another scene for instance),
-    // otherwise it might lead to memory leaks or errors
+    // Важно, чтобы вы очистили свои обработчики событий
+    // когда поведение разрушается (что происходит
+    // например, при переключении на другую сцену),
+    // в противном случае это может привести к утечке памяти или ошибкам
     Sup.Input.off("mouseLockStateChange", this.onLockChange);
   }
 
   onLockChange(state) {
     if (state === "suspended") {
-      // Lock has been suspended
-      // ... pause the game ...
+      // Блокировка была приостановлена
+      // ... игра на апаузе ...
     } else {
-      // Lock has been resumed (state is "active")
-      // ... resume the game ...
+      // Блокировка была возобновлена (state is "active")
+      // ... возобновление игры ...
     }
   }
 
@@ -84,17 +84,17 @@ class MyBehavior extends Sup.Behavior {
 Sup.registerBehavior(MyBehavior);
 ```
 
-## Text Input
+## Ввод текста
 
-You can get the text entered over the course of the last update with `Sup.Input.getTextEntered()`. You can loop over it like so:
+Вы можете получить текст, введенный в течение последнего обновления с `Sup.Input.getTextEntered()`. Вы можете зациклить это так:
 
 ```
 for (let character of Sup.Input.getTextEntered()) {
-  if (character === "\b") { /* Backspace was hit, maybe erase the last character */ }
-  else { /* Another character was entered, append it to your text */ }
+  if (character === "\b") { /* Backspace был нажат, возможно стереть последний символ */ }
+  else { /* Введен другой символ, добавьте его в свой текст */ }
 }
 ```
 
 ![](http://i.imgur.com/MWG8yPe.gif)
 
-See the [text input demo project](https://bitbucket.org/sparklinlabs/superpowers-text-input-demo/src).
+See the [демонстрационный проект ввода текста](https://bitbucket.org/sparklinlabs/superpowers-text-input-demo/src).
