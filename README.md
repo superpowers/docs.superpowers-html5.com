@@ -1,18 +1,18 @@
 # docs.superpowers-html5.com
 
-This is the repository for the official documentation of Superpowers at [docs.superpowers-html5.com](http://docs.superpowers-html5.com). 
+Это хранилище для официальной документации Superpowers at [docs.superpowers-html5.com](http://docs.superpowers-html5.com). 
 
-(This website will be turned into a Superpowers Web project in the future.)
+(Этот сайт будет превращен в Superpowers Web project в будущем.)
 
-## How to run the website locally
+## Как запустить сайт локально
 
-Make sure you have [Node.js](https://nodejs.org) installed. Clone the repository, open it in a terminal and run:
+Убедитесь, что у вас установлен [Node.js](https://nodejs.org). Клонируйте репозиторий, откройте его в терминале и запустите:
 
     npm install
     npm run build
 
-To start the server, run:
+Чтобы запустить сервер, запустите:
 
     npm start
 
-And go to http://localhost:9051
+И перейдите на http://localhost:9051
